@@ -1,0 +1,99 @@
+/****Grid layout settings****/
+
+$col-1: 8.33333333%;
+$col-2: 16.66666667%;
+$col-2-5: 20%
+$col-3: 25%;
+$col-4: 33.33333333%;
+$col-5: 41.66666667%;
+$col-6: 50%;
+$col-7: 58.33333333%;
+$col-8: 66.66666667%;
+$col-9: 75%;
+$col-10: 83.33333333%;
+$col-11: 91.66666667%;
+$col-12: 100%;
+
+$dw-480: 480px;
+$dw-560: 560px;
+$dw-640: 640px;
+$dw-780: 780px;
+$dw-960: 960px;
+$dw-1100: 1100px;
+
+$offset: 50px;
+$offset-0: 0px;
+
+=col($col, $offset)
+	width: calc(#{$col} - #{$offset});
+
+=grid($col, $offset)
+	flex-basis: calc(#{$col} - #{$offset});
+
+=device-col($dw, $col-dw, $offset)
+	@media screen and (min-width: #{$dw})
+		width: calc(#{$col-dw} - #{$offset});
+
+=device-grid($dw, $col-dw, $offset)
+	@media screen and (min-width: #{$dw})
+		flex-basis: calc(#{$col-dw} - #{$offset});
+		
+
+/*General for documetn settings*/
+$global-font: 'Montserrat', sans-serif;
+$font: 'Argenta', sans-serif;
+$font-size: 16px;
+$min-font-size: 16px;
+$dw-h-size: 640px;
+
+/*Color*/
+$text-color: #333;
+$hover-color: #ec5d2b;
+$accept: #6e2a8f;
+$green: #5c9341;
+$light-blue: #ddd;
+$blue: #ddd;
+$dark-blue: #21449F;
+
+/*Typography*/
+$h2-size: 60px;
+$h2-min-size: 35px;
+$h3-size: 16px;
+$h4-size: 19px;
+$h5-size: 17px;
+$h6-size: 18px;
+
+/*h1*/
+$h1-size: 40px;
+$h1-min-size: 40px;
+$margin-h1: 0px 0px 0px 0px
+
+/*nav block*/
+$offset-nav-right: 0px;
+$offset-nav-left: 20px;
+$nav-size: 12px;
+$font-nav: 'Montserrat', sans-serif;
+
+/*section block*/
+$padding-section-block: 40px 0px;
+$margin-section-block : 0px;
+$dw-width-section: 640px;
+
+/*container block*/
+$display-width: 1115px;
+$container-pading: 20px;
+$container-max-pading: 20px;
+
+/*wrapper block*/
+$wrap-size: 730px;
+$wrap-pading: 42px;
+$text-align-wrapper: left;
+
+
+/*nav toggle*/
+$nav-toggle-background: #000;
+$nav-line-height: 3px;
+$dw-width-nav-toggle: 780px;
+
+/*btn up*/
+$btn-up-backgound: #333;

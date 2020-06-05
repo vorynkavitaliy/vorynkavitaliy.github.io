@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;700&display=swap')
+
+$md: 768px
+$ld: 1366px
+$xld: 1920px
+
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0	
+	padding: 0
+
+html, body
+	min-width: 290px 
+	font-family: 'Open Sans', sans-serif
+	color: #ffffff
+	font-size: 12px
+	position: relative
+	overflow-x: hidden
+	background: #000000
+	@media screen and (min-width: $md)
+		overflow-x: visible
+		font-size: 14px
+	@media screen and (min-width: $xld)
+		font-size: 16px
+
+h1,h2,h3,h4,h5,h6,p,a,i,em,strong
+	font-style: normal 
+	text-decoration: none
+	font-weight: normal
+	color: inherit   
+	padding: 0
+	margin: 0
+
+ul
+	list-style: none
+
+

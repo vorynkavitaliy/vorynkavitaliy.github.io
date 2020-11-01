@@ -1,0 +1,33 @@
+.dropdown-list
+    position: relative
+    &>span
+        position: relative
+        z-index: 1
+    ul
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        padding-top: 18px
+        pointer-events: none
+        li
+            margin: 6px 0
+            width: 100%
+            cursor: pointer
+            opacity: 0
+            transition: all 0.2s ease
+            &:nth-child(2n)
+                transform: translateX(10px)
+            &:nth-child(2n + 1)
+                transform: translateX(-10px)
+
+    &:hover
+        ul
+            pointer-events: initial
+            
+        li
+            opacity: 1
+            &:nth-child(2n)
+                transform: translateX(0px)
+            &:nth-child(2n + 1)
+                transform: translateX(0px)  

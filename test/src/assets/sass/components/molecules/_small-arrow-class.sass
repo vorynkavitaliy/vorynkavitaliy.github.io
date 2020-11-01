@@ -1,0 +1,25 @@
+.arrow
+    display: flex
+    align-items: center
+    justify-content: space-between
+    cursor: pointer
+    &::after
+        content: ''
+        display: block
+        width: 5px
+        height: 5px
+        margin-left: 8px
+        top: -1px
+        position: relative
+        border: 
+            right: 1px solid
+            bottom: 1px solid 
+            color: initial
+        transform: rotate(45deg)
+        transition: all 0.2s ease
+    
+    &:hover
+        &::after
+            transform: rotate(225deg) translate(50%, -50%)
+            top: 0px
+            transform-origin: right

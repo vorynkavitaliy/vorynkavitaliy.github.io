@@ -1,0 +1,129 @@
+@import './offer-item'
+
+#offer-page
+    padding: 56px 0px 120px
+
+    .scroll-wrap
+        height: 405px
+        overflow: hidden
+        padding: 10px 0px
+        margin-top: 50px
+        margin-bottom: 65px
+
+    .main
+
+        &__title
+            font-weight: 600
+            font-size: 24px
+            line-height: 25px
+            text-align: center
+            margin-bottom: 32px
+        
+        &__tabs
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-wrap: wrap
+
+            .tab
+                margin: 0px 4px
+                position: relative
+                padding: 10px 20px
+                overflow: hidden
+                color: #C9D4D9
+                text-transform: uppercase
+                transition: all 0.2s ease
+                cursor: pointer
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    left: -100%
+                    bottom: 0
+                    width: 100%
+                    height: 3px
+                    background: #006FAE
+                    transition: all 0.2s ease
+
+                &.active, &:hover
+                    color: #006FAE
+                    &::after
+                        left: 0
+
+        &__subtitle
+            max-width: 400px
+            margin: 0 auto 4px
+            text-align: center
+            font-weight: 500
+            font-size: 24px
+            line-height: 50px
+
+        &__text-subtitle
+            max-width: 500px
+            margin: 0 auto 40px
+            text-align: center
+            font-weight: normal
+            font-size: 18px
+            line-height: 27px
+
+        &__checkboxes
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            grid-gap: 40px 20px
+            margin-top: 60px
+            @media screen and ( min-width: $dw-sd )
+                grid-template-columns: repeat(2, 1fr)
+            @media screen and ( min-width: $dw-smd )
+                grid-template-columns: repeat(3, 1fr)
+
+            .checkbox
+                display: flex
+                align-items: flex-start
+                cursor: pointer
+                font-weight: normal
+                font-size: 18px
+                line-height: 25px
+                color: #333333
+
+                i
+                    display: block
+                    background: #EFC22D
+                    min-width: 23px
+                    height: 23px
+                    border-radius: 4px
+                    margin-right: 25px
+                    position: relative
+                    &::after
+                        content: ''
+                        display: block
+                        width: 17px
+                        height: 14px
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%, -57%)
+                        opacity: 0
+                        transition: opacity 0.2s ease
+                        background: 
+                            image: url(../images/svg/checked.svg)
+                            repeat: no-repeat
+                            size: cover
+
+                &.checked
+                    i:after
+                        opacity: 1
+
+    .icons__wrapper
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-wrap: wrap
+        max-width: 850px
+        width: 100%
+        margin: auto
+
+        .icon
+            display: block
+            margin: 16px 33px
+            width: auto
+            height: auto

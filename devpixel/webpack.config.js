@@ -3,14 +3,14 @@ const HTMLPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
-    entry: './src/assets/scripts/index.js',
+    mode: 'development',
+    entry: './src/app.js',
     output: {
         filename: 'bundle.[chunkhash].js',
         path: path.resolve(__dirname, 'public')
     },
-    // devtool: "source-map",
     devServer: {
-        port: 5000
+        port: 3000
     },
     plugins:[
         new HTMLPlugin({
@@ -18,40 +18,56 @@ module.exports = {
         }),
         new CleanWebpackPlugin()
     ],
+    devtool: 'inline-source-map',
     module: {
         rules: [
-            // {
-            //     test: /\.js$/,
-            //     include: path.resolve(__dirname, 'src/assets/scripts/'),
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: 'env'
-            //         }
-            //     }
-            // },
-            // {
-            //     test: /\.(sass|scss)$/,
-            //     include: path.resolve(__dirname, 'src/assets/sass'),
-            //     use: ExtractTextPlugin.extract({
-            //         use: [
-            //             {
-            //                 loader: "css-loader",
-            //                 options: {
-            //                     sourceMap: true,
-            //                     minimize: true,
-            //                     url: false
-            //                 }
-            //             },
-            //             {
-            //                 loader: "sass-loader",
-            //                 options: {
-            //                     sourceMap: true
-            //                 }
-            //             }
-            //         ]
-            //     })
-            // }
+          {
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          },
+          {
+              test: /\.s[ac]ss$/i,
+              use: [
+                'style-loader',
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // Prefer `dart-sass`
+                    implementation: require('sass'),
+                  },
+                },
+              ],
+          },
+
+          {
+              // Fonts
+              test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'file-loader',
+              options: {
+                name: `[name].[ext]`,
+                outputPath: '/assets/fonts/',
+              },
+            },
+            {
+              test: /\.(png|jpg|gif|svg)$/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    // esModule: false,
+                    name: 'images/[name].[ext]',
+                    // outputPath: '/assets/images/',
+                  },
+                },
+              ],
+            },
         ]
     }
 }

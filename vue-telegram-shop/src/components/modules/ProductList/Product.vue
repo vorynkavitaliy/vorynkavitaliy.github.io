@@ -1,7 +1,7 @@
 <template>
 	<section class="product-list">
 		<article 
-			v-for="product of products" 
+			v-for="product of productsList" 
 			:key="product.id+product.name"
 			class="product" 
 			:class="{'favourite': product.isActive}"
@@ -9,19 +9,16 @@
 
 			<DiscountLable :product="product"/>
 
-			<FavoriteBtn 
-				:productData="product" 
-				:setFavourite="setFavourite" 
-				:favourites="favourites"/>
+			<FavoriteBtn :productData="product"/>
 
-			<div class="image product_img" @click="getProduct(product.id, product.name)">
+			<div class="image product_img" @click="getProduct(product)">
 				<img :src="product.img[0]" alt="">
 			</div>
 
 			<div class="product__title">
-				<h3 class="ellipsis" @click="getProduct(product.id, product.name)">{{product.name}} </h3>
+				<h3 class="ellipsis" @click="getProduct(product)">{{product.name}} </h3>
 				<Prices :product="product"/>
-				<Counter :product="product" @changeTotalSum="changeTotalSum"/>
+				<Counter :product="product"/>
 			</div>
 
 		</article>
@@ -34,39 +31,44 @@
 	import FavoriteBtn from '../../molecules/FavoriteBtn/FavoriteBtn.vue'
 	import Prices from '../../molecules/Prices/Price.vue'
 	import Counter from '../../molecules/ProductCounter/Counter.vue'
-
+	import { mapGetters, mapMutations } from 'vuex';
 	export default {
 		name: "Product",
 		components: {DiscountLable, FavoriteBtn, Counter, Prices},
-		props: {
-			products: Array,
-			filterByID: Function,
-			state: Object,
-			setState: Function,
-			changeTotalSum: Function,
-			favourites: Array,
-			setFavourite: Function,
-			getBreadcrumbs: Function
-			
-		},
-		// data() {
-		// 	return {
-		// 		productList: this.filterByID(this.products, this.state.isIdes.category, 'category_id'),
-		// 	}
-		// },
+		computed: mapGetters(['productsList', 'allProducts']),
+		props: {state: Object},
+
 		methods:{
-			getProduct(id, name) {
+			...mapMutations(['setState', 'filterByID', 'setRecomended', 'getBreadcrumbs']),
+			
+			getProduct(data) {
+				this.getBreadcrumbs({...data})
+				
+				this.filterByID({
+					type: 'recomendedList', 
+					arr: this.allProducts.products, 
+					id: this.state.isIdes.category, 
+					key: 'category_id'
+				})
+				this.filterByID({
+					type: 'currentProduct', 
+					arr: this.productsList, 
+					id: data.id, 
+					key: 'id'
+				})
+
+				this.setRecomended(data)
+				
+
 				this.setState({
 					...this.state, 
 					isProduct: false, 
 					isCurrentProduct: true, 
-					isIdes: {...this.state.isIdes, product: id}
+					isIdes: {...this.state.isIdes, product: data.id}
 				})
-
-				this.$emit('getBreadcrumbs', {id, name})
 			},
 		},
 	}
 </script>
 
-<style src="./style.css"></style>
+<style src="./productList.css"></style>

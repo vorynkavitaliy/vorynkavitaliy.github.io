@@ -1,0 +1,49 @@
+.picture
+
+    &::before
+        background: $red
+        right: 0
+
+    .inner
+        max-width: 55%
+        margin: auto 0 auto auto
+
+        @media screen and ( max-width: $dw-max-md )
+            margin: 10vh auto auto
+            max-width: 75%
+
+
+    &-phone
+        position: relative
+        box-shadow: 120px 60px 80px rgba(0, 0, 0, .15)
+        border-radius: 50%
+
+    &-text
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        max-width: 47%
+        
+        a
+            display: block
+            max-width: 67%
+            width: fit-content
+            text-align: center
+            position: relative
+            margin: auto auto 95px
+        
+        p
+            text-align: center
+
+            @media screen and ( max-width: $dw-max-md )
+                font-size: 0.9rem
+
+        .finger
+            position: absolute
+            width: 3.17vw
+            right: 0
+            top: 35%
+            transform: translateX(15%)
+
+    

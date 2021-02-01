@@ -3,8 +3,10 @@
         <ul class="navigation-list">
             <li 
                 class="navigation-item" 
-                v-for="category of categories"
-                :class="{'active': category.id === state.isIdes.category}"
+                v-for="category of allProducts.categories"
+                :class="{'active': 
+                    category.id === state.isIdes.category && (state.isCurrentProduct || state.isProduct)
+                }"
                 @click="getCategory(category.id, category.name)"
                 :key="category.id">{{category.name}}</li>
         </ul>
@@ -13,39 +15,38 @@
 </template>
 
 <script>
+    import { mapGetters, mapMutations } from 'vuex';
+
     export default {
         name: "Navigation",
-        props: {
-            categories: Array,
-            state: Object,
-            setState: Function,
-            getProductsList: Function,
-            getBreadcrumbs: Function,
-            resetBreadcrumbs: Function
-			
-        },
-
-        // data(){
-        //     return{
-        //         active: 
-        //     }
-        // },
+        computed: mapGetters(['allProducts']),
+        props: {state: Object},
         methods: {
+            ...mapMutations(['setState', 'filterByID', 'getBreadcrumbs', 'resetBreadcrumbs']),
+
 			getCategory(id, name){
-                this.$emit("getProductsList", id);
-                this.$emit('resetBreadcrumbs')
-                this.$emit("setState", {
+                this.resetBreadcrumbs()
+                this.getBreadcrumbs({id, name})
+
+                this.filterByID({
+					type: 'productsList', 
+					arr: this.allProducts.products, 
+					id: id, 
+					key: 'category_id'
+                })
+                
+                this.setState({
                     ...this.state,
                     isCategory: false,
                     isCurrentProduct: false,
 					isProduct: true, 
 					isIdes: {...this.state.isIdes, category: id}
                 });
-                this.$emit('getBreadcrumbs', {id, name})
+                
 			}
 		},
     }
 </script>
 
 
-<style lang="scss" scoped src="./navigation.scss"></style>
+<style src="./navigation.css"></style>

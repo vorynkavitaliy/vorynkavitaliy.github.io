@@ -1,6 +1,6 @@
 <template>
 	<section class="categories">
-		<div v-for="category of categories" :key="category.id+category.name" 
+		<div v-for="category of allProducts.categories" :key="category.id+category.name" 
 			class="category" 
 			:id="category.id" 
 			@click="getCategory(category.id, category.name)">
@@ -13,25 +13,39 @@
 </template>
 
 <script>
+	import { mapGetters, mapMutations } from 'vuex';
 	export default {
 		name: "category",
 		props: {
-			categories: Array,
 			state: Object,
-			setState: Function,
-			getProductsList: Function,
-			getBreadcrumbs: Function
+			// animation: Function
 		},
-		methods: {
+		computed: mapGetters(['allProducts']),
+		methods:{
+			...mapMutations(['setState', 'filterByID', 'getBreadcrumbs']),
+
 			getCategory(id, name){
-				this.$emit('getProductsList', id)
-				this.$emit('setState', {
+
+				this.getBreadcrumbs({id, name})
+				this.filterByID({
+					type: 'productsList', 
+					arr: this.allProducts.products, 
+					id: id, 
+					key: 'category_id'
+				})
+
+				// this.$emit('animation', 
+				// 	{...this.state, isProduct: true, isIdes: {...this.state.isIdes, category: id}},
+				// 	{parentItem: 'categories', currentItem: 'product-list'},
+				// 	{...this.state, isCategory: true, isIdes: {...this.state.isIdes, category: id}},
+				// )
+
+				this.setState({
 					...this.state,
 					isCategory: false, 
 					isProduct: true, 
 					isIdes: {...this.state.isIdes, category: id}
 				})
-				this.$emit('getBreadcrumbs', {id, name})
 			}
 		},
 	}

@@ -1,13 +1,13 @@
 <template>
     <div class="product_counter">
-        <div class="counter" :class="{ checked: quantity < 1 }">
-            <button class="iconbtn" @click="counterMinus(product.id)" v-if="quantity > 0">-</button>
-            <p v-if="quantity > 0">{{quantity}}</p>
+        <div class="counter" :class="{ checked: product.quantity < 1 }">
+            <button class="iconbtn" @click="counterMinus(product)" v-if="product.quantity > 0">-</button>
+            <p v-if="product.quantity > 0">{{product.quantity}}</p>
             <button 
                 class="iconbtn" 
-                :class="{ checked: quantity < 1}" 
-                @click="counterPlus(product.id)">
-                <span v-if="quantity > 0">+</span>
+                :class="{ checked: product.quantity < 1}"
+                @click="counterPlus(product)">
+                <span v-if="product.quantity > 0">+</span>
 
                 <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                     <g id="cart" transform="translate(614 580)">
@@ -22,5 +22,18 @@
     </div>
 </template>
 
-<style src="./style.css"></style>
-<script src="./index.js"></script>
+<script>
+
+    import { mapActions } from 'vuex';
+    export default {
+        name: "Counter",
+        props: {
+            product: Object,
+            pic: false
+        },
+        methods: mapActions(['counterPlus', 'counterMinus'])
+    }
+
+</script>
+
+<style src="./counter.css"></style>

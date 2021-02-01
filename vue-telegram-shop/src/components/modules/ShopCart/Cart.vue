@@ -10,8 +10,7 @@
 			<h3 class="name">{{product.name}}</h3>
 			<Prices :product="product"/>
 
-			<span class="summa">{{sum}} грн</span>
-			<Counter :product="product" @changeTotalSum="changeTotalSum"/>
+			<Counter :product="product"/>
 		</article>
 
 	</div>
@@ -27,11 +26,7 @@
 	export default {
 		name: "Cart",
 		components: {Counter, Prices, DiscountLable},
-		props: {
-			product: Object,
-			sum:Number,
-			changeTotalSum: Function
-		},
+		props: {product: Object}
 	}
 </script>
 

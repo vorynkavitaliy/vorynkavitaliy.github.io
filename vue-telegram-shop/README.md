@@ -1,4 +1,4 @@
-# vue-boto
+# vue-telegram-shop
 
 ## Project setup
 ```

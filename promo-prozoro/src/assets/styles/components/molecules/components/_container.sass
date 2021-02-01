@@ -1,0 +1,42 @@
+.container
+    max-width: 72%
+    margin: auto
+    height: 100%
+    padding: 46px 15px
+
+    @media screen and ( max-width: $dw-max-md )
+        overflow: hidden
+        max-width: 100%
+
+.wrapper
+    flex-direction: column
+
+    @media screen and ( min-width: $dw-md )
+        flex-direction: row
+
+.flex-container
+    display: flex
+
+    &.wrap
+        flex-wrap: wrap
+    
+    &.row
+        flex-direction: row
+        &-md
+            @media screen and ( min-width: $dw-md )
+                flex-direction: row
+
+    &.column
+        flex-direction: column
+        &-md
+            @media screen and ( min-width: $dw-md )
+                flex-direction: column
+
+    &.align-center
+        align-items: center
+    
+    &.space-between
+        justify-content: space-between
+    
+    &.space-center
+        justify-content: center

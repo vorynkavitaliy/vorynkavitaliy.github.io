@@ -7,17 +7,15 @@
 </template>
 
 <script>
+    import {mapMutations } from 'vuex';
     export default {
         name: "Back",
-        props: {
-            state: Object,
-            setState: Function,
-            removeLastBreadcrumbs: Function
-        },
-
+        props: {state: Object},
         methods: {
+            ...mapMutations(['setState', 'removeLastBreadcrumbs']),
+
             goBack(){
-                this.$emit('removeLastBreadcrumbs')
+                this.removeLastBreadcrumbs()
                 this.state.isProduct && this.setState({...this.state, isCategory: true, isProduct: false})
                 this.state.isCurrentProduct && this.setState({...this.state, isProduct: true, isCurrentProduct: false})
                 this.state.isCart && this.setState({...this.state, isCategory: true, isCart: false})

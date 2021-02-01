@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import './assets/style.css'
+import store from './store'
 import App from './App.vue'
-
-Vue.config.productionTip = false
+import './supportboard/js/min/jquery.min'
+import './supportboard/js/init'
 
 new Vue({
-  render: h => h(App),
+	store,
+	render: h => h(App),
 }).$mount('#app')

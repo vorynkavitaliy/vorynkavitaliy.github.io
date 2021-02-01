@@ -1,0 +1,23 @@
+.price-wrapper{
+    width: 100%;
+    max-height: 50px;
+    margin-top: auto;
+
+}
+.price-wrapper span{
+    margin-top: auto;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.price-wrapper span.old-price{
+    color: rgb(159, 159, 159);
+    text-decoration: line-through;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.price-wrapper span.new-price{
+    color: rgb(255, 82, 82);
+}

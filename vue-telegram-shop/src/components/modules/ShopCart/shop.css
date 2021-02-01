@@ -10,8 +10,6 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-	padding: 1rem;
-	min-height: 300px;
 }
 
 .shopcart__container>article{
@@ -83,6 +81,11 @@
 	min-width: 7em;
 	text-align: end;
 }
+
+
+.shopcart_product .price-wrapper{
+	margin-top: 0;
+}
 .shopcart_delivery {
 	padding: 0.6em;
 	width: 100%;
@@ -100,6 +103,6 @@ button, button:active, button:focus {
 	outline: none;
 }
 
-.cart {
+/* .cart {
 	right: 20px;
-}
+} */

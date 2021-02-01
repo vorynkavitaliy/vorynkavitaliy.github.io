@@ -1,0 +1,87 @@
+#app
+    overflow: hidden
+
+
+.container
+    max-width: 960px
+    margin: 0 auto
+    padding-top: 60px
+
+
+.showing
+    transform: translateX(110%)
+
+
+.hide
+    transform: translateX(-110%)
+
+
+.cards 
+    padding: 10px 15px 100px
+
+
+.cards.product-list
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    padding: 0px 0px 100px
+
+    
+.cards.product-list .product
+    width: 50%
+    height: auto
+
+
+
+.appbar
+    position: fixed
+    z-index: 99
+    top: 0px
+    width: 100%
+    height: 48px
+    background: transparent
+    padding: 5px
+    display: grid
+    grid-template-columns: 36px auto 36px
+    justify-content: space-between
+    align-items: center
+    max-width: 960px
+    backdrop-filter: blur(10px)
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 0px 0px
+    background-color: rgba(255, 255, 255, 0.79)
+
+
+.mirrorX 
+    transform: scale(-1, 1)
+
+
+.appbar_btn 
+    position: relative
+    height: 36px
+    width: 36px
+
+
+.iconbtn 
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 25px
+    padding: 1.7px 0 0 1.7px
+    background-color: unset
+    border: unset
+
+
+.ellipsis 
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    margin-right: 20px
+
+
+.appbar_category
+    cursor: pointer
+    text-align: center
+    -webkit-line-clamp: 2
+

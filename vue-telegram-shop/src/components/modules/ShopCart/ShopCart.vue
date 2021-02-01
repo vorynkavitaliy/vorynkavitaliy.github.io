@@ -2,12 +2,12 @@
 
     <div class="shopcart">
         <template v-for="product of cartProducts">
-            <Cart :product="product" :key="product.id" :sum="sum" :changeTotalSum="changeTotalSum"></Cart>
+            <Cart :product="product" :key="product.id"></Cart>
         </template>
 
         <div class="shopcart_total">
             <h3>Всього:</h3>
-            <h3>{{cartTotalSum}} грн</h3>
+            <h3>{{prices.cartTotalSum}} грн</h3>
         </div>
         
         <div class="shopcart_prompt">
@@ -25,15 +25,11 @@
 
 <script>
     import Cart from './Cart.vue'
+    import { mapGetters } from 'vuex';
     export default {
         name: 'Shopcart',
         components: {Cart},
-        props: {
-            cartProducts: Array,
-            cartTotalSum: Number,
-            sum:Number,
-            changeTotalSum: Function
-        }
+        computed: mapGetters(['cartProducts', 'prices']),
     }
 </script>
 

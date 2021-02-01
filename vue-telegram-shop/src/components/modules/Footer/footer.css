@@ -1,0 +1,79 @@
+.bottombar{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    padding: 12px 0px;
+    z-index: 10;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.79);
+    backdrop-filter: blur(10px);
+}
+
+.tabs-inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.tabs-inner button{
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #999999;
+    margin: 0px 15px;
+    position: relative;
+    outline: none;
+}
+
+.tabs-inner .tab.menu.active{
+    color: #84c502;
+}
+
+.tabs-inner .tab.menu.active svg{
+    fill: #84c502;
+}
+
+.tabs-inner .tab.favorites.active{
+    color: #f3451d;
+}
+
+.tabs-inner .tab.favorites.active svg{
+    fill: #f3451d;
+}
+
+.tabs-inner .tab.cart.active{
+    color: #2196f3;
+}
+
+.tabs-inner .tab.cart.active svg{
+    fill: #2196f3;
+}
+
+.tabs-inner button svg{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 8px;
+    fill: #999999;
+}
+
+.tabs-inner button .total-sum{
+    position: absolute;
+    font-size: 10px;
+    width: 100%;
+    top: 0;
+    right: -32px;
+    background: #2196f3;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 4px;
+    border: 1px solid #fff;
+}

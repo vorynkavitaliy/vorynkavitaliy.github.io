@@ -1,9 +1,9 @@
 <template>
     <footer id="tabBar" class="bottombar">     
         <div class="tabs-inner">
-            <button 
+            <button
                 data-type="Menu" 
-                class="tab" 
+                class="tab menu" 
                 :class="{ active: state.isCategory }" 
                 @click="switchState('Menu')" 
             >
@@ -17,7 +17,7 @@
 
             <button 
                 data-type="Favorites" 
-                class="tab" 
+                class="tab favorites" 
                 :class="{ active: state.isFavorite }" 
                 @click="switchState('Favorites')" 
             >
@@ -29,7 +29,7 @@
 
             <button 
                 data-type="Cart" 
-                class="tab" 
+                class="tab cart" 
                 @click="switchState('Cart')" 
                 :class="{ active: state.isCart }"
             >
@@ -37,7 +37,7 @@
                     <path d="M23,5.947A1.929,1.929,0,0,0,21.1,4H19.251A.25.25,0,0,1,19,3.75V3a3,3,0,0,0-3-3H13a3,3,0,0,0-3,3v.75a.25.25,0,0,1-.25.25h-2a.25.25,0,0,1-.25-.25V3a1,1,0,0,1,1-1,1,1,0,0,0,0-2,3,3,0,0,0-3,3v.75a.25.25,0,0,1-.25.25H3.5A2,2,0,0,0,1.434,5.859L0,22.053A2.014,2.014,0,0,0,2.072,24H22.1A1.941,1.941,0,0,0,24,21.99ZM12,3a1,1,0,0,1,1-1h3a1,1,0,0,1,1,1v.75a.25.25,0,0,1-.25.25h-4.5A.25.25,0,0,1,12,3.75ZM2.559,21.975a.5.5,0,0,1-.5-.547l1.4-14.974A.5.5,0,0,1,3.957,6H6.582a.5.5,0,0,1,.5.472l.833,14.994a.5.5,0,0,1-.5.528Z"></path>
                 </svg>
                 <span>Корзина</span>
-                <span class="total-sum" :key="sum">{{sum}} грн</span>
+                <span class="total-sum" :key="prices.sum">{{prices.sum}} грн</span>
             </button>
         </div>
     </footer>
@@ -45,21 +45,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapMutations } from 'vuex';
     export default {
-        props: {
-            state: Object,
-            setState: Function,
-            setCartItems: Function,
-            resetBreadcrumbs: Function,
-            sum: Number
-        },
-
+        props: {state: Object,},
+        computed: mapGetters(['prices']),
         methods: {
+            ...mapMutations(['setState' ,'setCartItems', 'resetBreadcrumbs']),
+
             switchState(type){
-                this.$emit('resetBreadcrumbs')
+                this.resetBreadcrumbs()
                 switch (type) {
                     case "Menu":
-                        
                         this.setState({
                             ...this.state,
                             isCart: false,
@@ -71,6 +67,7 @@
                         break;
 
                     case "Favorites":
+                        // this.setFavourite()
                         this.setState({
                             ...this.state,
                             isCart: false,
@@ -101,4 +98,4 @@
     }
 </script>
 
-<style src="./style.css"></style>
+<style src="./footer.css"></style>

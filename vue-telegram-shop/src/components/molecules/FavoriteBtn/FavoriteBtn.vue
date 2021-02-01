@@ -9,14 +9,11 @@
 </template>
 
 <script>
+    import { mapGetters, mapMutations } from 'vuex';
     export default {
         name: "FavoriteBtn",
-        props: {
-            productData: Object,
-            setFavourite: Function,
-            favourites: Array,
-        },
-
+        computed: mapGetters(['favourites']),
+        props: {productData: Object},
         data(){
             return {
                 isActive: false
@@ -24,13 +21,14 @@
         },
 
         methods: {
+            ...mapMutations(['setFavourite']),
+
             onChecked(){
                 this.setFavourite(this.productData)
                 this.isActive = this.favourites.findIndex(item => item.id === this.productData.id) !== -1 ? true : false
             }
-            
         }
     }
 </script>
 
-<style src="./style.css"></style>
+<style src="./favouriteBtn.css"></style>

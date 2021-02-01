@@ -1,0 +1,33 @@
+.navigation{
+    margin-bottom: 18px;
+    padding: 0px 14px;
+
+}
+.navigation-list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 18px;
+    overflow-x: auto;
+}
+
+.navigation-list::-webkit-scrollbar { width: 0; }
+
+.navigation-list { -ms-overflow-style: none; }
+
+.navigation-list { overflow: -moz-scrollbars-none; }
+
+.navigation-item{
+    margin-right: 16px;
+    background-color: #f3f2f7;
+    color: #42424a;
+    padding: 10px 21px;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.navigation-item.active{
+    background-color: #fef0e5;
+    color: #8d5019;
+}
+

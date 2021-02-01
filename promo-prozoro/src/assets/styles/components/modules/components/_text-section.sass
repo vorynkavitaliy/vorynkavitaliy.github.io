@@ -1,0 +1,43 @@
+.text
+    color: #262920
+
+    @media screen and ( min-width: $dw-md )
+        color: #ffffff
+
+    &::before
+        background: $blue
+        left: 0
+
+    .inner
+        max-width: 77%
+        @media screen and ( max-width: $dw-max-md )
+            margin: auto
+            max-width: 100%
+            
+    
+    &-title
+        font-weight: 700
+        font-size: 1.8rem
+        margin-bottom: 1.1rem
+
+        @media screen and ( min-width: $dw-md )
+            font-size: 2.5rem
+
+        @media screen and ( max-width: $dw-max-md )
+            background: -webkit-linear-gradient(45deg, #1359C2,#E8261F)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+    
+    &-subtitle
+        font-weight: 600
+        font-size: 1.95rem
+        margin-bottom: 1.4rem
+
+    &-paragraph
+        font-size: 1.39rem
+        margin-bottom: 1.4rem
+
+        &.text2
+            @media screen and ( max-width: $dw-max-md )
+                color: $purple
+            

@@ -1,0 +1,46 @@
+#app
+    position: relative
+    min-height: 100vh
+
+    @media screen and ( min-width: $dw-md)
+        height: 100vh
+        overflow: hidden
+
+    .content
+        width: $col-12
+        @media screen and ( min-width: $dw-md)
+            width: $col-6
+            height: 100vh
+
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            bottom: 0
+            height: 30%
+            width: $col-6
+
+            @media screen and ( min-width: $dw-md)
+                top: 0
+                height: 100%
+        
+        .inner
+            position: relative
+            z-index: 1
+
+    .lightning
+        position: absolute
+        bottom: 0
+        left: 57%
+        transform: translateX(-50%)
+        z-index: 1
+        width: 50%
+        height: auto
+        z-index: 1
+
+        @media screen and ( min-width: $dw-md)
+            width: 26%
+            height: 100%
+            z-index: 2
+            left: 54%
+            top: 0

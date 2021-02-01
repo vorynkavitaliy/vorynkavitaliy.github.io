@@ -26,4 +26,4 @@
     }
 </script>
 
-<style lang="scss" scoped src="./prices.scss"></style>
+<style src="./prices.css"></style>

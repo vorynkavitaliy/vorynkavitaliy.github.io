@@ -30,6 +30,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "parcel-bundler": "^1.12.4"
+    "jquery": "^3.5.1",
+    "jquery-simple-pagination": "0.0.3",
+    "parcel-bundler": "^1.12.4",
+    "simple-pagination": "^1.0.0"
   }
 }

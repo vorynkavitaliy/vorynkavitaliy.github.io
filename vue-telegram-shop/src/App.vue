@@ -1,87 +1,85 @@
 <template>
 	<div id="app">
 		<div class="container">
-			<div class="appbar">
-				<Back :state="appState" :setState="setState" @removeLastBreadcrumbs="removeLastBreadcrumbs"/>
-			</div>
+			<div class="appbar"><Back :state="state"/></div>
 
-			<Navigation
-				:categories="database.categories"
-				:state="appState"
-				@resetBreadcrumbs="resetBreadcrumbs"
-				@setState="setState"
-				@getProductsList="getProductsList"
-				@getBreadcrumbs="getBreadcrumbs"
-			/>
+			<Navigation v-if="state.isProduct" :state="state"/>
 
-			<ul class="breadcrumbs-list" v-if="appState.isCurrentProduct">
-				<li
-					v-for="crumb of breadcrumbs" :key="crumb.name" 
-					@click="setBreadcrumbs(crumb)"
-				>
-					{{crumb.name}}
-				</li>
-			</ul>
+			<Breadcrumbs v-if="state.isCurrentProduct" :state="state"/>
 
 			<div class="cards">
-				<Category 
-					v-if="appState.isCategory"
-					:categories="database.categories"
-					:state="appState"
-					@setState="setState"
-					@getProductsList="getProductsList"
-					@getBreadcrumbs="getBreadcrumbs"
-				></Category>
 
-				<Product
-					v-else-if="appState.isProduct"
-					:products="productList"
-					:state="appState"
-					:setState="setState"
-					:favourites="favouritesProducts"
-					:setFavourite="setFavourite"
-					:changeTotalSum="changeTotalSum"
-					@getBreadcrumbs="getBreadcrumbs"
-				/>
+				<Category v-if="state.isCategory" :state="state" @animation="animation"/>
 
-				<ProductView 
-					v-else-if="appState.isCurrentProduct"
-					:products="database.products"
-					:state="appState"
-					:setState="setState"
-					:filterByID="filterByID"
-					:favourites="favouritesProducts"
-					:setFavourite="setFavourite"
-					:changeTotalSum="changeTotalSum"
-				></ProductView>
+				<Product v-else-if="state.isProduct" :state="state"/>
 
-				<Favourites 
-					v-else-if="appState.isFavorite"
-					:state="appState"
-					:setState="setState"
-					:favourites="favouritesProducts" 
-					@getBreadcrumbs="getBreadcrumbs"
-				/>
+				<ProductView v-else-if="state.isCurrentProduct" :state="state"/>
 
-				<ShopCart 
-					v-else-if="appState.isCart"
-					:cartProducts="cartProducts"
-					:cartTotalSum="cartTotalSum"
-					:changeTotalSum="changeTotalSum"
-					:sum="sum"
-				/>
+				<Favourites v-else-if="state.isFavorite" :state="state"/>
+
+				<ShopCart v-else-if="state.isCart"/>
+
 			</div>
 
-			<Footer 
-				:state="appState"
-				:setState="setState"
-				:setCartItems="setCartItems"
-				@resetBreadcrumbs="resetBreadcrumbs"
-				:sum="sum"/>
+			<Footer :state="state"/>
 		</div>
 	</div>
 </template>
 
-<script src="./app.js"></script>
+<script>
 
-<style scoped src="./app.css"></style>
+	import { mapGetters, mapMutations, mapActions } from 'vuex';
+	import ProductView from "./components/modules/ProductView/ProductView.vue";
+	import Favourites from './components/modules/Favourites/Favourites.vue';
+	import Footer from './components/modules/Footer/Footer.vue';
+	import Back from './components/molecules/ToBack/Back.vue';
+	import Category from './components/modules/Category/Category.vue';
+	import Product from './components/modules/ProductList/Product.vue';
+	import ShopCart from './components/modules/ShopCart/ShopCart.vue';
+	import Navigation from './components/molecules/Navigation/Navigation.vue';
+	import Breadcrumbs from './components/molecules/Breadcrumbs/Breadcrumbs';
+
+	export default {
+		name: "app",
+		components: {
+			ShopCart, Category, Product, ProductView, Favourites, Footer, Back, Navigation, Breadcrumbs
+		},
+		computed: mapGetters(['state', 'breadcrumbs']),
+		async mounted() {
+			// получаем все данные (категории, продукты, стоимость доставки, стоимость заказа)
+			this.fetchProducts()
+		},
+
+		methods: {
+			...mapActions(['fetchProducts']),
+			...mapMutations(['setState']),
+			
+			animation(state, data, newState){
+				this.setState(state)
+				
+
+				setTimeout(() =>{
+					const parentItem = document.querySelector(`.${data.parentItem}`)
+					const currentItem = document.querySelector(`.${data.currentItem}`)
+				
+					console.log(parentItem);
+					console.log(currentItem);
+					
+					// parentItem.classList.add('hide')
+					// currentItem.classList.remove('showing')
+				}, 0)
+				
+
+				const animate = setTimeout(() => {
+					// parentItem.classList.remove('hide')
+					this.setState({...this.state, ...newState})
+					clearTimeout(animate)
+				}, 450)
+			},
+		}
+	}
+
+
+</script>
+
+<style scoped lang="sass" src="./app.sass"></style>

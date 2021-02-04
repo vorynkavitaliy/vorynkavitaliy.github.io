@@ -1,0 +1,59 @@
+.container
+    max-width: 76%
+    margin: auto
+    height: 100%
+    width: calc(100% - 30px)
+    padding: 46px 15px
+
+    @media screen and ( max-width: $dw-max-md )
+        max-width: 100%
+
+.flex-container
+    display: flex
+
+    &.wrap
+        flex-wrap: wrap
+
+.grid-container
+    display: grid
+
+    @for $i from 1 through 12
+        &.cols-#{$i}
+            +grid-cols($i)
+
+    &.cols
+        @each $device, $width in $dw
+            &-#{$device}
+                @media screen and ( min-width: $width )
+                    @for $i from 1 through 12
+                        &-#{$i}
+                            +grid-cols($i)
+    
+
+.flex-container, .grid-container
+    &.row
+        flex-direction: row
+
+        @each $device, $width in $dw
+            &-#{$device}
+                +f-row($width)
+
+    &.column
+        flex-direction: column
+
+        @each $device, $width in $dw
+            &-#{$device}
+                +f-column($width)
+
+
+    &.align
+        &-center
+            align-items: center
+
+    &.space
+        &-between
+            justify-content: space-between
+        &-center
+            justify-content: center
+
+

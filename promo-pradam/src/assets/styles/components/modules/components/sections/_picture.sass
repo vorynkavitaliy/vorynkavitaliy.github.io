@@ -1,0 +1,87 @@
+&-pictures
+
+    &::before
+        content: ''
+        display: block
+        position: absolute
+        top: -86px
+        left: -30px
+        width: 100vw
+        height: calc( 100% + 135px )
+        background-color: $black_bg
+
+        @media screen and ( min-width:  $dw-md )
+            top: -46px
+            width: 100%
+            left: 0
+            height: calc( 100vh + 46px )
+    
+    .inner
+        padding: 10px
+
+        @media screen and ( max-width:  $dw-ssd )
+            grid-row-gap: 6rem
+    
+    .chat-link
+        width: 60%
+        margin: auto
+        text-align: center
+
+        &-wrap
+            position: relative
+
+            .blur-circle
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                filter: blur(45px)
+                border-radius: 50%
+                width: 100%
+                padding: 50%
+                opacity: 0.7
+
+                &.blue
+                    background-color: $blue  
+                
+                &.purple
+                    background-color: $purple
+
+        &-picture
+            width: 53%
+            padding: 31%
+            border-radius: 50%
+            margin: auto
+            display: block
+            position: relative
+            
+            &:hover
+                transform: scale(1.15)
+            
+            &:active
+                transform: scale(1)
+
+            img
+                width: 50%
+                position: absolute
+                top: 50%
+                left: 50%
+                
+            &.telegram
+                background-color: $blue
+
+                .blur-circle
+                    background-color: $blue
+
+                img
+                    transform: translate(-60%, -50%)
+
+            &.viber
+                background-color: $purple
+
+                .blur-circle
+                    background-color: $purple
+
+                img
+                    transform: translate(-48%, -46%)
+    

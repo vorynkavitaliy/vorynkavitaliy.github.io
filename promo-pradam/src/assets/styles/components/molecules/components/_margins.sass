@@ -1,0 +1,8 @@
+$margin: (mt: margin-top,mb: margin-bottom, mr: margin-right, ml: margin-left)
+
+@each $class, $type in $margin
+    .#{$class}
+        @for $i from 1 through 10
+            &-#{$i}
+                #{$type}: #{($i*5)/10}rem
+

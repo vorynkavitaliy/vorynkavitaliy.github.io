@@ -1,0 +1,13 @@
+.radius
+    @for $i from 1 through 10
+            &-#{$i}
+                border-radius: #{($i*5)/20}rem
+
+    @each $device, $width in $dw
+        @for $i from 1 through 10
+            &-#{$device}-#{$i}
+                @media screen and ( min-width: #{$width} )
+                    border-radius: #{($i*5)/20}rem
+
+    &-50
+        border-radius: 50%

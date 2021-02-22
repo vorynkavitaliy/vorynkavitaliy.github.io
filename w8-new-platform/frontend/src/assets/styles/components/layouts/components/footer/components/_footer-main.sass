@@ -1,0 +1,85 @@
+&-main
+    .contacts
+        &-link
+            display: flex
+            align-items: center
+            
+            .spacer
+                width: 5%
+                height: 1px
+                background-color: #DDDDDD
+                margin: auto .5rem
+
+            .favicon
+                width: 10%
+                overflow: hidden
+
+            &.phone
+                &:hover
+                    .favicon
+                        animation: phoneAnim 0.5s ease infinite
+            
+            &.email
+                &:hover
+                    .favicon
+                        animation: mailAnim 0.5s ease infinite
+
+    .media
+        text-align: center
+
+        .social
+            &-list
+                max-width: 90%
+
+            &-link
+                width: 2.22rem
+                height: 2.22rem
+                background-color: #fff
+                border-radius: 50%
+                transition: background-color 0.2s ease
+                justify-content: center
+                position: relative
+
+                .hover
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+
+                &:hover
+                    background-color: $pink
+
+@keyframes phoneAnim
+    0%
+        transform: rotate(18deg)
+    12%
+        transform: rotate(-8deg)
+    24%
+        transform: rotate(13deg)
+    36%
+        transform: rotate(-5deg)
+    48%
+        transform: rotate(10deg)
+    60%
+        transform: rotate(-3deg)
+    72%
+        transform: rotate(5deg)
+    100%
+        transform: rotate(0deg)
+
+@keyframes mailAnim
+    0%
+        transform: translate(0%)
+    12%
+        transform: translate(20%)
+    24%
+        transform: translate(-20%)
+    36%
+        transform: translate(10%)
+    48%
+        transform: translate(-10%)
+    60%
+        transform: translate(5%)
+    72%
+        transform: translate(-5%)
+    100%
+        transform: translate(0%)

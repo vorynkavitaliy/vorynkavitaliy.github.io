@@ -1,0 +1,14 @@
+-
+    const navbarItems = [
+        {href: 'index.html', text: 'Головна', active: 'active'},
+        {href: 'catalog-avto.html', text: 'Каталог авто', active: ''},
+        {href: 'catalog-lotov.html', text: 'Каталог лотів', active: ''},
+        {href: 'blog.html', text: 'Блог', active: ''},
+        {href: 'marks.html', text: 'Марки', active: ''}
+    ]
+
+nav.navbar#navbar
+    ul.navbar-list.flex-container
+        each item in navbarItems
+            li.navbar-item.ml-2.mr-2(class=item.active)
+                a.navbar-link.text.medium(href=item.href)=item.text

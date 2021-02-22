@@ -1,0 +1,13 @@
+header.header.pt-3.pb-3
+    .container
+        .flex-container.space-between.align-center
+            a.logo(href='#')
+                img(src='/img/logo.svg')
+
+            .inner.mr-3.ml-3.flex-container.space-between.align-center
+                include ./components/navbar
+                include ./components/search
+                include ./components/cabinet-button
+
+            include ./components/language
+                

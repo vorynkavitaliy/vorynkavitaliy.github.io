@@ -1,0 +1,20 @@
+-
+    const locationArray = [
+        {city: 'Київ', address: 'вул. Паньківська, 27/78', href: '#'},
+        {city: 'Львів', address: 'вул. Академіка Андрія Сахарова, 43', href: '#'},
+        {city: 'Харьків', address: 'вул. Гімназійна набережна, 4', href: '#'},
+        {city: 'Одеса', address: 'Французьки бульвар, 54/23', href: '#'},
+        {city: 'Дніпро', address: 'пр-т, Олександра Поля, 100', href: '#'}
+    ]
+
+header.footer-header.pt-2.pb-2
+    .container
+        ul.location-list.flex-container.space-between.align-center
+            each locate in locationArray
+                .location-item.flex-container.align-center
+                    span.marker.mr-1
+                        img(src="/img/icons/location.svg", alt="locate")
+                    
+                    .text 
+                        h5.text.text-l.bold.mb-1=locate.city
+                        a.text.text-s.grey(href=locate.href)=locate.address 

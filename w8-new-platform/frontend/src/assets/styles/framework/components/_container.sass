@@ -1,0 +1,35 @@
+.flex-container
+    display: flex
+
+    &.wrap
+        flex-wrap: wrap
+
+
+.grid-container
+    display: grid
+
+$direction: (column, row)
+
+.flex-container, .grid-container
+    @each $dir in $direction
+        &.#{$dir}
+            @if $dir == 'column'
+                flex-direction: column
+            @else 
+                flex-direction: row
+            @each $device, $width in $dw
+                &-#{$device}
+                    @if $dir == 'column'
+                        +f-column($width)
+                    @else 
+                        +f-row($width)
+
+.align
+    &-center
+        align-items: center
+
+.space
+    &-between
+        justify-content: space-between
+    &-center
+        justify-content: center

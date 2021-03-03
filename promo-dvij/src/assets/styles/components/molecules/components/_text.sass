@@ -1,0 +1,44 @@
+.text
+    font-family: $font-semibold
+
+    &-xs
+        font-size: rem(20px)
+    
+    &-s
+        +font-size(rem(18px), rem(28px), rem(25px), rem(25px), rem(25px))
+    
+    &-m
+        +font-size(rem(20px), rem(31px), rem(30px), rem(30px), rem(30px))
+
+    &-l
+        +font-size(rem(25px), rem(33px), rem(35px), rem(35px), rem(35px))
+
+    &-head
+        +font-size(rem(38px), rem(52px), rem(90px), rem(90px), rem(90px))
+
+    &.white
+        color: #fff
+
+    &.yellow
+        color: $yellow
+
+    &.black
+        font-family: $font-black
+    
+    &.bold
+        font-family: $font-bold
+    
+    &.semibold
+        font-family: $font-semibold
+    
+    &.medium
+        font-family: $font-medium
+    
+    &.light
+        font-family: $font-light
+
+    &.uppercase
+        text-transform: uppercase
+
+    &.center
+        text-align: center

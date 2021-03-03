@@ -1,0 +1,21 @@
+.content
+
+    &-title
+        font-style: italic
+        font-family: $font-GothamPro-Black
+
+    &-list
+        li
+            display: flex
+            align-items: flex-start
+
+            &::before
+                content: ''
+                display: block
+                width: rem(20px)
+                height: rem(20px)
+                border-radius: 50%
+                border: rem(10px) solid $yellow
+                margin-right: rem(15px)
+                transform: translateY(-15%)
+                box-shadow: 0px 0px 25px rgba(254, 206, 0, .65), inset 0px 0px 25px rgba(254, 206, 0, .35)

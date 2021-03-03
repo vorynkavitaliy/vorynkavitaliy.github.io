@@ -1,0 +1,17 @@
+.app
+    min-height: 100vh
+
+    .main-title
+        &::after
+            content: ''
+            display: block
+            width: rem(124px)
+            margin: rem(10px) auto
+            background-color: $orange
+            border-radius: rem(10px)
+            height: rem(10px)
+
+    @import './components/banner'
+    @import './components/steps'
+            
+    

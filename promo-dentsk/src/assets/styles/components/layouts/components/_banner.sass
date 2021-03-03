@@ -1,0 +1,22 @@
+&-banner
+    background-color: #fff
+    background-image: url('#{$image}/banner-mobile-bg.jpg')
+    background-size: 100% 100%
+    background-repeat: no-repeat
+    background-position: right center
+    min-height: 100vh
+
+    +screen($dw-ssd)
+        background-image: url('#{$image}/banner-bg.jpg')
+        background-size: auto 100%
+
+    &-content
+        .title, strong
+            display: none
+
+            +screen($dw-ssd)
+                display: block
+
+        .text
+            +screen-max($dw-max-ssd)
+                color: #fff

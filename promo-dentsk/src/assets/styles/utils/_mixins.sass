@@ -1,0 +1,73 @@
+=screen($dw)
+    @media screen and ( min-width: $dw )
+        @content
+
+=screen-max($dw)
+    @media screen and ( max-width: $dw )
+        @content
+
+=font-size($x, $s, $m, $l, $xl)
+    font-size: $x
+
+    +screen($dw-ssd)
+        font-size: $s
+
+    +screen($dw-smd)
+        font-size: $m
+    
+    +screen($dw-ld)
+        font-size: $l
+    
+    +screen($dw-xld)
+        font-size: $xl
+
+=method($type, $x, $s, $m, $l)
+    #{$type}: $x
+
+    +screen($dw-ssd)
+        #{$type}: $s
+
+    +screen($dw-md)
+        #{$type}: $m
+    
+    +screen($dw-ld)
+        #{$type}: $l
+    
+=animation($name)
+    @keyframes #{$name}
+        @content
+
+@function rem($size)
+    @return $size / 18px * 1rem
+
+=font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false )
+    @font-face
+        font-family: $font-family
+        font-weight: $weight
+        font-style: $style
+
+        @if $asset-pipeline == true 
+            src: font-url($file-path+$font-family+'.eot/'),
+            src: font-url($file-path+$font-family+'.eot?#iefix') format('embedded-opentype')
+            src: font-url($file-path+$font-family+'.woff/') format('woff')
+            src: font-url($file-path+$font-family+'.ttf/') format('truetype')
+        @else
+            src: url($file-path+$font-family+'.eot/')
+            src: url($file-path+$font-family+'.eot?#iefix') format('embedded-opentype') 
+            src: url($file-path+$font-family+'.woff/') format('woff') 
+            src: url($file-path+$font-family+'.ttf/') format('truetype')
+
+=grid-cols($i)
+    grid-template-columns: repeat(#{$i},1fr)
+
+=device-col($dw, $col-dw, $offset)
+    +screen($dw)
+        width: #{$col-dw}
+
+=f-row($dw)
+    +screen($dw)
+        flex-direction: row
+
+=f-column($dw)
+    +screen($dw)
+        flex-direction: column

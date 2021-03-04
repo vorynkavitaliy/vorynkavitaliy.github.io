@@ -5,6 +5,59 @@
     background-repeat: no-repeat
     background-position: center center
     min-height: 100vh
+    overflow: hidden
+    position: relative
+
+    .triple-text
+
+        &::after, &::before
+            display: block
+            width: 100%
+            -webkit-text-fill-color: transparent
+            -webkit-text-stroke: 1px $yellow
+            position: absolute
+            opacity: 0.3
+        
+        &::after
+            top: -38%
+            left: 28%
+        
+        &::before
+            bottom: -40%
+            left: -25%
+        
+    &-text-logo
+        font-family: $font-GothamPro-Black
+        position: absolute
+        bottom: 2%
+        right: 10%
+        transform: rotate(-10deg)
+        z-index: 0
+
+        +screen($dw-ssd)
+            bottom: 10%
+            right: 5%
+            transform: rotate(-20deg)
+        
+        &::after, &::before
+            content: "5555"
+
+        &-single
+            font-size: 220px
+            -webkit-text-fill-color: transparent
+            -webkit-text-stroke: 1px $yellow
+            font-family: $font-GothamPro-Black
+            position: absolute
+            opacity: 0.3
+            top: 40%
+            left: 50%
+            transform: translate(-50%, -50%) rotate(-10deg)
+            +screen($dw-ssd)
+                font-size: 180px
+                top: 6.2%
+                right: 5.9%
+                left: auto
+                transform: none
 
     &-content
         min-height: 100vh

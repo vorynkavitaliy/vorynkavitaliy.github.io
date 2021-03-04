@@ -10,13 +10,12 @@ const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
 const mainPath = isDev ? 'dist' : 'public'
-const htmlPath = isDev ? '' : 'public'
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
 
 const PATHS = {
-    js: isDev ? 'js' : `${mainPath}/js`,
+    js: `js`,
     img: `${mainPath}/img`,
-    css: isDev ? 'css' : `${mainPath}/css`,
+    css: 'css',
     fonts: `${mainPath}/fonts`,
 }
 
@@ -37,7 +36,7 @@ const optimization = () => {
 const plugins = () => {
     const base = [
         new HTMLWebpackPlugin({
-            filename: `${htmlPath}index.html`,
+            filename: `index.html`,
             template: './index.html',
             minify: {
                 collapseWhitespace: isProd,
@@ -128,7 +127,7 @@ module.exports = {
     },
     output: {
         filename: `${PATHS.js}/${filename('js')}`,
-        path: path.resolve(__dirname, isDev ? 'dist' : '../dist'),
+        path: path.resolve(__dirname, mainPath),
     },
     optimization: optimization(),
     devServer: {

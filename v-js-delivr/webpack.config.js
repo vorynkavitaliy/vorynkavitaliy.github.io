@@ -5,18 +5,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
 const mainPath = isDev ? 'dist' : 'public'
-// const htmlPath = isDev ? '' : 'public'
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
 
 const PATHS = {
-    js: isDev ? 'js' : `js`,
+    js: 'js',
     img: `${mainPath}/img`,
-    css: isDev ? 'css' : `css`,
+    css: 'css',
     fonts: `${mainPath}/fonts`,
 }
 
@@ -43,7 +43,7 @@ const plugins = () => {
                 collapseWhitespace: isProd,
             },
         }),
-
+        new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: `${PATHS.css}/${filename('css')}`,
@@ -132,7 +132,7 @@ module.exports = {
     },
     optimization: optimization(),
     devServer: {
-        port: 4201,
+        port: 4202,
         hot: isDev,
         liveReload: true,
     },
@@ -167,6 +167,16 @@ module.exports = {
                         },
                     },
                 ],
+            },
+
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loader: {
+                        scss: 'vue-style-loader!css-loader!sass-loader',
+                    }
+                },
             },
 
             {

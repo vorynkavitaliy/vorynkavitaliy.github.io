@@ -1,0 +1,31 @@
+section.reviews.mv-4
+    .container
+        h4.text.text-xl.bold-value.center.mb-5 Відгуки наших клієнтів
+
+        .grid-container.cols-2.offset-2
+            article.reviews-main
+                .review-item
+                    .review-inner
+                        .review-preview.flex-container
+                            img(src="./img/jpg/preview-1.jpg", alt="preview")
+
+                            .review-details.flex-container.align-center
+                                span.play-btn.mr-3
+                                span.review-title.text.bold-value.p-2.radius-4 Mercedes-Benz C-Class 2020
+
+                        .review-video
+                            iframe(src="", frameborder="0") 
+            article.reviews-list
+                ul.grid-container.cols-2.offset-2
+                    each item in [1, 2 ,3 ,4]
+                        li.review-item
+                            .review-inner
+                                .review-preview.flex-container
+                                    img(src="./img/jpg/preview-1.jpg", alt="preview")
+
+                                    .review-details.flex-container.align-center
+                                        span.play-btn.mr-1
+                                        span.review-title.text.text-s.bold-value.p-1.radius-2 Mercedes-Benz C-Class 2020
+                                    
+                                .review-video
+                                    iframe(src="", frameborder="0") 

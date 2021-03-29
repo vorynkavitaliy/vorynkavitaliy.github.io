@@ -1,0 +1,16 @@
+section.snapshot-messengers-footer
+    .container
+        .flex-container.space-between.morph-bg.radius-2.pv-10
+            .picture.col-2
+                img(src="./img/png/iphone.png", alt="phones")
+            .content.flex-container.align-center.space-between.col-9.m-a
+                article.col-7.flex-containe
+                    .col-10
+                        h3.text.text-large.bold-value.mb-2 Хочете отримувати гарячі пропозиції про найвигідніші лоти?
+
+                        p.text.text-m.regular-value Підписуйтесь на наш офіційний телеграм канал або вайбер канал
+
+                article.col-5
+                    .messengers-buttons.grid-container.cols-2.offset-2
+                        +MessengersButton('telegram', '#', '#fff')
+                        +MessengersButton('viber', '#', '#fff')

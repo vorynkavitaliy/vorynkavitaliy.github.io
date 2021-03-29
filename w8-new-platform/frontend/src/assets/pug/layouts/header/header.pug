@@ -1,13 +1,12 @@
-header.header.pt-3.pb-3
+header.header.pv-1.pv-ld-3
     .container
-        .flex-container.space-between.align-center
+        .flex-container.space-between.align-center.row.column-msd.row-ld
             a.logo(href='#')
-                img(src='/img/logo.svg')
+                img(src='./img/logo.svg' alt="w8-shipping")
 
-            .inner.mr-3.ml-3.flex-container.space-between.align-center
-                include ./components/navbar
-                include ./components/search
-                include ./components/cabinet-button
+            include ./components/navbar
+            include ./components/search
+            include ./components/cabinet-button
 
             include ./components/language
                 

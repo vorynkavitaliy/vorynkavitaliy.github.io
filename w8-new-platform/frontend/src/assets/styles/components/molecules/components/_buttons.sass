@@ -1,0 +1,96 @@
+.btn
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: rem(16px, $dw-ld)
+    padding: rem(20px, $dw-ld)
+    border-radius: rem(7px, $dw-ld)
+    font-family: $font-bold
+    position: relative
+    overflow: hidden
+    transition: all 0.1s ease
+
+    &-black
+        background: linear-gradient(95.79deg, #272727 -6.34%, #393939 103.93%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4)
+        color: #fff
+
+        &:hover
+            box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+
+        &:active
+            background: linear-gradient(270.65deg, #1E1E1E -9.34%, #494949 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 12px rgba(255, 255, 255, 0.4), inset 4px 4px 10.5px rgba(0, 0, 0, 0.6)
+
+    &-grey
+        background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4)
+        color: $ligth-black
+
+        &:hover
+            box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+
+        &:active, &.active
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+            color: $pink
+
+    &-light
+        display: flex
+        align-items: center
+        justify-content: center
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
+        color: $ligth-black
+
+        &:hover
+            box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+
+        &:active, &.active
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+            color: $pink
+
+    &-telegram
+        background: linear-gradient(317.85deg, #039BE5 -11.18%, #88D8FF 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 3px 3px 3px rgba(0, 0, 0, 0.09), inset -2px -2px 3.5px rgba(255, 255, 255, 0.58)
+        border-radius: rem(9px, $dw-ld)
+        &:hover
+            background: linear-gradient(317.85deg, #039BE5 -11.18%, #88D8FF 114.83%)
+            box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+
+        &:active
+            background: linear-gradient(270.65deg, #039BE5 -9.34%, #039BE5 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -3.5px 6.5px rgba(255, 255, 255, 0.53), inset 4px 4px 7.5px rgba(0, 0, 0, 0.15)
+
+    &-viber
+        background: linear-gradient(317.85deg, #7F40BD -11.18%, #B37BEB 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 3px 3px 3px rgba(0, 0, 0, 0.09), inset -2px -2px 3.5px rgba(255, 255, 255, 0.58)
+        border-radius: rem(9px, $dw-ld)
+        &:hover
+            background: linear-gradient(317.85deg, #7F40BD -11.18%, #B37BEB 114.83%)
+            box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+
+        &:active
+            background: linear-gradient(270.65deg, #7F40BD -9.34%, #B37BEB 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -3.5px 6.5px rgba(255, 255, 255, 0.53), inset 4px 4px 7.5px rgba(0, 0, 0, 0.15)
+
+    &-icon
+        background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3.39834px -3.39834px 9.06224px #FFFFFF, 2.26556px 2.26556px 6.79668px rgba(174, 174, 192, 0.4)
+        color: #525252
+        padding: rem(10px, $dw-ld) rem(15px, $dw-ld)
+
+        .favicon
+            width: rem(15px, $dw-ld)
+            margin-right: rem(15px, $dw-ld)
+        svg
+            fill: #525252
+
+        &:active, &.active
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+            color: $pink
+
+            svg
+                fill: $pink

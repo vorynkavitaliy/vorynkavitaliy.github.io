@@ -1,0 +1,11 @@
+mixin Dropdown(current, array, tag, href)
+    .dropdown-block
+        span.current-link=current
+        ul.dropdown-list
+            each item in array
+                li.dropdown-item
+                    case tag
+                        when 'a'
+                            a(href=href).dropdown-link=item
+                        default
+                            span.dropdown-link=item

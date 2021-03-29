@@ -1,0 +1,87 @@
+.carousel
+    overflow: hidden
+    position: relative
+    &-list
+        position: relative
+
+    &-slide
+        position: relative
+        min-width: 100%
+
+        img
+            mix-blend-mode: darken
+
+    &-controlers
+        position: absolute
+        display: flex
+        align-items: center
+        justify-content: center
+        left: 0
+        bottom: rem(11px, $dw-ld)
+        width: 100%
+
+    &-dots
+        position: relative
+        margin: auto
+
+    &-dot
+        width: rem(14px, $dw-ld)
+        height: rem(14px, $dw-ld)
+        background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+        border: 0.138889px solid rgba(255, 255, 255, 0.47)
+        box-sizing: border-box
+        box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+        border-radius: 50%
+        margin: 0px rem(5px, $dw-ld)
+        display: inline-block
+        position: relative
+
+        &::after
+            content: ''
+            display: block
+            border-radius: 50%
+            background: #C5094A
+            box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.14)
+            position: absolute
+            width: 50%
+            height: 50%
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            opacity: 0
+
+        &:hover, &.is-selected
+            &::after
+                opacity: 1
+
+    &-arrow
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        background-size: 30%
+        background-position: center center
+        background-repeat: no-repeat
+        border-radius: 50%
+        background-color: #fff
+        display: none
+
+        .ripples
+            background-color: rgba(0, 0, 0, 0.5)
+
+        &[disabled='disabled']
+            &.left
+                background-image: url(@/images/arrow-left-grey.svg)
+
+            &.right
+                background-image: url(@/images/arrow-right-grey.svg)
+
+        &:active
+            transform: translateY(-50%) scale(0.8)
+
+        &.left
+            left: 0
+            background-image: url(@/images/arrow-left.svg)
+
+        &.right
+            right: 0
+            background-image: url(@/images/arrow-right.svg)

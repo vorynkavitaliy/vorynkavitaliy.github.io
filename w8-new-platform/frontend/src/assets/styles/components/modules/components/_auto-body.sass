@@ -1,0 +1,46 @@
+.auto-body, .auto-mark
+    &-item, &-more-btn
+        cursor: pointer
+        transition: all 0.2s ease
+        overflow: hidden
+        position: relative
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
+        border-radius: rem(7px)
+
+        img
+            mix-blend-mode: darken
+
+        &:hover
+            background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+            box-shadow: -6px -6px 12px #FFFFFF, 4px 4px 12px rgba(174, 174, 192, 0.4)
+
+        &:active, &.active
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+
+            .text
+                color: $pink
+            
+            svg
+                fill: $pink
+
+        &.disable
+            opacity: 0.5
+
+.auto-mark
+    &-item
+        display: flex
+        flex-direction: column
+        &.audi
+            &:active, &.active
+                svg
+                    fill: none
+                    stroke: $pink
+
+    .picture
+        text-align: center
+        
+    svg
+        width: 45%
+        margin: auto

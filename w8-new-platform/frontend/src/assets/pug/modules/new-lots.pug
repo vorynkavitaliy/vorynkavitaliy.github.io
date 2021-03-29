@@ -1,0 +1,70 @@
+-
+    const imageLots = './img/jpg/lots/'
+    const newLots = [
+        {
+            name: '2019 Volkswagen Arteon',
+            price: '21 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageLots}lot-1`, `${imageLots}lot-2`, `${imageLots}lot-3`, `${imageLots}lot-4`
+            ],
+            articul: '1243556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Tiguan',
+            price: '13 655 USD',
+            offsetPrice: '5 100 USD',
+            cars: [
+                `${imageLots}lot-1`, `${imageLots}lot-2`, `${imageLots}lot-3`, `${imageLots}lot-4`
+            ],
+            articul: '2675453556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Atlas',
+            price: '33 320 USD',
+            offsetPrice: '1 100 USD',
+            cars: [
+                `${imageLots}lot-1`, `${imageLots}lot-2`, `${imageLots}lot-3`, `${imageLots}lot-4`
+            ],
+            articul: '123543556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Golf R',
+            price: '53 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageLots}lot-1`, `${imageLots}lot-2`, `${imageLots}lot-3`, `${imageLots}lot-4`
+            ],
+            articul: '876523456',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        }
+    ]
+
+section.new-lots.pv-5(data-scroll='smoothscroll')
+    .container
+        h4.text.text-xl.bold-value.center.mb-5 Нові лоти
+
+        .grid-container.cols-msd-2.cols-lmd-3.cols-ld-4.offset-3
+            each car in newLots
+                +newLots(car)
+
+        .flex-container.space-center.mt-6
+            +Button('light', '', 'Більше пропозицій')

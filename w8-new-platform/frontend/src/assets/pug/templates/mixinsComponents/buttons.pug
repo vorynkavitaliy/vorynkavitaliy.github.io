@@ -1,0 +1,9 @@
+mixin Button(color, classes, text)
+    button.btn(class=`btn-${color} ${classes}`)
+        =text
+
+mixin MessengersButton(type, href, color)
+    a.btn.icon(href=href class=`btn-${type}`)
+        i.favicon.mr-a
+            +Icon(type, color)
+        span.text.medium-value.white.capitalize.m-a=type

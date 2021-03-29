@@ -1,0 +1,51 @@
+
+mixin newAuto(data)
+    .new-auto-item.morph-bg.radius-4.pb-2
+        header.new-auto-item-caruosel
+            .carousel
+                ul.carousel-list.flex-container
+                    each car in data.cars 
+                        li.carousel-slide
+                            img(src=`${car}.jpg`, alt=data.name)
+
+                .carousel-controlers.ph-2
+                    .carousel-dots
+                        .carousel-dot-template
+                            button.carousel-dot(type="button")
+                    button.carousel-arrow.left.btn(data-btn="primary")
+                    button.carousel-arrow.right.btn(data-btn="primary")
+
+        main.new-auto-item-main
+            .new-auto-item-title.ph-2.mb-1
+                h4.text.bold-value.center.mb-1=data.name
+                span.text.text-s.regular-value.grey-2.center.block
+                    ='Артикул: '
+                    =` ${data.articul}`
+            
+            h3.price.text.text-l.bold.center.p-1 від 
+                =data.price
+
+            p.text.text-s.green.bold-value.flex-container.space-center.p-1
+                span.favicon.mr-1
+                    img(src="./img/icons/checkmark-green.svg", alt="checkmark")
+
+                =`Ви заощаджуєте ${data.offsetPrice}`
+            
+            .ph-2.mt-2
+                a.btn.btn-black(href=data.url) Хочу такий автомобіль
+            
+        
+        footer.new-auto-item-footer.ph-2.mt-2
+            p.text.text-xs.center.mb-1
+                ='Об\'єм двигуна: '
+                strong.text.text-xs.bold=data.volume
+
+            p.text.text-xs.center
+                ='Тип кузова: '
+                strong.text.text-xs.bold.capitalize=data.body
+            
+            a.btn.btn-light.mt-2(href="#") Детальніше
+
+            .actions.grid-container.cols-2.mt-3
+                +BtnIcon('button', 'eye', 'Cлідкувати')
+                +BtnIcon('button', 'libra', 'Порівняти')

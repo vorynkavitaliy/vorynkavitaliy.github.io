@@ -1,0 +1,40 @@
+.review
+    &-item
+        border-radius: rem(15px)
+        box-shadow: 0px rem(10px) rem(30px) rgba(0, 0, 0, .25)
+        position: relative
+        height: 100%
+
+    &-inner
+        padding: 31%
+        overflow: hidden
+        border-radius: rem(10px)
+        position: relative
+        height: 100%
+
+    &-preview, &-video
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+
+        img, iframe
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+
+    &-preview
+        z-index: 1
+
+    &-details
+        position: relative
+        z-index: 1
+        margin-top: auto
+        padding: rem(24px)
+        width: 100%
+
+    &-title
+        background-color: #F2F3F8

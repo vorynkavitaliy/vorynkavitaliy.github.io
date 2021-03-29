@@ -1,0 +1,48 @@
+
+mixin newLots(data)
+    .new-lots-wrapper.morph-bg.radius-3
+        .new-lots-item.morph-bg.radius-2.pb-2
+            header.new-auto-item-caruosel.pb-2.radius-2
+                .carousel
+                    ul.carousel-list.flex-container
+                        each car in data.cars 
+                            li.carousel-slide
+                                img(src=`${car}.jpg`, alt=data.name)
+
+                    //- .carousel-controlers.ph-2
+                    //-     .carousel-dots
+                    //-         .carousel-dot-template
+                    //-             button.carousel-dot(type="button")
+                    //-     button.carousel-arrow.left.btn(data-btn="primary")
+                    //-     button.carousel-arrow.right.btn(data-btn="primary")
+
+            main.new-lots-item-main
+                .new-lots-item-title.ph-2.mb-2
+                    h4.text.bold-value.capitalize.center.mb-1=data.name
+                    span.text.text-s.regular-value.grey-2.center.block
+                        ='Артикул: '
+                        =` ${data.articul}`
+
+                    h3.price.text.text-l.bold.center.ph-1.mv-2
+                        span.text.text-s.regular-value.grey-4.center.block Поточна ставка 
+                        =data.price
+                    
+                    span.text.text-s.regular-value.grey-4.center.block
+                        ='До початку торгів: '
+                        span.text.text-s.bold-value.main.center.block.mt-1=` ${data.timer}`
+                
+                .ph-2.mt-2.mb-4
+                    a.btn.btn-light.radius-2(href=data.url) Хочу такий автомобіль
+                
+                    .actions.grid-container.cols-2.mv-2
+                        +BtnIcon('button', 'eye', 'Cлідкувати')
+                        +BtnIcon('button', 'libra', 'Порівняти')
+            
+            footer.new-lots-item-footer.ph-2
+                p.text.text-m.grey-2.medium.mb-2
+                    ='Об\'єм двигуна: '
+                    strong.text.text-m.bold.main=data.volume
+
+                p.text.text-m.grey-2.medium.mb-2
+                    ='Тип кузова: '
+                    strong.text.text-m.bold.main.capitalize=data.body

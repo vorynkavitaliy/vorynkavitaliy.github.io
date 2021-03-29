@@ -1,0 +1,11 @@
+.banner-form 
+    h1.title.head-1.black-value.uppercase Обирай авто!
+    p.subtitle.text.text-large-s.regular-value.mb-2 Ми допоможемо з вибором під  бюджет або знайдемо конкретну марку  
+
+    form
+        +Input('banner-name', 'Имя', 'Ваше имя*', 'name', 'mb-2')
+        +Input('banner-phone', 'Номер телефона:', 'Ваш номер телефона*', 'phone')
+
+        footer.banner-buttons.grid-container.cols-2.mt-3
+            +Button('black', '', 'Хочу авто')
+            +Button('light', '', 'Про W8 Shipping')

@@ -1,14 +1,17 @@
 -
     const navbarItems = [
-        {href: 'index.html', text: 'Головна', active: 'active'},
-        {href: 'catalog-avto.html', text: 'Каталог авто', active: ''},
-        {href: 'catalog-lotov.html', text: 'Каталог лотів', active: ''},
-        {href: 'blog.html', text: 'Блог', active: ''},
-        {href: 'marks.html', text: 'Марки', active: ''}
+        {href: 'index.html', text: 'Головна', icon: 'user', active: 'active'},
+        {href: 'catalog-auto.html', text: 'Каталог авто', icon: 'user', active: ''},
+        {href: 'catalog-lotov.html', text: 'Каталог лотів', icon: 'user', active: ''},
+        {href: 'blog.html', text: 'Блог', icon: 'user', active: ''},
+        {href: 'marks.html', text: 'Марки', icon: 'user', active: ''}
     ]
 
-nav.navbar#navbar
-    ul.navbar-list.flex-container
+nav#navbar.navbar
+    ul.navbar-list.flex-container.space-between.row.column-msd.row-ld
         each item in navbarItems
-            li.navbar-item.ml-2.mr-2(class=item.active)
-                a.navbar-link.text.medium(href=item.href)=item.text
+            li.navbar-item.mb-msd-3.mb-ld-0.mh-ld-2(class=item.active)
+                a.navbar-link.mh-a(href=item.href)
+                    span.favicon.m-a
+                        +Icon(item.icon, '#231f1f')
+                    span.text.text-m.bold.mh-a=item.text

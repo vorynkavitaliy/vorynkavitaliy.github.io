@@ -1,8 +1,9 @@
-footer.footer.mt-5#footer
-    include ./components/footer-header
+footer#footer.footer
     
     .container
-        include ./components/footer-main
+        .morph-bg.p-2.radius-2
+            include ./components/footer-header
+            include ./components/footer-main
 
-        .policy.p-1
-            p.text.text-s.center ©ТОВ "Глобал Інтер Трейдінг". This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+        .ph-1.pv-4
+            p.text.text-s.medium.center ©ТОВ "Глобал Інтер Трейдінг". This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.

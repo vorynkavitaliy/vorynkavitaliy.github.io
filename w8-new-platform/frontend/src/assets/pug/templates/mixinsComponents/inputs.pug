@@ -1,0 +1,20 @@
+mixin Input(id, text, placeholder, name, otherClasses, label = true)
+    div.input-container(class=otherClasses)
+        if label === true
+            label(for=id)=text
+
+        .input-wrap
+            .input-box
+                input(id=id, placeholder=placeholder name=name)
+
+mixin InputRadio(id, text, name, textClass)
+    label.input-radio-container(class=textClass, for=id)
+        input(type="radio", name=name, id=id, hidden)
+        span.radio-check
+        =text
+
+mixin InputSearch(text, icon)
+    form(action="#")
+        fieldset.flex-container.align-center
+            +Icon(icon, '#3E3E3E')
+            input(type="text" placeholder=text)

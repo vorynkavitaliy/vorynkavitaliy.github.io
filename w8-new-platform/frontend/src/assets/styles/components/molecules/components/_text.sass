@@ -1,50 +1,79 @@
 .head-1
-    font-size: 3.889rem
+    font-size: rem(70px, $dw-ld)
 
 .head-2
     font-size: 3.056rem
-    
+
 .text
-    font-size: 1rem //18px
-    line-height: 0.8em
+    font-size: rem(18px, $dw-ld)
+    line-height: 1.1em
     font-weight: 400
-    
+    font-family: $font-regular
+
     //size
+    &-xxs
+        font-size: rem(12px, $dw-ld)
+
     &-xs
-        font-size: 0.667rem //12px
+        font-size: rem(13px, $dw-ld)
 
     &-s
-        font-size: 0.78rem //14px
+        +font-size($msd: 10px, $ld: rem(14px, $dw-ld))
+
+    &-ms
+        font-size: rem(15px, $dw-ld)
 
     &-m
-        font-size: 0.89rem //16px
-    
+        +font-size($msd: 10px,$ld: rem(16px, $dw-ld))
+
     &-l
-        font-size: 1.1rem //20px
-    
+        font-size: rem(20px, $dw-ld)
+
+    &-ml
+        font-size: rem(22px, $dw-ld)
+
+    &-xl
+        font-size: rem(24px, $dw-ld)
+
     &-large
-        font-size: 1.667rem //30px
+        font-size: rem(30px, $dw-ld)
 
         &-s
-            font-size: 1.389rem //25px
-
+            font-size: rem(25px, $dw-ld)
         &-l
-            font-size: 1.944rem //35px
+            font-size: rem(35px, $dw-ld)
 
         &-xl
-            font-size: 2.222rem //40px
-
+            font-size: rem(40px, $dw-ld)
 
 .text, .head-1, .head-2
     //weight
+    &.black
+        font-family: $font-black
+
     &.bold
-        font-weight: bold
-    
+        font-family: $font-bold
+
+    &.semibold
+        font-family: $font-semibold
+
     &.medium
-        font-weight: 500
-    
+        font-family: $font-medium
+
     &.ligth
-        font-weight: 300
+        font-family: $font-light
+
+    &.black-value
+        font-family: $font-Value-black
+
+    &.bold-value
+        font-family: $font-Value-bold
+
+    &.medium-value
+        font-family: $font-Value-medium
+
+    &.regular-value
+        font-family: $font-Value-regular
 
     //color
     &.pink
@@ -55,12 +84,20 @@
 
         &-1
             color: $text-grey
-
+        &-2
+            color: $grey-2
+        &-3
+            color: $ligth-black
+        &-4
+            color: #565656
     &.green
         color: $green
 
     &.white
         color: $white
+
+    &.main
+        color: $black
 
     //type
     &.center
@@ -74,4 +111,6 @@
 
     &.lowercase
         text-transform: lowercase
-    
+
+    &.block
+        display: block

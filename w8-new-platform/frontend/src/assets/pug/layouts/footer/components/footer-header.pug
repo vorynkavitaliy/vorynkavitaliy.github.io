@@ -7,14 +7,14 @@
         {city: 'Дніпро', address: 'пр-т, Олександра Поля, 100', href: '#'}
     ]
 
-header.footer-header.pt-2.pb-2
-    .container
-        ul.location-list.flex-container.space-between.align-center
-            each locate in locationArray
-                .location-item.flex-container.align-center
-                    span.marker.mr-1
-                        img(src="/img/icons/location.svg", alt="locate")
-                    
-                    .text 
-                        h5.text.text-l.bold.mb-1=locate.city
-                        a.text.text-s.grey(href=locate.href)=locate.address 
+header.footer-header
+    ul.location-list.flex-container.space-between-ld.align-center
+        each locate in locationArray
+            li.location-item.flex-container.align-center.mh-ld-1
+                span.marker.mr-1
+                    img(src="./img/icons/location.svg", alt="locate")
+                
+                .text 
+                    h5.text.bold-value=locate.city
+                    span.text.text-xs.regular-value.grey-2(href=locate.href)=locate.address
+                    a.link.text.text-s.regular-value.mt-1 Побудувати маршрут

@@ -1,0 +1,25 @@
+section.main-form.mv-6
+    .container
+        .morph-bg.radius-2.p-5
+            .form-wrapper.flex-container.sapce-between
+
+                .section-form.flex-container.column.col-5
+                    h3.form-title.text.text-ml.bold-value.uppercase Отримайте варіанти авто з повним розрахунком під ваш бюджет
+
+                    .form-inner.col-10.mt-2
+                        p.form-subtitle.text.text-m.regular-value.col-11 Отримайте у Viber або Telegram від 3-х варіантів автівок, які зараз продаються на аукціонах в США
+
+                        form.mt-3
+                            +Input('form-name-footer', 'Имя', 'Ваше имя*', 'name', 'mb-3')
+                            +Input('form-phone-footer', 'Номер телефона:', 'Ваш номер телефона*', 'phone', 'mb-3')
+                            +Input('form-budget-footer', 'Бюджет, USD:', 'Вкажіть Ваш бюджет*', 'budget', 'mb-3')
+                            +Input('form-model-footer', 'Марка та модель авто:', 'Вкажіть бажану марку та модель авто*', 'model', 'mb-3')
+                            
+                            +InputRadio('form-radio-ready', 'Готовий купити в найближчий час', 'form-radio', 'mb-3')
+                            +InputRadio('form-radio-notready', 'Немає всієї суми для купівлі авто', 'form-radio', 'mb-3')
+
+                            .flex-container.mt-3
+                                +Button('black', 'col-12', 'Надіслати заявку')
+
+                .section-picture.radius-3.col-7
+                    img(src="./img/jpg/blog-pic-1.jpg", alt="picture")

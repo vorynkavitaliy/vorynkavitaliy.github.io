@@ -1,0 +1,45 @@
+.header
+    background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+    box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
+    height: 100%
+    overflow: auto
+    +method(position, $sxd: static, $msd: fixed, $ld: static)
+
+    +screen($dw-ld)
+        height: auto
+        width: 100%
+
+    @import './components/logo'
+    @import './components/search-form'
+    @import './components/language'
+
+    .container, .flex-container
+        height: 100%
+
+        +screen($dw-ld)
+            height: auto
+
+    .cabinet-button
+        color: #3E3E3E
+        margin-left: rem(14px)
+
+        +screen($dw-msd)
+            margin-left: 0
+            margin-bottom: 20px
+
+        +screen($dw-ld)
+            margin-bottom: 0
+
+        .text
+            display: none
+
+            +screen($dw-ld)
+                display: block
+
+    .favicon
+        height: rem(36px, $dw-ld)
+        width: rem(36px, $dw-ld)
+        border-radius: rem(7px, $dw-ld)
+
+        svg
+            width: 50%

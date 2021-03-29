@@ -1,0 +1,6 @@
+mixin AutoMarks(item, classes)
+    .auto-mark-item(class=classes)
+        .picture.mv-a
+            +Icon(item.icon, '#000')
+
+        p.text.text-m.bold-value.grey-3.center.mt-2=item.name

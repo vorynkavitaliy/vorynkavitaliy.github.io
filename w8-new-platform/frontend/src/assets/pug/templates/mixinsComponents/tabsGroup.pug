@@ -1,0 +1,8 @@
+mixin TabsGroup(array, classes)
+    ul.tabs-group.grid-container(class=`cols-${array.length} ${classes}`)
+        each item in array
+            li.tab-item
+                if (item.active)
+                    +Button(item.color, item.active, item.text)
+                else
+                    +Button(item.color, '', item.text)

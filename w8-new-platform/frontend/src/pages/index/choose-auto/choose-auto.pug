@@ -1,0 +1,153 @@
+-
+    const imageSrc = './img/jpg/'
+    const imageLots1 = './img/jpg/lots/'
+    const tabsArray = [
+        {color: 'light', text: 'За бюджетом'},
+        {color: 'light', text: 'За кузовом', active: 'active'},
+        {color: 'light', text: 'За маркою'}
+    ]
+
+    const marksArray = [
+        {icon: `vw`, name: 'Volkswagen'},
+        {icon: `bmw`, name: 'BMW'},
+        {icon: `audi`, name: 'Audi'},
+        {icon: `mitsubishi`, name: 'Mitsubishi'},
+        {icon: `mercedes-benz`, name: 'Mercedes-Benz'},
+        {icon: `chevrolet`, name: 'Chevrolet'},
+        {icon: `acura`, name: 'Acura'},
+        {icon: `vw`, name: 'Volkswagen'},
+        {icon: `bmw`, name: 'BMW'},
+        {icon: `audi`, name: 'Audi'},
+        {icon: `mitsubishi`, name: 'Mitsubishi'},
+    ]
+
+    const bodyArray = [
+        {image: `${imageSrc}roadover.jpg`, name: 'Позашляховик'},
+        {image: `${imageSrc}picup.jpg`, name: 'Пікап'},
+        {image: `${imageSrc}sedan.jpg`, name: 'Седан'},
+        {image: `${imageSrc}miniven.jpg`, name: 'Мінівен'},
+        {image: `${imageSrc}cupe.jpg`, name: 'Купе'},
+        {image: `${imageSrc}universal.jpg`, name: 'Універсал'},
+        {image: `${imageSrc}cabri.jpg`, name: 'Кабріолет'},
+        {image: `${imageSrc}sportcar.jpg`, name: 'Спорткар'},
+        {image: `${imageSrc}crossover.jpg`, name: 'Кросовер'},
+        {image: `${imageSrc}premium.jpg`, name: 'Преміальні авто'},
+    ]
+
+
+
+    const newLots1 = [
+        {
+            name: '2019 Volkswagen Arteon',
+            price: '21 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageLots1}lot-1`, `${imageLots1}lot-2`, `${imageLots1}lot-3`, `${imageLots1}lot-4`
+            ],
+            articul: '1243556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Tiguan',
+            price: '13 655 USD',
+            offsetPrice: '5 100 USD',
+            cars: [
+                `${imageLots1}lot-1`, `${imageLots1}lot-2`, `${imageLots1}lot-3`, `${imageLots1}lot-4`
+            ],
+            articul: '2675453556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Atlas',
+            price: '33 320 USD',
+            offsetPrice: '1 100 USD',
+            cars: [
+                `${imageLots1}lot-1`, `${imageLots1}lot-2`, `${imageLots1}lot-3`, `${imageLots1}lot-4`
+            ],
+            articul: '123543556',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Golf R',
+            price: '53 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageLots1}lot-1`, `${imageLots1}lot-2`, `${imageLots1}lot-3`, `${imageLots1}lot-4`
+            ],
+            articul: '876523456',
+            timer: '2дн. 16год. 38хв. 45с',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        }
+    ]
+
+    const tabsCountryArray = [
+        {color: 'light', text: 'Всі', active: 'active'},
+        {color: 'light', text: 'США'},
+        {color: 'light', text: 'Японія'},
+        {color: 'light', text: 'Німеччина'},
+    ]
+
+section.choose-auto.pv-6(data-scroll='smoothscroll')
+    .container
+        .flex-container.space-center.mb-5
+            h4.text.text-xl.bold-value Розумний підбір автомобіля:
+
+
+        +TabsGroup(tabsArray, 'choose-main-tabs mh-a mb-3')
+
+        .auto-budget.radius-4.p-3
+            span.text.bold-value Оберіть діапазон цін
+
+            div#input-slider.mt-4
+
+            .grid-container.cols-4.offset-3.mv-4
+                each car in newLots1
+                    +newLots(car)
+
+            .flex-container.space-center
+                +Button('black', 'col-2', 'Показати ще авто')
+
+        .auto-body.radius-4.p-3
+            span.text.bold-value Оберіть тип кузова
+
+            .grid-container.cols-5.offset-3.mv-4
+                each item in bodyArray
+                    +AutoBody(item, 'radius-3 p-2')
+
+            .flex-container.space-center
+                +Button('black', 'col-2', 'Переглянути авто')
+
+        .auto-mark.radius-4.p-3
+            span.text.bold-value Оберіть марку
+
+            ul.tabs-group.location-group.flex-container.widthfc.mt-3
+                each item, id in tabsCountryArray
+                    li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray.length - 1 && 'last-child'}`)
+                        =item.text
+
+                li.search-item.input-search
+                    +InputSearch('Введіть марку авто', 'loop')
+
+            .grid-container.cols-6.offset-3.mv-4
+                each item in marksArray
+                    +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
+
+                .auto-mark-more-btn.flex-container.align-center.space-center
+                    p.text.text-m.bold-value.grey-3.center Показати всі марки
+
+            .flex-container.space-center
+                +Button('black', 'col-2', 'Пошук авто')

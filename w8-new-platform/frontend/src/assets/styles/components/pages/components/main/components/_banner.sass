@@ -1,0 +1,50 @@
+.banner
+    min-height: calc( 100vh - 6.6rem )
+    background-color: $dark-white
+
+    &-form
+        width: 100%
+        position: relative
+        z-index: 2
+
+        .subtitle
+            line-height: 1.3em
+            width: 100%
+            +screen($dw-ld)
+                width: 70%
+
+        form
+            width: 100%
+            +screen($dw-ld)
+                width: 70%
+
+    &-buttons
+        grid-gap: 0px 1.667rem
+
+    &-slider
+        position: relative
+
+        .slider-triangle
+            position: absolute
+            top: 8%
+            left: 50%
+            width: 100%
+            transform: translate(-50%, -50%)
+            z-index: 0
+
+            +screen($dw-ld)
+                top: 50%
+                left: 40%
+                width: 115%
+
+    &-carousel
+        overflow: hidden
+        position: relative
+        +screen($dw-ld)
+            width: 115%
+            left: -10%
+            z-index: 1
+
+        &-slide
+            position: relative
+            min-width: 100%

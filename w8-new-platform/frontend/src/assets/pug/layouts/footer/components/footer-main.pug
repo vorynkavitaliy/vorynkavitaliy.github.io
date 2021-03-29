@@ -1,49 +1,48 @@
 -
-    const iconPath = '/img/media-icons'
+    const iconPath = './img/media-icons'
     const socils = [
-        {name: 'telegram', icon: `${iconPath}/telegram.svg`, iconHover: `${iconPath}/hover/telegram.svg`, href: '#'},
-        {name: 'viber', icon: `${iconPath}/viber.svg`, iconHover: `${iconPath}/hover/viber.svg`, href: '#'},
-        {name: 'messenger', icon: `${iconPath}/messenger.svg`, iconHover: `${iconPath}/hover/messenger.svg`, href: '#'},
-        {name: 'linkedIn', icon: `${iconPath}/linkedIn.svg`, iconHover: `${iconPath}/hover/linkedIn.svg`, href: '#'},
-        {name: 'tik-tok', icon: `${iconPath}/tik-tok.svg`, iconHover: `${iconPath}/hover/tik-tok.svg`, href: '#'},
-        {name: 'instagram', icon: `${iconPath}/instagram.svg`, iconHover: `${iconPath}/hover/instagram.svg`, href: '#'},
-        {name: 'facebook', icon: `${iconPath}/facebook.svg`, iconHover: `${iconPath}/hover/facebook.svg`, href: '#'},
-        {name: 'youtube', icon: `${iconPath}/youtube.svg`, iconHover: `${iconPath}/hover/youtube.svg`, href: '#'}
+        {name: 'telegram-2', href: '#'},
+        {name: 'viber', href: '#'},
+        {name: 'messenger', href: '#'},
+        {name: 'linkedIn', href: '#'},
+        {name: 'tik-tok', href: '#'},
+        {name: 'instagram', href: '#'},
+        {name: 'facebook', href: '#'},
+        {name: 'youtube', href: '#'}
     ]
 
-main.footer-main.pt-1.pb-1
+main.footer-main.pv-1.ph-2
 
     .flex-container.space-between
         article.contacts.col-2.flex-container.column
-            h4.text.text-large.bold.mt-6.mb-3 Наші контакти
+            h4.text.text-xl.bold-value.mt-6.mb-3 Наші контакти
             
             ul.contacts-list
                 li.contacts-item.mb-3
                     a.contacts-link.phone.text.text-l.grey-1(href="")
                         .favicon
-                            img(src="/img/icons/phone.svg", alt="phone icon")
+                            +Icon('phone', '#000')
                         .spacer
-                        span +38 (067) 444 88 20
+                        span.text +38 (067) 444 88 20
  
                 li.contacts-item.mb-1
                     a.contacts-link.email.text.text-l.grey-1(href="")
                         .favicon
-                            img(src="/img/icons/email.svg", alt="email icon")
+                            +Icon('email', '#000')
                         .spacer
-                        span info@w8shipping.ua
+                        span.text info@w8shipping.ua
 
 
 
         article.media.col-6.ml-a.mr-a.flex-container.column
-            h4.text.text-large.bold.mt-6.mb-3 Ми в мессенджерах, соціальних мережах
+            h4.text.text-xl.bold-value.mt-6.mb-3 Ми в мессенджерах, соціальних мережах
 
             .social
                 ul.social-list.m-a.flex-container.align-center.space-between
                     each link in socils
                         li.social-item
                             a.social-link.icon(href=link.href, class=link.name)
-                                img.middle(src=link.icon alt=link.name)
-                                img.middle.hover(src=link.iconHover alt=link.name)
+                                +Icon(link.name, '#000')
 
         article.flag.col-2
-            img(src='/img/png/flags.png' alt='w8 and copart')
+            img(src='./img/png/flags.png' alt='w8 and copart')

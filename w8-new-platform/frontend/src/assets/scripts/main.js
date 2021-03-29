@@ -1,21 +1,15 @@
-// const testButton = document.querySelector('.test-button')
-// const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-// const url = 'https://thankee.devsystem.space/api/signup'
+import './base'
+import './functions'
+import './components/components'
 
-// testButton.addEventListener('click', async () => {
-//     const formData = new FormData()
-//     formData.append('name', 'abc123')
+$.toggler('.auto-body-item', function () {
+    this.classList.toggle('active')
+})
 
-//     const responce = await fetch(url, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
+$.toggler('.auto-mark-item', function () {
+    this.classList.toggle('active')
+})
 
-//         },
-//         body: formData
-//     })
-
-//     const result = responce.json()
-
-//     console.log(result);
-// })
+$.toggler('.btn-icon', function () {
+    this.classList.toggle('active')
+})

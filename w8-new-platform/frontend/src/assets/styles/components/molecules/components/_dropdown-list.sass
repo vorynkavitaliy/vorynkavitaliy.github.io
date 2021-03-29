@@ -1,0 +1,68 @@
+.dropdown
+    &-block
+        background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+        box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+        border-radius: rem(7px, $dw-ld)
+        position: relative
+
+        .current-link
+            background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+            box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
+            border-radius: rem(7px, $dw-ld)
+            padding: rem(15px, $dw-ld) rem(25px, $dw-ld)
+            color: $pink
+            font-size: rem(16px, $dw-ld)
+            font-family: $font-bold
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: space-between
+            position: relative
+            z-index: 4
+
+            &::after
+                content: ''
+                display: block
+                border-top: 7px solid #000
+                border-left: 5px solid transparent
+                border-right: 5px solid transparent
+                border-bottom: 0px solid transparent
+                margin-left: rem(10px, $dw-ld)
+                transition: transform 0.2s ease
+
+            &.active, &:active
+                background: linear-gradient(270.65deg, #FFFFFF -9.34%, #FFFFFF 108.28%)
+                box-shadow: inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+            
+            &.active
+                &::after
+                    transform: rotate(180deg)
+
+    &-list
+        background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+        box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+        display: flex
+        flex-direction: column
+        position: absolute
+        border-bottom-left-radius: rem(7px, $dw-ld)
+        border-bottom-right-radius: rem(7px, $dw-ld)
+        top: 90%
+        z-index: 3
+        width: 100%
+        overflow: hidden
+        height: 0
+        transition: height 0.2s ease
+
+    &-link
+        padding: rem(15px, $dw-ld) rem(25px, $dw-ld)
+        font-size: rem(16px, $dw-ld)
+        font-family: $font-bold
+        display: block
+
+        transition: all 0.2s ease
+        cursor: pointer
+
+        &:active
+            background: linear-gradient(270.65deg, #FFFFFF -9.34%, #FFFFFF 108.28%)
+            box-shadow: inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+            border-radius: rem(7px, $dw-ld)

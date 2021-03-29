@@ -1,0 +1,25 @@
+section.blogs.mt-10.mb-9
+    .container
+        h4.text.text-xl.bold-value.center.mb-5 Новинки у нашому блозі
+
+        .grid-container.cols-3.offset-4
+            each blog in [1, 2, 3]
+                .blogs-item.morph-bg.radius-2
+                    header.blogs-header.mb-1
+                        img(src="./img/jpg/blog-pic-1.jpg", alt="blog-pic")
+                    
+                    .blogs-body.ph-3.pv-2
+                        .details.flex-container.space-between.mb-2
+                            span.views.text.text-xs.regular-value.grey.icon
+                                i.favicon.mr-1
+                                    +Icon('eye', '#8C8C8C')
+                                ='120'
+
+                            span.date.text.text-xs.regular-value.grey 14.01.2021
+                    
+                        h3.text.text-l.bold-value.mb-1 ТОП-10 холостяцьких тачок для пригону з США від W8shipping
+
+                        p.text.text-s.regular-value У соцмережах клієнти W8shipping часто просили скласти список кращих машин для холостяків і неодружених для пригону з Америки.
+        
+        .flex-container.space-center.mt-5
+            +Button('light', 'col-2', 'Більше новин')

@@ -1,0 +1,41 @@
+-
+    const tabsTeamArray = [
+        {color: 'light', text: 'Всі', active: 'active'},
+        {color: 'light', text: 'Київ'},
+        {color: 'light', text: 'Харьків'},
+        {color: 'light', text: 'Одеса'},
+        {color: 'light', text: 'Львів'},
+        {color: 'light', text: 'Дніпро'}
+    ]
+
+    const dropdownTeamList = ['Тільки керівники', 'Відділ продаж']
+
+    const team = []
+
+    for (let i = 0; i < 10; i++)
+        team.push(i)
+
+section.team.mt-6.mb-10
+    .container
+        h4.text.text-xl.bold-value.center.mb-3 Наша команда
+        
+        .flex-container.mb-3
+            ul.tabs-group.location-group.grid-container(class=`cols-${tabsTeamArray.length} m-a`)
+                each item in tabsTeamArray
+                    li.tab-item(class=`${item.active ? item.active : ''}`)
+                        =item.text
+            
+            +Dropdown('Всі автоексперти', dropdownTeamList)
+        
+        .grid-container.cols-5.offset-2
+            each item in team
+                .team-item.morph-bg.radius-2
+                    header.team-avatar.radius-2
+                        img(src="./img/jpg/team-1.jpg", alt="team")
+                    .team-body
+                        h4.text.bold-value.mb-1.center Петро <br/> Роменський
+                        
+                        p.text.text-s.regular-value.center Старший автоексперт
+        
+        .flex-container.space-center.mt-4
+            a.btn.btn-light Показати всю команду

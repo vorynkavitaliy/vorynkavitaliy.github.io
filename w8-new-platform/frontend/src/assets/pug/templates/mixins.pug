@@ -1,5 +1,33 @@
-mixin Input(id, text, placeholder, name)
-    div.input-container
-        label(for=id)=text
-        input(id=id, placeholder=placeholder name=name)
+include ./mixinsComponents/icon
+include ./mixinsComponents/buttons
+include ./mixinsComponents/inputs
+include ./mixinsComponents/tabsGroup
+include ./mixinsComponents/dropdown
+include ./mixinsComponents/AutoBody
+include ./mixinsComponents/AutoMarks
+include ./mixinsComponents/newLotComponent
+include ./mixinsComponents/newAutoComponent
 
+mixin BtnIcon(el, icon, text, url)
+    case el
+        when 'span'
+            span(class="flex-container align-center btn btn-icon")
+                i.favicon
+                    +Icon(icon)
+                span.text.text-xs.medium=text
+        when 'button'
+            button(class="flex-container align-center btn btn-icon")
+                i.favicon
+                    +Icon(icon)
+                span.text.text-xs.medium=text
+        when 'a'
+            a(class="flex-container align-center btn btn-icon", href=url)
+                i.favicon
+                    +Icon(icon)
+                span.text.text-xs.medium=text
+        default
+            p(class="flex-container align-center btn btn-icon")
+                i.favicon
+                    +Icon(icon)
+                span.text.text-xs.medium=text
+        

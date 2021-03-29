@@ -1,0 +1,10 @@
+-
+    const cars = ['audi', 'bmw', 'cadilac', 'lexus', 'mersedes', 'porsche', 'range', 'toyota', 'vw']
+
+.banner-slider
+    img.slider-triangle(src=`./img/svg/triangle.svg`, alt='triangle')
+    .banner-carousel
+        ul.carousel-list.flex-container
+            each car in cars 
+                li.carousel-slide
+                    img(src=`./img/png/cars/${car}.png`, alt=car)

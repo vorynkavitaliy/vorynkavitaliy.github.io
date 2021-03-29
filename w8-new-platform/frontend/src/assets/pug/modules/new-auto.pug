@@ -1,0 +1,66 @@
+-
+    const imageCars = './img/jpg/cars/'
+    const newCars = [
+        {
+            name: '2019 Volkswagen Arteon',
+            price: '21 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageCars}vw-arteon`, `${imageCars}vw-atlas`, `${imageCars}vw-golf`, `${imageCars}vw-tiguan`
+            ],
+            articul: '1243556',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Tiguan',
+            price: '13 655 USD',
+            offsetPrice: '5 100 USD',
+            cars: [
+                `${imageCars}vw-tiguan`, `${imageCars}vw-atlas`, `${imageCars}vw-golf`, `${imageCars}vw-arteon`
+            ],
+            articul: '2675453556',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Atlas',
+            price: '33 320 USD',
+            offsetPrice: '1 100 USD',
+            cars: [
+                `${imageCars}vw-atlas`, `${imageCars}vw-arteon`, `${imageCars}vw-golf`, `${imageCars}vw-tiguan`
+            ],
+            articul: '123543556',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        },
+
+        {
+            name: '2019 Volkswagen Golf R',
+            price: '53 650 USD',
+            offsetPrice: '3 100 USD',
+            cars: [
+                `${imageCars}vw-golf`, `${imageCars}vw-atlas`, `${imageCars}vw-arteon`, `${imageCars}vw-tiguan`
+            ],
+            articul: '876523456',
+            url: '#',
+            volume: '2.0 L',
+            body: 'Седан'
+        }
+    ]
+
+section.new-auto.pv-5(data-scroll='smoothscroll')
+    .container
+        h4.text.text-xl.bold-value.center.mb-5 Нові автомобілі
+
+        .grid-container.cols-msd-2.cols-lmd-3.cols-ld-4.offset-3
+            each car in newCars
+                +newAuto(car)
+
+        .flex-container.space-center.mt-6
+            +Button('light', 'col-2', 'Більше пропозицій')

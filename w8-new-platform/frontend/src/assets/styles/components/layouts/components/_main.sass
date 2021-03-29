@@ -1,2 +1,11 @@
 &-main
     display: block
+    width: 100%
+    
+    +screen($dw-msd)
+        width: calc(100% - 126px)
+        margin-left: auto
+
+    +screen($dw-ld)
+        width: 100%
+        margin: 0

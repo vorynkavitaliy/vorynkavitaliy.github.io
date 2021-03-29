@@ -2,29 +2,107 @@
     @media screen and ( min-width: $dw )
         @content
 
-=font-size($x, $s, $m, $l)
-    font-size: $x
+=screenMax($dw)
+    @media screen and ( max-width: $dw )
+        @content
 
-    +screen($dw-ssd)
-        font-size: $s
+=font-size($sxd: 1rem, $xd: false, $sd: false, $msd: false, $md: false, $lmd: false, $ld: false, $xld: false)
+    font-size: $sxd
 
-    +screen($dw-md)
-        font-size: $m
-    
-    +screen($dw-ld)
-        font-size: $l
+    @if $xd != false
+        +screen($dw-xd)
+            font-size: $xd
 
-=method($type, $x, $s, $m, $l)
-    #{$type}: $x
+    @if $sd != false
+        +screen($dw-sd)
+            font-size: $sd
 
-    +screen($dw-ssd)
-        #{$type}: $s
+    @if $msd != false
+        +screen($dw-msd)
+            font-size: $msd
 
-    +screen($dw-md)
-        #{$type}: $m
-    
-    +screen($dw-ld)
-        #{$type}: $l
+    @if $md != false
+        +screen($dw-md)
+            font-size: $md
+
+    @if $lmd != false
+        +screen($dw-lmd)
+            font-size: $lmd
+
+    @if $ld != false
+        +screen($dw-ld)
+            font-size: $ld
+
+    @if $xld != false
+        +screen($dw-xld)
+            font-size: $xld
+
+=method($type, $sxd: false, $xd: false, $sd: false, $msd: false, $md: false, $lmd: false, $ld: false, $xld: false)
+    #{$type}: $sxd
+
+    @if $xd != false
+        +screen($dw-xd)
+            #{$type}: $xd
+
+    @if $sd != false
+        +screen($dw-sd)
+            #{$type}: $sd
+
+    @if $msd != false
+        +screen($dw-msd)
+            #{$type}: $msd
+
+    @if $md != false
+        +screen($dw-md)
+            #{$type}: $md
+
+    @if $lmd != false
+        +screen($dw-lmd)
+            #{$type}: $lmd
+
+    @if $ld != false
+        +screen($dw-ld)
+            #{$type}: $ld
+
+    @if $xld != false
+        +screen($dw-xld)
+            #{$type}: $xld
+
+=animation($name)
+    @keyframes #{$name}
+        @content
+
+@function rem($size, $dw: false)
+
+    @if $dw == $dw-xd
+        @return $size / 12px * 1rem
+
+    @if $dw == $dw-sd
+        @return $size / 12px * 1rem
+
+    @if $dw == $dw-msd
+        @return $size / 12px * 1rem
+
+    @if $dw == $dw-md
+        @return $size / 14px * 1rem
+
+    @if $dw == $dw-lmd
+        @return $size / 16px * 1rem
+
+    @if $dw == $dw-ld
+        @return $size / 18px * 1rem
+
+    @if $dw == $dw-xld
+        @return $size / 20px * 1rem
+
+    @else
+        @return $size / 10px * 1rem
+
+@function em($size)
+    @return $size / 18px * 1em
+
+@function vw($size, $dw)
+    @return $size / $dw * 100vw
 
 =font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false )
     @font-face
@@ -32,16 +110,16 @@
         font-weight: $weight
         font-style: $style
 
-        @if $asset-pipeline == true 
-            src: font-url('#{$file-path}#{$font-family}.eot'),
-            src: font-url('#{$file-path}#{$font-family}.eot?#iefix') format('embedded-opentype')
-            src: font-url('#{$file-path}#{$font-family}.woff') format('woff')
-            src: font-url('#{$file-path}#{$font-family}.ttf') format('truetype')
+        @if $asset-pipeline == true
+            src: font-url($file-path+$font-family+'.eot/'),
+            src: font-url($file-path+$font-family+'.eot?#iefix') format('embedded-opentype')
+            src: font-url($file-path+$font-family+'.woff/') format('woff')
+            src: font-url($file-path+$font-family+'.ttf/') format('truetype')
         @else
-            src: url('#{$file-path}#{$font-family}.eot')
-            src: url('#{$file-path}#{$font-family}.eot?#iefix') format('embedded-opentype') 
-            src: url('#{$file-path}#{$font-family}.woff') format('woff') 
-            src: url('#{$file-path}#{$font-family}.ttf') format('truetype')
+            src: url($file-path+$font-family+'.eot/')
+            src: url($file-path+$font-family+'.eot?#iefix') format('embedded-opentype')
+            src: url($file-path+$font-family+'.woff/') format('woff')
+            src: url($file-path+$font-family+'.ttf/') format('truetype')
 
 =grid-cols($i)
     grid-template-columns: repeat(#{$i},1fr)
@@ -51,9 +129,9 @@
         width: #{$col-dw}
 
 =f-row($dw)
-    +screen($dw-md)
+    +screen($dw)
         flex-direction: row
 
 =f-column($dw)
-    +screen($dw-md)
+    +screen($dw)
         flex-direction: column

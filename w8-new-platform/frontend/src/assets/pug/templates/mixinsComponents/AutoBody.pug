@@ -1,0 +1,6 @@
+mixin AutoBody(item, classes)
+    .auto-body-item(class=classes)
+        .picture
+            img(src=item.image, alt=item.name)
+        
+        p.text.text-m.bold-value.grey-3.center=item.name

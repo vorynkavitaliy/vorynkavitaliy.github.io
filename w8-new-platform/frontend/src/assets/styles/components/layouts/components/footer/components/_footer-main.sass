@@ -3,11 +3,12 @@
         &-link
             display: flex
             align-items: center
-            
+
             .spacer
-                width: 5%
-                height: 1px
-                background-color: #DDDDDD
+                width: rem(1px, $dw-ld)
+                height: rem(7px, $dw-ld)
+                background-color: #D7D7D7
+                border-radius: rem(5px, $dw-ld)
                 margin: auto .5rem
 
             .favicon
@@ -18,7 +19,7 @@
                 &:hover
                     .favicon
                         animation: phoneAnim 0.5s ease infinite
-            
+
             &.email
                 &:hover
                     .favicon
@@ -29,24 +30,17 @@
 
         .social
             &-list
-                max-width: 90%
+                max-width: 75%
 
             &-link
-                width: 2.22rem
-                height: 2.22rem
-                background-color: #fff
+                width: rem(32px, $dw-ld)
+                height: rem(32px, $dw-ld)
                 border-radius: 50%
-                transition: background-color 0.2s ease
-                justify-content: center
-                position: relative
+                padding: rem(7px, $dw-ld)
 
-                .hover
-                    top: 50%
-                    left: 50%
-                    transform: translate(-50%, -50%)
-
-                &:hover
-                    background-color: $pink
+                &:active
+                    background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+                    box-shadow: inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
 
 @keyframes phoneAnim
     0%

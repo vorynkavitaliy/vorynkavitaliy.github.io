@@ -1,18 +1,76 @@
 &-header
-    background-color: $dark-white
+    width: 100%
+
+    &::after
+        display: block
+        margin: rem(2px, $dw-ld) auto 0
+        content: ''
+        height: rem(1px, $dw-ld)
+        width: 95%
+        background-color: #C1C1C1
 
     .location
+        &-list
+            flex-wrap: wrap
+
+            +screen($dw-ld)
+                flex-wrap: nowrap
         &-item
+            transition: all 0.2s ease
+            padding: rem(15px, $dw-ld) rem(10px, $dw-ld)
+            width: $col-12
+            +screen($dw-msd)
+                width: $col-6
+            +screen($dw-lmd)
+                width: $col-4
+            +screen($dw-ld)
+                width: auto
+
             .marker
                 display: block
-                width: 2.3rem
+                min-width: rem(36px, $dw-ld)
+                width: rem(36px)
+
+                +screen($dw-xd)
+                    min-width: rem(50px, $dw-ld)
+                    width: rem(50px)
+
+                +screen($dw-msd)
+                    min-width: rem(36px, $dw-ld)
+                    width: rem(36px, $dw-ld)
 
                 img
                     width: 100%
+            h5, span
+                transition: all 0.2s ease
+
+            .link
+                color: #3D3D3D
+                display: inline-block
+                opacity: 0
+                display: block
+
+                &::after
+                    display: block
+                    content: ''
+                    width: 100%
+                    height: rem(1px)
+                    background-color: #3D3D3D
 
             &:hover
+                background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+                box-shadow: -6px -6px 12px #FFFFFF, 4px 4px 12px rgba(174, 174, 192, 0.4)
+                border-radius: rem(7px, $dw-ld)
                 .marker
-                    animation: markerAmin 1.5s ease forwards
+                    min-width: rem(33px, $dw-ld)
+                h5
+                    font-size: rem(13px, $dw-ld)
+
+                span
+                    font-size: rem(12px, $dw-ld)
+
+                .link
+                    opacity: 1
 
 @keyframes markerAmin
     0%
@@ -23,9 +81,5 @@
         transform: translateY(10px) rotateY(0deg) scale(1, 0.8)
     60%
         transform: translateY(-5px) scale(1, 1)
-    72%
-        transform: translateY(0px) rotate(0deg)
-    90%
-        transform: translateY(0px) rotate(0deg)
     100%
-        
+        transform: translateY(0px) rotate(0deg)

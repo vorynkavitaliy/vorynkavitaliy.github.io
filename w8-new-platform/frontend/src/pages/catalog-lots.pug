@@ -1,18 +1,18 @@
 extends ../assets/pug/templates/base
 
 block variables 
-    - title = 'W8 Parser Platform - Catalog Auto'
-    - const crums = [{link: '/', text: 'Головна'}, {link: '/catalog-auto.html', text: 'Каталог Авто'}]
+    - title = 'W8 Parser Platform - Catalog Lots'
+    - const crums1 = [{link: '/', text: 'Головна'}, {link: '/catalog-lots.html', text: 'Каталог Лотів'}]
 
 block main
     main.page.page-catalog-auto-main
         .container
             ul.crums.mt-4
-                each crum in crums
+                each crum in crums1
                     li
                         a.text.text-s.grey(href=crum.link)=crum.text
 
-            h3.text.text-xl.bold-value.mt-1 Каталог авто
+            h3.text.text-xl.bold-value.mt-1 Каталог лотів
 
         include ../assets/pug/modules/search-block
 
@@ -22,7 +22,6 @@ block main
                     .col-3 
                         include ../assets/pug/layouts/filters/filter-auto
                     .col-9
-                        
-
+            
         include ../assets/pug/modules/new-auto
         include ../assets/pug/modules/new-lots

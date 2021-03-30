@@ -1,0 +1,13 @@
+.crums
+    display: flex
+    align-items: center
+
+    li
+        text-transform: capitalize
+
+        &::after
+            content: '/'
+        
+        &:last-child
+            &::after
+                display: none

@@ -13,7 +13,9 @@ $.getItem = (element, parent = null) => {
 }
 
 $.click = (element, callback) => {
-    return element.addEventListener('click', callback)
+    if (element) {
+        return element.addEventListener('click', callback)
+    }
 }
 
 $.removeClass = (element, className) => {

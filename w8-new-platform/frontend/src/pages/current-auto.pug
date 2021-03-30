@@ -1,0 +1,11 @@
+extends ../assets/pug/templates/base
+
+block variables 
+    - title = 'W8 Parser Platform - Current Auto'
+
+block main
+    main.page.page-current-auto-main
+        
+        include ./index/snapshot/snapshot-messengers-footer
+        include ../assets/pug/modules/new-auto
+        include ../assets/pug/modules/new-lots

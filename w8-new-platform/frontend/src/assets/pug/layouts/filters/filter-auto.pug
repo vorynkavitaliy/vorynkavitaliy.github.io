@@ -1,0 +1,99 @@
+-
+    const filtersArray = [
+        {
+            title: 'Додавання лоту',
+            filters: ['Седан', 'Седан', 'Седан', 'Седан']
+        },
+
+        {
+            title: 'Тип лоту',
+            filters: ['Седан', 'Седан', 'Седан', 'Седан']
+        },
+
+        {
+            title: 'Тип кузова',
+            filters: ['Седан', 'Хетчбек', 'Позашлязовик', 'Універсал', 'Мінівен']
+        },
+
+        {
+            title: 'Тип палива',
+            filters: ['Бензин', 'Дизель']
+        },
+
+        {
+            title: 'Тип приводу',
+            filters: ['Повний', 'Передній', 'Задній']
+        },
+
+        {
+            title: 'Об\'єм двигуна',
+            filters: ['1.2', '1.4', '1.6', '1.8', '2.0', '3.0', '4.0', '5.0']
+        },
+
+        {
+            title: 'Коробка передач',
+            filters: ['Автомат', 'Механіка', 'Робот']
+        },
+
+        {
+            title: 'Кількість циліндрів',
+            filters: ['2', '4', '6', '8']
+        },
+
+        {
+            title: 'Марка',
+            filters: ['Audi', 'Volkswagen', 'BWM', 'Acura']
+        },
+
+        {
+            title: 'Модель',
+            filters: []
+        },
+
+        {
+            title: 'Рік випуску',
+            filters: ['2000', '2001', '2002', '2003', '2004', '2005', '2006']
+        },
+
+        {
+            title: 'Одометр',
+            filters: []
+        },
+
+        {
+            title: 'Дата старту продаж',
+            filters: []
+        },
+
+        {
+            title: 'Тип документу права власності',
+            filters: []
+        },
+
+        {
+            title: 'Надходження авто',
+            filters: ['Україна', 'США', 'Канада', 'Європа']
+        },
+
+        {
+            title: 'Пошкодження',
+            filters: ['Пошкодженний', 'Без пошкоджень']
+        }
+    ]
+
+.filters.filter-auto 
+    .pv-3.ph-1.morph-bg.radius-2
+        .filters-parametrs
+            h4.text.bold.ph-2 Параметри фільтрації
+            .parametrs-list.p-2.mt-3.morph-bg-2
+                include ./components/parametrs-group
+            
+            each parameter in filtersArray
+                .parametrs-dropdown.p-2.mt-3.radius-2
+                    h4.parametrs-dropdown-title.text.text-m.bold.pb-3=parameter.title
+
+                    ul.parametrs-dropdown-list
+                        each param in parameter.filters
+                            li.parametrs-dropdown-item.checkbox.text.text-ms.regular-value.mb-2
+                                span.box
+                                =param

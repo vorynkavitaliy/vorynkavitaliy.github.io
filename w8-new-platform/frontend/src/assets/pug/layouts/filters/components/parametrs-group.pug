@@ -1,0 +1,27 @@
+-
+    const parameters = [
+        {
+            type: 'Тип палива:',
+            params: ['Дизель', 'Бензин']
+        },
+
+        {
+            type: 'Тип приводу:',
+            params: ['Повний']
+        },
+
+        {
+            type: 'Тип кузова',
+            params: ['Седан']
+        }
+    ]
+
+each parameter in parameters
+    .parametrs-group.mb-2
+        span.text.text-s.regular-value.grey=parameter.type
+        ul.flex-container.align-center.wrap
+            each param in parameter.params
+                li.parametrs-item.morph-bg-2.mr-2.mt-1.radius-2
+                    span.text.text-s.regular-value.pv-1.ph-2.block.radius-2=param
+                    button.button
+                        +Icon('close', '3E3E3E')

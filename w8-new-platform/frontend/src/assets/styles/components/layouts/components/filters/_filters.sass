@@ -1,0 +1,80 @@
+.filters
+
+    &-parametrs
+
+        .parametrs
+
+            // &-list
+
+            // &-group
+
+            &-item
+                display: flex
+                align-items: center
+
+                .text
+                    background: #F2F3F8
+                    border: 0.1px solid rgba(255, 255, 255, 0.47)
+                    box-shadow: inset -1.5px -1.5px 1.5px #FFFFFF, inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09)
+
+                .button
+                    padding: rem(13px, $dw-ld)
+                    svg
+                        width: rem(9px, $dw-ld)
+
+            &-dropdown
+                transition: all .2s ease
+                overflow: hidden
+                position: relative
+
+                &::before
+                    content: ''
+                    display: block
+                    width: rem(17px, $dw-ld)
+                    height: rem(2px, $dw-ld)
+                    background: #E0E0E0
+                    border-radius: rem(5px, $dw-ld)
+                    position: absolute
+                    top: 0
+
+                &.active
+                    background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+                    box-shadow: inset -6px -5px 16.5px #FFFFFF, inset 8px 8px 9.5px rgba(0, 0, 0, 0.1)
+
+                    .parametrs-dropdown-title
+                        &::after
+                            transform: rotate(180deg)
+
+                &-list
+                    max-height: rem(150px, $dw-ld)
+                    overflow: auto
+
+                    &::-webkit-scrollbar
+                        width: rem(10px, $dw-ld)
+                    &::-webkit-scrollbar-track
+                        background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+                        box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -6px -5px 16.5px #FFFFFF, inset 8px 8px 9.5px rgba(0, 0, 0, 0.1)
+                        border-radius: rem(100px, $dw-ld)
+
+                    &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb:hover
+                        background: $pink
+                        box-shadow: inset 4px 4px 2px rgba(0, 0, 0, 0.14)
+                        border-radius: rem(100px, $dw-ld)
+
+                &-title
+                    display: flex
+                    align-items: center
+                    cursor: pointer
+
+                    &::after
+                        content: ''
+                        display: block
+                        border-top: rem(7px, $dw-ld) solid #000
+                        border-left: rem(5px, $dw-ld) solid transparent
+                        border-right: rem(5px, $dw-ld) solid transparent
+                        border-bottom: 0px solid transparent
+                        margin-left: auto
+                        transition: transform 0.2s ease
+
+                        &-item
+                            cursor: pointer

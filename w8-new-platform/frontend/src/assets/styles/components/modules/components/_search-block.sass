@@ -1,0 +1,26 @@
+.search-block
+    .input-search
+        flex-grow: 1
+
+        input
+            padding: rem(18px, $dw-ld) 0
+    
+    .counter-per-page
+        .current-link
+            padding-top: rem(11px, $dw-ld)
+            padding-bottom: rem(11px, $dw-ld)
+
+    .catalog-state-btns
+        overflow: hidden
+
+        .btn
+            padding: rem(14px, $dw-ld)
+            svg
+                width: 28px
+
+            &.active, &:active
+                background: #F2F3F8
+                box-shadow: inset -1.5px -1.5px 1.5px #FFFFFF, inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09)
+
+                svg
+                    fill: $pink

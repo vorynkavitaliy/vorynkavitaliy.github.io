@@ -1,0 +1,21 @@
+-
+    const dropdownCounterList = ['12', '18', '100']
+
+section.search-block.mt-4
+    .container
+        .flex-container.align-center.space-between.morph-bg.p-2.radius-3
+            .input-search.radius-3
+                +InputSearch('Введіть марку авто', 'loop')
+            
+            .counter-per-page.mh-3
+                .flex-container.align-center
+                    span.text.text-l.grey.mr-2 Кількість на сторінці
+                    +Dropdown('24', dropdownCounterList)
+            
+            .catalog-state-btns.morph-bg.radius-2
+                .grid-container.cols-2
+                    button.btn.radius-2.active
+                        +Icon('tile', '#8C8C8C')
+                    
+                    button.btn.radius-2
+                        +Icon('table', '#8C8C8C')

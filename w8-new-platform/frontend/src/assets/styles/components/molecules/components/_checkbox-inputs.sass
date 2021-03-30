@@ -1,0 +1,33 @@
+.checkbox
+    display: flex
+    align-items: center
+    cursor: pointer
+
+    .box
+        margin-right: rem(8px, $dw-ld)
+        width: rem(16px, $dw-ld)
+        height: rem(16px, $dw-ld)
+        background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+        border: 0.138889px solid rgba(255, 255, 255, 0.47)
+        box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
+        border-radius: rem(2px, $dw-ld)
+        display: flex
+        align-items: center
+        justify-content: center
+
+        &::after
+            content: ''
+            display: block
+            width: 50%
+            height: 50%
+            opacity: 0
+            background: $pink
+            border: 0.138889px solid rgba(255, 255, 255, 0.47)
+            box-shadow: inset 4px 4px 2px rgba(0, 0, 0, 0.14)
+            border-radius: rem(2px, $dw-ld)
+            transition: opacity 0.2s ease
+
+    &.active
+        .box
+            &::after
+                opacity: 1

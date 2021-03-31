@@ -19,7 +19,7 @@ section.team.mt-6.mb-10
     .container
         h4.text.text-xl.bold-value.center.mb-3 Наша команда
         
-        .flex-container.mb-3
+        .flex-container.wrap.mb-3
             ul.tabs-group.location-group.grid-container(class=`cols-${tabsTeamArray.length} m-a`)
                 each item in tabsTeamArray
                     li.tab-item(class=`${item.active ? item.active : ''}`)
@@ -27,7 +27,7 @@ section.team.mt-6.mb-10
             
             +Dropdown('Всі автоексперти', dropdownTeamList)
         
-        .grid-container.cols-5.offset-2
+        .grid-container.cols-2.cols-md-3.cols-lmd-4.cols-ld-5.offset-2
             each item in team
                 .team-item.morph-bg.radius-2
                     header.team-avatar.radius-2

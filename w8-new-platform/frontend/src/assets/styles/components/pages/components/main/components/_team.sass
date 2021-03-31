@@ -1,10 +1,10 @@
 .team
     .container
         position: relative
-        
+
     &-item
         overflow: hidden
-        
+
     &-avatar
         position: relative
         padding: 50%
@@ -17,8 +17,14 @@
             left: 0
             width: 100%
     .dropdown-block
-        position: absolute
-        right: 0
+        margin-left: auto
+        margin-top: rem(10px, $dw-lmd)
+        +screen($dw-lmd)
+            margin-left: 0
+            margin-top: 0
+        +screen($dw-ld)
+            position: absolute
+            right: 0
 
     &-body
         padding: rem(19px)

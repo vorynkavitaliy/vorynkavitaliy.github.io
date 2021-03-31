@@ -7,10 +7,21 @@
         position: relative
         z-index: 2
 
+        +screenMax($dw-max-ld)
+            margin-bottom: rem(60px, $dw-lmd)
+            order: 1
+
+        .title
+            display: none
+            +screen($dw-ld)
+                display: block
+
         .subtitle
             line-height: 1.3em
             width: 100%
+            display: none
             +screen($dw-ld)
+                display: block
                 width: 70%
 
         form
@@ -24,16 +35,23 @@
     &-slider
         position: relative
 
+        .title, .subtitle
+            display: block
+            z-index: 1
+            position: relative
+            mix-blend-mode: multiply
+            +screen($dw-ld)
+                display: none
+
         .slider-triangle
             position: absolute
-            top: 8%
+            top: 50%
             left: 50%
             width: 100%
             transform: translate(-50%, -50%)
             z-index: 0
 
             +screen($dw-ld)
-                top: 50%
                 left: 40%
                 width: 115%
 

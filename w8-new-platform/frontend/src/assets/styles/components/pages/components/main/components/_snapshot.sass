@@ -2,9 +2,12 @@
     background-image: url(@/images/w8-snapshot.jpg)
     background-repeat: no-repeat
     background-size: cover
-
+    +screenMax($dw-max-ld)
+        display: none
     &-messengers
         &-body
+            +screenMax($dw-max-ld)
+                display: none
             .picture
                 position: relative
 
@@ -33,7 +36,8 @@
             background-color: $dark-white
             margin-top: rem(150px, $dw-ld)
             margin-bottom: rem(200px, $dw-ld)
-
+            +screenMax($dw-max-ld)
+                display: none
             .container
                 position: relative
 

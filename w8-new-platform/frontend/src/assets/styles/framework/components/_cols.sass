@@ -1,7 +1,7 @@
 .grid-container
     @for $i from 1 through 12
-            &.cols-#{$i}
-                +grid-cols($i)
+        &.cols-#{$i}
+            +grid-cols($i)
 
     &.cols
         @each $device, $width in $dw
@@ -10,7 +10,29 @@
                     @for $i from 1 through 12
                         &-#{$i}
                             +grid-cols($i)
+    // .col
+    //     @for $i from 1 through 12
+    //         &-#{$i}
+    //             @for $n from 1 through $i+1
+    //                 &:nth-child(#{$n})
+    //                     grid-column: #{(($n - 1)*$i) + 1}/#{$n*$i + 1}
 
+    .col
+        @for $i from 1 through 12
+            &-#{$i}
+                @for $n from 2 through 13
+                    &-#{$n}
+                        grid-column: #{$i}/#{$n}
+
+    .col
+        @each $device, $width in $dw
+            &-#{$device}
+                +screen($width)
+                    @for $i from 1 through 12
+                        &-#{$i}
+                            @for $n from 2 through 13
+                                &-#{$n}
+                                    grid-column: #{$i}/#{$n}
 
 .flex-container
     @for $i from 1 through 12

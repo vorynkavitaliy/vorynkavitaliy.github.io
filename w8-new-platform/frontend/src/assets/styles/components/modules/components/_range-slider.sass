@@ -4,7 +4,10 @@
     box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
     border-radius: rem(15px, $dw-ld)
     height: rem(23px, $dw-ld)
-    width: rem(763px, $dw-ld)
+    width: 100%
+
+    +screen($dw-ld)
+        width: rem(763px, $dw-ld)
 
 .noUi-base
     height: 60%

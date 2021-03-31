@@ -1,0 +1,49 @@
+mixin CatalogAuto({ title, articul, arrayAuto, descriptionArray, price })
+    .auto.auto-catalog.mb-3
+        .grid-container.cols-12.offset-4.morph-bg.radius-2
+            header.auto-carousel.col-1-5
+                .carousel
+                    ul.carousel-list.flex-container
+                        each item in arrayAuto
+                            li.carousel-slide
+                                img(src=`${item}.jpg`, alt=title)
+
+                    .carousel-controlers.ph-2
+                        .carousel-dots
+                            .carousel-dot-template
+                                button.carousel-dot(type="button")
+
+            main.auto-description.col-5-10.pv-2
+                h5.text.bold=title
+                span.text.text-xs.grey=`Артикул: ${articul}`
+
+                .auto-description-info.grid-container.offset-1.cols-2.mt-3
+                    each description in descriptionArray
+                        .description-item.flex-container.column
+                            .icon.mv-a
+                                +Icon(description.icon, '#3E3E3E')
+                                span.text.text-ms.semibold.pink=description.info
+                            span.type.text.text-xs.semibold.grey=description.type
+
+            footer.auto-footer.col-10-13.pv-2
+                .flex-container.column.h-full
+                    p.auto-footer-title.text.text-xs.regular-value.center Ринкова вартість
+
+                    span.price.text.text-l.bold.block.center.mt-1 від
+                        =` ${price} USD`
+
+                    p.text.text-s.pink.bold-value.icon.p-1.mt-a
+                        span.favicon.mr-1
+                            +Icon('checkmark', '#E3004F')
+                        ="Ви заощаджуєте 3 100 USD"
+                    .ph-2
+                        <a class="btn btn-black" href="/current-auto.html">Хочу таке авто</a>
+
+                        .actions.grid-container.cols-2.offset-1.mt-2
+                            button.flex-container.align-center.btn.btn-icon
+                                +Icon('compare', '#525252')
+                                span.btn-text Порівняти
+
+                            button.flex-container.align-center.btn.btn-icon
+                                +Icon('follow', '#525252')
+                                span.btn-text Cлідкувати

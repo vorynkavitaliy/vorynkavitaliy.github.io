@@ -1,0 +1,77 @@
+extends ../assets/pug/templates/base
+
+block variables 
+    -
+        title = 'W8 Parser Platform - Marks'
+        const crums2 = [{link: '/', text: 'Головна'}, {link: '/marks.html', text: 'Марки'}]
+        const marksArray1 = [
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `mercedes-benz`, name: 'Mercedes-Benz'},
+            {icon: `chevrolet`, name: 'Chevrolet'},
+            {icon: `acura`, name: 'Acura'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `mercedes-benz`, name: 'Mercedes-Benz'},
+            {icon: `chevrolet`, name: 'Chevrolet'},
+            {icon: `acura`, name: 'Acura'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `mercedes-benz`, name: 'Mercedes-Benz'},
+            {icon: `chevrolet`, name: 'Chevrolet'},
+            {icon: `acura`, name: 'Acura'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'}
+        ]
+        const tabsCountryArray1 = [
+            {color: 'light', text: 'Всі', active: 'active'},
+            {color: 'light', text: 'США'},
+            {color: 'light', text: 'Японія'},
+            {color: 'light', text: 'Німеччина'}
+        ]
+
+block main
+    main.page.page-marks-main
+        .container
+            ul.crums.mt-4
+                each crum in crums2
+                    li
+                        a.text.text-s.grey(href=crum.link)=crum.text
+
+            h3.text.text-xl.bold-value.mt-1 Марки авто
+
+            .auto-mark
+                ul.tabs-group.location-group.flex-container.widthfc.mt-3
+                    each item, id in tabsCountryArray1
+                        li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray1.length - 1 && 'last-child'}`)
+                            =item.text
+
+                    li.search-item.input-search
+                        +InputSearch('Введіть марку авто', 'loop')
+
+                .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mv-4
+                    each item in marksArray1
+                        +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
+
+                .flex-container.space-center
+                    +Button('black', 'col-4 col-ld-2', 'Більше марок')
+
+
+        include ../assets/pug/modules/new-auto
+        include ../assets/pug/modules/new-lots

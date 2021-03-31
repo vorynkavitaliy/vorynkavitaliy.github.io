@@ -1,0 +1,57 @@
+-
+    const imageCars1 = './img/jpg/cars/'
+    const avto = {
+        title: 'Volkswagen Atlas 2019',
+        articul: '876543556',
+        arrayAuto: [
+            `${imageCars1}vw-atlas`, `${imageCars1}vw-arteon`, `${imageCars1}vw-golf`, `${imageCars1}vw-tiguan`
+        ],
+        descriptionArray: [
+            {
+                icon: 'engine',
+                info: '2.3 л',
+                type: 'Об’єм двигуна'
+            },
+
+            {
+                icon: 'avto',
+                info: 'Седан',
+                type: 'Тип кузова'
+            },
+
+            {
+                icon: 'power',
+                info: '300 к.с.',
+                type: 'Потужність'
+            },
+
+            {
+                icon: 'fuel',
+                info: 'Бензин',
+                type: 'Паливо'
+            },
+
+            {
+                icon: 'calendar',
+                info: '2019',
+                type: 'Рік випуску'
+            },
+
+            {
+                icon: 'drive-unit',
+                info: 'Повний',
+                type: 'Тип приводу'
+            }
+        ],
+
+        price: '29 000'
+    }
+
+    let catalogAvtoArray = []
+
+    for (let i = 0; i < 12; i++)
+        catalogAvtoArray.push(avto) 
+
+
+each avto in catalogAvtoArray
+    +CatalogAuto(avto)

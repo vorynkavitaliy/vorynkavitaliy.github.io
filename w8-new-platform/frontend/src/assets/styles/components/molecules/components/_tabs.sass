@@ -1,7 +1,10 @@
 .tabs-group
-    background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
-    box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
     border-radius: rem(7px, $dw-ld)
+    flex-wrap: wrap
+
+    +screen($dw-lmd)
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
 
     .tab-item
         button
@@ -46,5 +49,13 @@
                     display: none
 
         .search-item
+            +screenMax($dw-max-lmd)
+                width: 100%
+
             form
-                width: rem(400px, $dw-ld)
+                width: 100%
+                +screenMax($dw-max-lmd)
+                    padding: rem(14px, $dw-lmd)
+                    margin-top: rem(10px, $dw-lmd)
+                +screen($dw-lmd)
+                    width: rem(400px, $dw-ld)

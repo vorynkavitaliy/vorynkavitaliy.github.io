@@ -2,14 +2,14 @@ import EmblaCarousel from 'embla-carousel'
 import { setupPrevNextBtns, disablePrevNextBtns } from './prevAndNextButtons'
 import { setupDotBtns, generateDotBtns, selectDotBtn } from './dotButtons'
 
-document.addEventListener('DOMContentLoaded', () => {
+$.listener('DOMContentLoaded', document, () => {
     const carousel = document.querySelector('.banner-carousel')
+    carousel && EmblaCarousel(carousel)
 
-    if (carousel) {
-        EmblaCarousel(carousel)
+    const carousels = $.getCollection('.carousel')
 
-        const newCarsBlock = document.querySelectorAll('.new-auto-item-caruosel .carousel')
-        newCarsBlock.forEach((item) => {
+    if (carousels) {
+        carousels.forEach((item) => {
             const prevBtn = item.querySelector('.carousel-arrow.left')
             const nextBtn = item.querySelector('.carousel-arrow.right')
             const dots = item.querySelector('.carousel-dots')

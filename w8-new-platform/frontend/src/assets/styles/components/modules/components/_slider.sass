@@ -1,8 +1,10 @@
 .carousel
     overflow: hidden
     position: relative
+
     &-list
         position: relative
+        z-index: 1
 
     &-slide
         position: relative
@@ -10,6 +12,8 @@
 
         img
             mix-blend-mode: darken
+            height: 100%
+            object-fit: cover
 
     &-controlers
         position: absolute

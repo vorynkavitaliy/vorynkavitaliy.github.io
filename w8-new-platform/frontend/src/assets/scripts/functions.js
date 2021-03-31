@@ -18,6 +18,12 @@ $.click = (element, callback) => {
     }
 }
 
+$.listener = (listen, element, callback) => {
+    if (element) {
+        return element.addEventListener(listen, callback)
+    }
+}
+
 $.removeClass = (element, className) => {
     element.classList.remove(className)
 }

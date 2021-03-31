@@ -1,0 +1,47 @@
+.pagination
+    display: flex
+    justify-content: center
+    height: rem(27px, $dw-ld)
+
+    &-btn
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        opacity: 0.25
+        box-shadow: 2.34783px 2.34783px 14.087px rgba(0, 0, 0, 0.1), inset 1.76087px 1.76087px 1.76087px rgba(0, 0, 0, 0.09), inset -1.76087px -1.76087px 1.76087px #FFFFFF
+        border-radius: rem(6px, $dw-ld)
+        width: rem(27px, $dw-ld)
+        cursor: pointer
+
+        svg
+            width: 50%
+
+        &:active
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -5.7px -4.69565px 9.3913px rgba(255, 255, 255, 0.7), 0.52px 2.61px 11.7391px rgba(0, 0, 0, 0.05), inset -1.7px -1.7px 5.3px rgba(255, 255, 255, 0.82), inset 1.7px 1.7px 3.3px rgba(0, 0, 0, 0.14)
+
+        &.right
+            transform: rotate(180deg)
+
+    &-list
+        display: flex
+        justify-content: center
+
+    &-item
+        width: rem(27px, $dw-ld)
+        background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+        box-shadow: 0px 0px 4.1087px #FFFFFF, 0px 0px 3.52174px rgba(174, 174, 192, 0.4)
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: rem(12px, $dw-ld)
+        margin-left: rem(11px, $dw-ld)
+        color: $ligth-black
+        border-radius: rem(6px, $dw-ld)
+        cursor: pointer
+
+        &:last-child
+            margin-right: rem(11px, $dw-ld)
+
+        &:active, &.active
+            color: $pink
+            background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
+            box-shadow: -5.7px -4.69565px 9.3913px rgba(255, 255, 255, 0.7), 0.52px 2.61px 11.7391px rgba(0, 0, 0, 0.05), inset -1.7px -1.7px 5.3px rgba(255, 255, 255, 0.82), inset 1.7px 1.7px 3.3px rgba(0, 0, 0, 0.14)

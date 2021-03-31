@@ -114,22 +114,22 @@ section.choose-auto.pv-6(data-scroll='smoothscroll')
 
             div#input-slider.mt-4
 
-            .grid-container.cols-4.offset-3.mv-4
+            .grid-container.cols-xd-2.cols-lmd-3.cols-ld-4.offset-3.mv-4
                 each car in newLots1
                     +newLots(car)
 
             .flex-container.space-center
-                +Button('black', 'col-2', 'Показати ще авто')
+                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Показати ще авто')
 
         .auto-body.radius-4.p-3
             span.text.bold-value Оберіть тип кузова
 
-            .grid-container.cols-5.offset-3.mv-4
+            .grid-container.cols-2.cols-xd-3.cols-lmd-4.cols-ld-5.offset-3.mv-4
                 each item in bodyArray
                     +AutoBody(item, 'radius-3 p-2')
 
             .flex-container.space-center
-                +Button('black', 'col-2', 'Переглянути авто')
+                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Переглянути авто')
 
         .auto-mark.radius-4.p-3
             span.text.bold-value Оберіть марку
@@ -142,7 +142,7 @@ section.choose-auto.pv-6(data-scroll='smoothscroll')
                 li.search-item.input-search
                     +InputSearch('Введіть марку авто', 'loop')
 
-            .grid-container.cols-6.offset-3.mv-4
+            .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mv-4
                 each item in marksArray
                     +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
 
@@ -150,4 +150,4 @@ section.choose-auto.pv-6(data-scroll='smoothscroll')
                     p.text.text-m.bold-value.grey-3.center Показати всі марки
 
             .flex-container.space-center
-                +Button('black', 'col-2', 'Пошук авто')
+                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Пошук авто')

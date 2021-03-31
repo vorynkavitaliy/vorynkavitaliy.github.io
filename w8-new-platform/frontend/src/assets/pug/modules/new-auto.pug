@@ -58,9 +58,9 @@ section.new-auto.pv-5(data-scroll='smoothscroll')
     .container
         h4.text.text-xl.bold-value.center.mb-5 Нові автомобілі
 
-        .grid-container.cols-msd-2.cols-lmd-3.cols-ld-4.offset-3
+        .grid-container.cols-xd-2.cols-lmd-3.cols-ld-4.offset-3
             each car in newCars
                 +newAuto(car)
 
         .flex-container.space-center.mt-6
-            +Button('light', 'col-2', 'Більше пропозицій')
+            +Button('light', 'col-6 col-xd-4 col-ld-2', 'Більше пропозицій')

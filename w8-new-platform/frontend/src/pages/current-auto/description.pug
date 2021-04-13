@@ -1,0 +1,88 @@
+-
+    const dropdownPopularList1 = ['2.0 SEL Premium R-Line 4MOTION', '2.0 SEL Premium R-Line 4MOTION', '2.0 SEL Premium R-Line 4MOTION']
+    const descriptionArray = [
+        {
+            icon: 'engine',
+            info: '2.3 л',
+            type: 'Об’єм двигуна'
+        },
+
+        {
+            icon: 'avto',
+            info: 'Седан',
+            type: 'Тип кузова'
+        },
+
+        {
+            icon: 'power',
+            info: '300 к.с.',
+            type: 'Потужність'
+        },
+
+        {
+            icon: 'fuel',
+            info: 'Бензин',
+            type: 'Паливо'
+        },
+
+        {
+            icon: 'calendar',
+            info: '2019',
+            type: 'Рік випуску'
+        },
+
+        {
+            icon: 'drive-unit',
+            info: 'Повний',
+            type: 'Тип приводу'
+        }
+    ]
+
+.current-auto-description.col-8-13.pt-3
+    .flex-container.align-center
+        span.text.text-m.grey.mr-2 Комплектація
+        +Dropdown('2.0 SEL Premium R-Line 4MOTION', dropdownPopularList1)
+
+    .specifications.mt-4
+        p.text.bold Характеристики:
+
+        .auto-description-info.grid-container.offset-1.cols-2.mt-3.ml-4
+            each description in descriptionArray
+                .description-item.flex-container.column
+                    .icon.mv-a
+                        +Icon(description.icon, '#3E3E3E')
+                        span.text.text-ms.semibold.pink.block.ml-1=description.info
+                    span.type.text.text-xs.semibold.grey=description.type
+
+
+        .specifications-actions.flex-container.mt-4
+            a.btn.btn-light.icon(href='#')
+                span.text.text-xs.block.mr-1 Всі характеристики
+                +Icon('arrow-right', '#000')
+
+            button.btn.btn-icon.icon.ml-a.mr-2
+                i.favicon
+                    +Icon('follow', '#000')
+                span.text.text-xs.medium Слідкувати
+
+            button.btn.btn-icon.icon
+                i.favicon
+                    +Icon('compare', '#000')
+                span.text.text-xs.medium Порівняти
+
+    .price-block.mv-4.pv-8
+        .flex-container.align-center
+            article.flex-container.column.space-center.m-a
+                span.text.value-regular.grey-4.center Ринкова вартість
+                span.text.text-large-s.bold.center від 26 900 USD
+                p.text.text-s.pink.bold-value.icon.p-1.mt-1
+                    span.favicon.mr-1
+                        +Icon('checkmark', '#E3004F')
+                    ="Ви заощаджуєте 3 100 USD"
+
+            +Button('black', 'm-a col-5', 'Хочу таке авто')
+    
+    .description-text
+        p.paragraph.text.text-ms.medium Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE. Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE. Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE.
+
+        button.text.text-s.pink.underline Читати повністю

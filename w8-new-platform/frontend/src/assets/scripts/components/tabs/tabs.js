@@ -1,25 +1,42 @@
-const chooseAutoMainTabs = $.getItem('.choose-main-tabs')
-
-if (chooseAutoMainTabs) {
-    const CAStabItem = $.getCollection('.tab-item', chooseAutoMainTabs)
-    const itemTabsToggler = ['budget', 'body', 'mark']
-    for (let i = 0; i < CAStabItem.length; i++) {
-        $.removeClass($.getItem('.btn', CAStabItem[i]), 'active')
-        $.getItem(`.auto-${itemTabsToggler[i]}`).style.display = 'none'
+export const tabsChangeMethod = (tabsController, tabsCollections) => {
+    const tabsBtns = $.getCollection('.tab-item', tabsController)
+    const tabsBlocks = $.getCollection('.tab-collections-item', tabsCollections)
+    for (let i = 0; i < tabsBtns.length; i++) {
+        if ($.getItem('.btn', tabsBtns[i])) {
+            $.removeClass($.getItem('.btn', tabsBtns[i]), 'active')
+        } else {
+            $.removeClass(tabsBtns[i], 'active')
+        }
+        tabsBlocks[i].style.display = 'none'
     }
-    $.getItem('.btn', CAStabItem[0]).classList.add('active')
-    $.getItem(`.auto-${itemTabsToggler[0]}`).style.display = 'block'
+    if ($.getItem('.btn', tabsBtns[0])) {
+        $.getItem('.btn', tabsBtns[0]).classList.add('active')
+    } else {
+        tabsBtns[0].classList.add('active')
+    }
 
-    CAStabItem.forEach((element, id) => {
+    tabsBlocks[0].style.display = 'block'
+
+    tabsBtns.forEach((element, id) => {
         $.click(element, function () {
-            for (let i = 0; i < CAStabItem.length; i++) {
-                const btn = $.getItem('.btn', CAStabItem[i])
-                $.getItem(`.auto-${itemTabsToggler[i]}`).style.display = 'none'
+            for (let i = 0; i < tabsBtns.length; i++) {
+                const btn = $.getItem('.btn', tabsBtns[i]) || tabsBtns[i]
+                tabsBlocks[i].style.display = 'none'
                 $.removeClass(btn, 'active')
             }
-            const btn = $.getItem('.btn', this)
+            const btn = $.getItem('.btn', this) || this
             btn.classList.add('active')
-            $.getItem(`.auto-${itemTabsToggler[id]}`).style.display = 'block'
+            tabsBlocks[id].style.display = 'block'
         })
+    })
+}
+
+const tabsControllers = $.getCollection('.tabs-controllers')
+
+if (tabsControllers) {
+    tabsControllers.forEach((tabsGroup) => {
+        const collectionsId = tabsGroup.dataset.id
+        const collection = $.getItem(`[data-item="${collectionsId}"]`)
+        collection && tabsChangeMethod(tabsGroup, collection)
     })
 }

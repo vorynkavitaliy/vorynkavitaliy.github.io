@@ -1,0 +1,17 @@
+.timer
+    &-item
+        position: relative
+
+        &::after
+            content: ':'
+            display: block
+            margin: rem(10px, $dw-ld)
+            font-family: $font-semibold
+            font-size: rem(24px, $dw-ld)
+            position: absolute
+            top: rem(5px, $dw-ld)
+            right: rem(-26px, $dw-ld)
+
+        &:last-child
+            &::after
+                display: none

@@ -1,13 +1,13 @@
 export const setupDotBtns = (dotsArray, embla) => {
     dotsArray.forEach((dotNode, i) => {
-        dotNode.addEventListener('click', () => embla.scrollTo(i), false)
+        $.listener('click', dotNode, () => embla.scrollTo(i), false)
     })
 }
 
 export const generateDotBtns = (item, dots, embla) => {
-    const template = item.querySelector('.carousel-dot-template').innerHTML
+    const template = $.getItem('.carousel-dot-template', item).innerHTML
     dots.innerHTML = embla.scrollSnapList().reduce((acc) => acc + template, '')
-    return [].slice.call(dots.querySelectorAll('.carousel-dot'))
+    return [].slice.call($.getCollection('.carousel-dot', dots))
 }
 
 export const selectDotBtn = (dotsArray, embla) => () => {

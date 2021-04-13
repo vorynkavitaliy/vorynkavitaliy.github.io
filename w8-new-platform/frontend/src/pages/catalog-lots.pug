@@ -22,7 +22,11 @@ block main
                     .col-1-4 
                         include ../assets/pug/layouts/filters/filter-auto
                     .col-4-13
-                        include ../assets/pug/modules/catalog-lots
+                        .bar-view.views-type
+                            include ../assets/pug/modules/catalog-lots
+                        .tiles-view.views-type
+                            .grid-container.cols-3.offset-2
+                                include ../assets/pug/modules/catalog-lot-tile
 
                         .flex-container.space-center.mt-4
                             +Button('light', 'col-3', 'Більше лотів')

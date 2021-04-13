@@ -7,7 +7,10 @@ $.getCollection = (element = String, parent = null) => {
 
 $.getItem = (element, parent = null) => {
     if (parent) {
-        return parent.querySelector(element)
+        if (typeof parent === 'string')
+            return document.querySelector(parent).querySelector(element)
+        else
+            return parent.querySelector(element)
     }
     return document.querySelector(element)
 }

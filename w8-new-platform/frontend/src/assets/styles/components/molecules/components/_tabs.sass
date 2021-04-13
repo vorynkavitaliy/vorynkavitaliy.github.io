@@ -10,9 +10,7 @@
         button
             width: 100%
 
-    &.location-group
-        overflow: hidden
-
+    &.group-1
         .tab-item
             position: relative
             text-align: center
@@ -35,11 +33,9 @@
                 box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
                 border-radius: rem(7px)
 
-            &:last-child, &.last-child
-                &::before
-                    display: none
-            &.active
-                font-size: rem(18px, $dw-ld)
+                &:last-child, &.last-child
+                    &::before
+                        display: none
 
             &:active, &.active
                 color: $pink
@@ -47,6 +43,13 @@
                 box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
                 &::before
                     display: none
+
+    &.location-group
+        overflow: hidden
+
+        .tab-item
+            &.active
+                font-size: rem(18px, $dw-ld)
 
         .search-item
             +screenMax($dw-max-lmd)

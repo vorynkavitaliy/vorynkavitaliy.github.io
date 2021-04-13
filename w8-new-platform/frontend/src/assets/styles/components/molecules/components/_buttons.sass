@@ -44,12 +44,35 @@
         color: $ligth-black
 
         &:hover
+            background: linear-gradient(113.72deg, #27AE60 -2.44%, #289B59 104.54%)
             box-shadow: -3px -3px 12px #FFFFFF, 2px 2px 12px rgba(174, 174, 192, 0.4)
+            color: #fff
+
+            svg
+                fill: #fff
 
         &:active, &.active
             background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
             box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
             color: $pink
+
+            svg
+                fill: $pink
+
+    &-danger
+        background: #EB5757
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 9.5px rgba(0, 0, 0, 0.37), inset -1.5px -1.5px 8.5px rgba(255, 255, 255, 0.22)
+        border-radius: rem(7px, $dw-ld)
+
+    &-success
+        background: #27AE60
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 9.5px rgba(0, 0, 0, 0.37), inset -1.5px -1.5px 8.5px rgba(255, 255, 255, 0.22)
+        border-radius: rem(7px, $dw-ld)
+
+    &-default
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        box-shadow: -3px -3px 8px #FFFFFF, 2px 2px 6px rgba(174, 174, 192, 0.4), inset 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.09), inset -1.5px -1.5px 1.5px #FFFFFF
+        border-radius: rem(7px, $dw-ld)
 
     &-telegram
         background: linear-gradient(317.85deg, #039BE5 -11.18%, #88D8FF 114.83%)

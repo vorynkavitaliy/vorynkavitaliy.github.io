@@ -1,0 +1,94 @@
+extends ../assets/pug/templates/base
+
+block variables 
+    -
+        title = 'W8 Parser Platform - Current Lot'
+        const imageSrc11 = './img/jpg/'
+        const crums3 = [{link: '/', text: 'Головна'}, {link: '/catalog-lots.html', text: 'Каталог Лотів'}, {link: '/catalog-lots.html', text: 'Volkswagen Tiguan 2019'}]
+        const tabsCountryArray2 = [
+            {color: 'light', text: 'Характеристики', active: 'active'},
+            {color: 'light', text: 'Опис'},
+            {color: 'light', text: 'Інформація про лот'}
+        ]
+
+block main
+    main.page.page-current.lot
+        .popup-place-a-bet
+            button.popup-place-a-bet-btn
+                span.text-btn.text.text-l.bold Зробити ставку
+            .flex-container.column.pv-5.ph-10
+                span.text.text-m.grey.medium.mb-2 Оцінювана ринкова вартість: 
+                    span.text.text-m.bold.main 25 000 USD
+
+                span.text.text-m.grey.medium.mb-2 Поточна ставка: 
+                    span.text.text-m.bold.main 5 000 USD
+
+                span.text.text-m.grey.medium.mb-2 Крок ставки: 
+                    span.text.text-m.bold.main 150 USD
+
+                .flex-container.align-center
+                    span.text.text-m.grey.medium Ваша ставка:
+
+                    .counter-container.mh-2
+                        span.counter.text.text-m.bold 1200 USD
+
+                        .counter-controllers
+                            button.counter-btn.plus
+                            button.counter-btn.minus
+
+                    button.btn.btn-black
+                        span.mr-2 Зробити ставку
+                        +Icon('place-bet', '#fff', '1rem')
+
+        .container
+            ul.crums.mt-4
+                each crum in crums3
+                    li
+                        a.text.text-s.grey(href=crum.link)=crum.text
+
+            h3.text.text-xl.bold-value.mt-1 Volkswagen Tiguan 2019
+
+            .morph-bg.radius-2.p-3.mt-3
+                .grid-container.cols-12.offset-6
+                    include ./current-auto/slider
+                    include ./current-lot/description
+
+            ul.tabs-controllers.tabs-group.group-1.flex-container.widthfc.mv-8.mh-a(data-id="current-auto-tabs")
+                each item, id in tabsCountryArray2
+                    li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray2.length - 1 && 'last-child'}`)
+                        =item.text
+
+            .tabs-collections(data-item="current-auto-tabs")
+                .tab-collections-item
+                    .tab-specifications.morph-bg.pb-2.ph-1.radius-2
+                        .grid-container.filters-parametrs.cols-2.offset-2
+                            include ./current-auto/tab-specifications
+
+                .tab-collections-item
+                    .tab-text.morph-bg.pv-6.ph-5.radius-2
+                        p.text.text-m.mb-2 Volkswagen Tiguan (Фольксваген Тігуан) - позашляховик класу «K1» з переднім або повним приводом. Світова прем'єра другого покоління моделі відбулася на автосалоні у Франкфурті у вересні 2015 року.
+
+                        p.text.text-m.mb-2 Дизайн другої генерації популярного «паркетника» Тігуан вийшов досить вдалим, навіть якщо його не можна назвати «емоційним». Він по-фольксвагеновски суворий, але тим і привабливий. Та й не тільки зовнішністю цей автомобіль цікавий. Його технічна складова також зазнала серйозного перегляду.
+
+                        p.text.text-m.mb-2 Ставши на 60 мм довшим, на 30 мм ширше і на 33 мм нижче, Tiguan скинув 50 кг маси. Крім того, кросоверу розтягнули на 77 мм колісну базу (до 2681), завдяки чому в ногах задніх пасажирів трохи додалося місця, а об'єм багажного відсіку збільшився на добрих 145 літрів - до 615. При цьому зі складеними спинками другого ряду сидінь об'єм трюму збільшується до 1665 літрів.
+
+                        p.text.text-m.mb-2 В основі Tiguan лежить перевірена часом модульна платформа MQB, але з модернізованими і перенастроює підвісками. За замовчуванням автомобіль пропонується тільки з переднім приводом, але опціонально його можна доукомплектувати і системою повного приводу 4MOTION з муфтою Haldex п'ятого покоління, додатковими 11 мм дорожнього просвіту (200 мм в цілому) і збільшеним з 18,3 до 25,6 градуса кутом в'їзду . При цьому автомобіль може буксирувати причіп масою до 2,5 тонн, і оснащений усіма найсучаснішими системами безпеки і допомоги водієві, включаючи систему попередження фронтальних зіткнень з автоматичним гальмуванням на міських швидкостях, систему утримання в смузі і багато іншого.
+
+                        p.text.text-m У моторній гамі Фольксваген Тігуан присутні вісім турбированних бензинових і дизельних двигунів. Всі відповідають нормам екологічного стандарту Євро-6 і забезпечують до 24% економії палива в порівнянні з попередньою версією. Чотири бензинових двигуна - це TSI, що видають 12, 150, 180 і 220 л. с. потужності, а чотири дизельних - це TDI з 115, 150, 190 і 240 "конячками". Коробки передач пропонуються як механічні, так і роботизовані з двома зчепленнями (в залежності від мотора і комплектації).
+
+                .tab-collections-item
+                    .lot-description.morph-bg.pv-5.ph-6.radius-2
+                        .lot-description-container.grid-container.cols-2
+                            each i in [1, 2, 3, 4]
+                                .lot-description-item
+                                    .flex-container.align-center.space-between
+                                        .flex-container.align-center
+                                            +Icon('power', '#E3004F', '1.7rem')
+                                            span.text.text-ms.grey.ml-2 Місцезнаходження лота
+
+                                        span.text.text-m.uppercase.bold NC - CHINA GROVE
+
+
+        include ./index/snapshot/snapshot-messengers-footer
+        include ../assets/pug/modules/new-auto
+        include ../assets/pug/modules/new-lots

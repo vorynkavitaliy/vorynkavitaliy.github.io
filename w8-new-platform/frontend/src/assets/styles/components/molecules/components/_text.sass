@@ -99,6 +99,10 @@
     &.main
         color: $black
 
+    &.black
+        &-ligth
+            color: $ligth-black
+
     //type
     &.center
         text-align: center
@@ -112,5 +116,13 @@
     &.lowercase
         text-transform: lowercase
 
+    &.underline
+        text-decoration: underline
+
     &.block
         display: block
+
+.ellipsis
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis

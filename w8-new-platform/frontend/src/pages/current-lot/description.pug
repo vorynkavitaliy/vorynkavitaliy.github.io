@@ -1,0 +1,117 @@
+-
+    const descriptionArray1 = [
+        {
+            icon: 'engine',
+            info: '2.3 л',
+            type: 'Об’єм двигуна'
+        },
+
+        {
+            icon: 'avto',
+            info: 'Седан',
+            type: 'Тип кузова'
+        },
+
+        {
+            icon: 'power',
+            info: '300 к.с.',
+            type: 'Потужність'
+        },
+
+        {
+            icon: 'fuel',
+            info: 'Бензин',
+            type: 'Паливо'
+        },
+
+        {
+            icon: 'calendar',
+            info: '2019',
+            type: 'Рік випуску'
+        },
+
+        {
+            icon: 'drive-unit',
+            info: 'Повний',
+            type: 'Тип приводу'
+        }
+    ]
+
+.current-auto-description.col-8-13.pt-3
+    .flex-container
+        span.text.bold.mr-2.mt-1 До початку аукціону:
+
+        .timer.flex-container
+            .timer-item.days
+                .time-days.morph-bg.radius-2.pv-2.ph-3.mb-1
+                    span.text.text-l.bold 02
+                span.text.text-xs.semibold.grey.block.center Днів
+            .timer-item.hours.ml-3
+                .time-hours.morph-bg.radius-2.pv-2.ph-3.mb-1
+                    span.text.text-l.bold 02
+                span.text.text-xs.semibold.grey.block.center Годин
+            .timer-item.minutes.ml-3
+                .time-minutes.morph-bg.radius-2.pv-2.ph-3.mb-1
+                    span.text.text-l.bold 02
+                span.text.text-xs.semibold.grey.block.center Хвилин
+            .timer-item.seconds.ml-3
+                .time-seconds.morph-bg.radius-2.pv-2.ph-3.mb-1
+                    span.text.text-l.bold 02
+                span.text.text-xs.semibold.grey.block.center Секунд
+
+    .specifications.mt-4
+        p.text.bold Характеристики:
+
+        .auto-description-info.grid-container.offset-1.cols-2.mt-3.ml-4
+            each description in descriptionArray1
+                .description-item.flex-container.column
+                    .icon.mv-a
+                        +Icon(description.icon, '#3E3E3E')
+                        span.text.text-ms.semibold.pink.block.ml-1=description.info
+                    span.type.text.text-xs.semibold.grey=description.type
+
+
+        .specifications-actions.flex-container.mt-4
+            a.btn.btn-light.icon(href='#')
+                span.text.text-xs.block.mr-1 Всі характеристики
+                +Icon('arrow-right', '#000')
+
+            button.btn.btn-icon.icon.ml-a.mr-2
+                i.favicon
+                    +Icon('follow', '#000')
+                span.text.text-xs.medium Слідкувати
+
+            button.btn.btn-icon.icon
+                i.favicon
+                    +Icon('compare', '#000')
+                span.text.text-xs.medium Порівняти
+
+    .price-block.mv-4.pv-4
+        .flex-container.column
+            span.text.text-m.grey.medium.mb-2 Оцінювана ринкова вартість: 
+                span.text.text-m.bold.main 25 000 USD
+
+            span.text.text-m.grey.medium.mb-2 Поточна ставка: 
+                span.text.text-m.bold.main 5 000 USD
+
+            span.text.text-m.grey.medium.mb-2 Крок ставки: 
+                span.text.text-m.bold.main 150 USD
+
+            .flex-container.align-center
+                span.text.text-m.grey.medium Ваша ставка:
+
+                .counter-container.mh-2
+                    span.counter.text.text-m.bold 1200 USD
+
+                    .counter-controllers
+                        button.counter-btn.plus
+                        button.counter-btn.minus
+
+                button.btn.btn-black
+                    span.mr-2 Зробити ставку
+                    +Icon('place-bet', '#fff', '1rem')
+
+    .description-text
+        p.paragraph.text.text-ms.medium Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE. Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE. Volkswagen Tiguan 2019 относится к категории AUTOMOBILE. Присоединяйтесь к торгам, чтобы сделать ставку на этот HONDA ODYSSEY EX , к которому прилагаются следующие документы: NC - SALVAGE CERTIFICATE OF TITLE.
+
+        button.text.text-s.pink.underline Читати повністю

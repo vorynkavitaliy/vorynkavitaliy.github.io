@@ -24,7 +24,7 @@ $direction: (column, row)
                     @else 
                         +f-row($width)
                         
-    @for $i from 0 through 10
+    @for $i from 0 through 24
         &.offset
             &-#{$i}
                 grid-gap: #{$i/2}rem
@@ -37,6 +37,14 @@ $direction: (column, row)
             &-#{$device}
                 +screen($width)
                     align-items: center
+
+.align
+    &-start
+        align-items: flex-start
+        @each $device, $width in $dw
+            &-#{$device}
+                +screen($width)
+                    align-items: flex-start
 
 .space
     &-between

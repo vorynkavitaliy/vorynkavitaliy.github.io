@@ -10,14 +10,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
-const mainPath = isDev ? 'dist' : '../web'
-const htmlPath = isDev ? '' : '../web/'
+const mainPath = isDev ? 'dist' : 'public'
+const htmlPath = isDev ? '' : ''
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
 
 const PATHS = {
-    js: isDev ? 'js' : `${mainPath}/js`,
+    js: 'js',
     img: `${mainPath}/img`,
-    css: isDev ? 'css' : `${mainPath}/css`,
+    css: 'css',
     fonts: `${mainPath}/fonts`,
 }
 
@@ -145,7 +145,7 @@ module.exports = {
     },
     output: {
         filename: `${PATHS.js}/${filename('js')}`,
-        path: path.resolve(__dirname, isDev ? 'dist' : '../dist'),
+        path: path.resolve(__dirname, isDev ? 'dist' : 'public'),
     },
     optimization: optimization(),
     devServer: {

@@ -1,0 +1,55 @@
+.snapshot
+    background-image: url(@/images/w8-snapshot.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    +screenMax($dw-max-ld)
+        display: none
+    &-messengers
+        &-body
+            +screenMax($dw-max-ld)
+                display: none
+            .picture
+                position: relative
+
+                img
+                    width: 68%
+                    position: absolute
+                    bottom: rem(-140px, $dw-ld)
+                    left: rem(-10px, $dw-ld)
+
+                .descriptions-list
+                    li
+                        display: flex
+                        align-items: center
+
+                        &::before
+                            content: ''
+                            display: block
+                            min-width: rem(34px, $dw-ld)
+                            height: rem(34px, $dw-ld)
+                            margin-right: rem(24px, $dw-ld)
+                            background-image: url('@/images/checkmark-black.svg')
+                            background-repeat: no-repeat
+                            background-size: cover
+
+        &-footer
+            background-color: $dark-white
+            margin-top: rem(150px, $dw-ld)
+            margin-bottom: rem(200px, $dw-ld)
+            +screenMax($dw-max-ld)
+                display: none
+            .container
+                position: relative
+
+            .picture
+                position: relative
+
+                img
+                    position: absolute
+                    left: rem(-10px, $dw-ld)
+                    top: 50%
+                    width: 100%
+                    transform: translateY(-50%)
+
+            // .content
+            //     margin-left: rem(180px)

@@ -1,0 +1,39 @@
+-
+    const autoParam = {
+        title: 'Привід',
+        innerList: [
+            {
+                icon: 'engine',
+                title: 'Об’єм двигуна',
+                value: '2,3 л'
+            },
+
+            {
+                icon: 'engine',
+                title: 'Об’єм двигуна',
+                value: '2.3 л'
+            },
+
+            {
+                icon: 'engine',
+                title: 'Об’єм двигуна',
+                value: '2.3 л'
+            }
+        ]
+    }
+
+    const currentAutoParametrs = []
+
+    for (let i = 0; i < 6; i++)
+        currentAutoParametrs.push(autoParam)
+
+each parametrs in currentAutoParametrs
+    .parametrs-dropdown.p-2.mv-1.radius-2.hidden
+        h4.parametrs-dropdown-title.text.text-m.bold.pb-1=parametrs.title
+        ul.parametrs-dropdown-list
+            each listItem in parametrs.innerList
+                li.parametrs-dropdown-item
+                    .flex-container.align-center.pv-2
+                        +Icon(listItem.icon, '#E5175B')
+                        span.text.text-ms.grey.ml-1=listItem.title
+                        span.text.text-m.bold.black-ligth.ml-a=listItem.value

@@ -47,8 +47,43 @@
             articul: '1243556',
             timer: '2дн. 16год. 38хв. 45с',
             url: '#',
-            volume: '2.0 L',
-            body: 'Седан'
+            descriptionArray: [
+                {
+                    icon: 'engine',
+                    info: '2.3 л',
+                    type: 'Об’єм двигуна'
+                },
+
+                {
+                    icon: 'avto',
+                    info: 'Седан',
+                    type: 'Тип кузова'
+                },
+
+                {
+                    icon: 'power',
+                    info: '300 к.с.',
+                    type: 'Потужність'
+                },
+
+                {
+                    icon: 'fuel',
+                    info: 'Бензин',
+                    type: 'Паливо'
+                },
+
+                {
+                    icon: 'calendar',
+                    info: '2019',
+                    type: 'Рік випуску'
+                },
+
+                {
+                    icon: 'drive-unit',
+                    info: 'Повний',
+                    type: 'Тип приводу'
+                }
+            ],
         },
 
         {
@@ -61,8 +96,43 @@
             articul: '2675453556',
             timer: '2дн. 16год. 38хв. 45с',
             url: '#',
-            volume: '2.0 L',
-            body: 'Седан'
+            descriptionArray: [
+                {
+                    icon: 'engine',
+                    info: '2.3 л',
+                    type: 'Об’єм двигуна'
+                },
+
+                {
+                    icon: 'avto',
+                    info: 'Седан',
+                    type: 'Тип кузова'
+                },
+
+                {
+                    icon: 'power',
+                    info: '300 к.с.',
+                    type: 'Потужність'
+                },
+
+                {
+                    icon: 'fuel',
+                    info: 'Бензин',
+                    type: 'Паливо'
+                },
+
+                {
+                    icon: 'calendar',
+                    info: '2019',
+                    type: 'Рік випуску'
+                },
+
+                {
+                    icon: 'drive-unit',
+                    info: 'Повний',
+                    type: 'Тип приводу'
+                }
+            ],
         },
 
         {
@@ -75,8 +145,43 @@
             articul: '123543556',
             timer: '2дн. 16год. 38хв. 45с',
             url: '#',
-            volume: '2.0 L',
-            body: 'Седан'
+            descriptionArray: [
+                {
+                    icon: 'engine',
+                    info: '2.3 л',
+                    type: 'Об’єм двигуна'
+                },
+
+                {
+                    icon: 'avto',
+                    info: 'Седан',
+                    type: 'Тип кузова'
+                },
+
+                {
+                    icon: 'power',
+                    info: '300 к.с.',
+                    type: 'Потужність'
+                },
+
+                {
+                    icon: 'fuel',
+                    info: 'Бензин',
+                    type: 'Паливо'
+                },
+
+                {
+                    icon: 'calendar',
+                    info: '2019',
+                    type: 'Рік випуску'
+                },
+
+                {
+                    icon: 'drive-unit',
+                    info: 'Повний',
+                    type: 'Тип приводу'
+                }
+            ],
         },
 
         {
@@ -89,8 +194,43 @@
             articul: '876523456',
             timer: '2дн. 16год. 38хв. 45с',
             url: '#',
-            volume: '2.0 L',
-            body: 'Седан'
+            descriptionArray: [
+                {
+                    icon: 'engine',
+                    info: '2.3 л',
+                    type: 'Об’єм двигуна'
+                },
+
+                {
+                    icon: 'avto',
+                    info: 'Седан',
+                    type: 'Тип кузова'
+                },
+
+                {
+                    icon: 'power',
+                    info: '300 к.с.',
+                    type: 'Потужність'
+                },
+
+                {
+                    icon: 'fuel',
+                    info: 'Бензин',
+                    type: 'Паливо'
+                },
+
+                {
+                    icon: 'calendar',
+                    info: '2019',
+                    type: 'Рік випуску'
+                },
+
+                {
+                    icon: 'drive-unit',
+                    info: 'Повний',
+                    type: 'Тип приводу'
+                }
+            ],
         }
     ]
 
@@ -107,47 +247,59 @@ section.choose-auto.pv-6(data-scroll='smoothscroll')
             h4.text.text-xl.bold-value Розумний підбір автомобіля:
 
 
-        +TabsGroup(tabsArray, 'choose-main-tabs mh-a mb-3')
+        +TabsGroup(tabsArray, 'tabs-controllers mh-a mb-3', 'choose-auto-tabs')
 
-        .auto-budget.radius-4.p-3
-            span.text.bold-value Оберіть діапазон цін
+        .tabs-collections(data-item="choose-auto-tabs")
+            .tab-collections-item.auto-budget.tab-block-item.radius-4.p-3
+                span.text.bold-value Оберіть діапазон цін
 
-            div#input-slider.mt-4
+                .flex-container.align-center.space-between
 
-            .grid-container.cols-xd-2.cols-lmd-3.cols-ld-4.offset-3.mv-4
-                each car in newLots1
-                    +newLots(car)
+                    .flex-container.align-center.mt-a.mb-1
+                        .text.text-m.grey.range-slider-text
+                            ='від '
+                            input.range-slider-from.text.text-m.bold.black(type="text" value="5000")
+                            =' до '
+                            input.range-slider-to.text.text-m.bold.black(type="text" value="15000")
+                            =' $'
 
-            .flex-container.space-center
-                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Показати ще авто')
+                    #input-slider.mt-4
 
-        .auto-body.radius-4.p-3
-            span.text.bold-value Оберіть тип кузова
+                    button.btn.btn-black Переглянути авто
+                .grid-container.cols-xd-2.cols-lmd-3.cols-ld-4.offset-3.mv-4
+                    each car in newLots1
+                        +newLots(car)
 
-            .grid-container.cols-2.cols-xd-3.cols-lmd-4.cols-ld-5.offset-3.mv-4
-                each item in bodyArray
-                    +AutoBody(item, 'radius-3 p-2')
+                .flex-container.space-center
+                    +Button('black', 'col-6 col-xd-5 col-ld-2', 'Показати ще авто')
 
-            .flex-container.space-center
-                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Переглянути авто')
+            .tab-collections-item.auto-body.tab-block-item.radius-4.p-3
+                span.text.bold-value Оберіть тип кузова
 
-        .auto-mark.radius-4.p-3
-            span.text.bold-value Оберіть марку
+                .grid-container.cols-2.cols-xd-3.cols-lmd-4.cols-ld-5.offset-3.mv-4
+                    each item in bodyArray
+                        +AutoBody(item, 'radius-3 p-2')
 
-            ul.tabs-group.location-group.flex-container.widthfc.mt-3
-                each item, id in tabsCountryArray
-                    li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray.length - 1 && 'last-child'}`)
-                        =item.text
+                .flex-container.space-center
+                    +Button('black', 'col-6 col-xd-5 col-ld-2', 'Переглянути авто')
 
-                li.search-item.input-search
-                    +InputSearch('Введіть марку авто', 'loop')
+            .tab-collections-item.auto-mark.tab-block-item.radius-4.p-3
+                span.text.bold-value Оберіть марку
 
-            .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mv-4
-                each item in marksArray
-                    +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
+                ul.tabs-group.group-1.location-group.flex-container.widthfc.mt-3
+                    each item, id in tabsCountryArray
+                        li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray.length - 1 && 'last-child'}`)
+                            =item.text
 
-                .auto-mark-more-btn.flex-container.align-center.space-center
-                    p.text.text-m.bold-value.grey-3.center Показати всі марки
+                    li.search-item.input-search
+                        +InputSearch('Введіть марку авто', 'loop')
 
-            .flex-container.space-center
-                +Button('black', 'col-6 col-xd-5 col-ld-2', 'Пошук авто')
+                .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mv-4
+                    each item in marksArray
+                        +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
+
+                    .auto-mark-more-btn.flex-container.align-center.space-center
+                        p.text.text-m.bold-value.grey-3.center Показати всі марки
+
+                .flex-container.space-center
+                    +Button('black', 'col-6 col-xd-5 col-ld-2', 'Пошук авто')

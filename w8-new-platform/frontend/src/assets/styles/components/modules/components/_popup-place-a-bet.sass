@@ -1,0 +1,33 @@
+.popup-place-a-bet
+    overflow: hidden
+    position: fixed
+    top: 50%
+    right: calc(0px - 38rem)
+    transform: translateY(-50%)
+    z-index: 15
+    background: linear-gradient(317.85deg, #FCFCFC -11.18%, #F1F1F1 114.83%)
+    box-shadow: -3.76536px -3.76536px 10.06px #FFFFFF, 2.51024px 2.51024px 15.0615px rgba(0, 0, 0, 0.2)
+    border-radius: rem(7px, $dw-ld)
+    width: rem(743px, $dw-ld)
+    min-width: 280px
+    transition: .2s ease
+
+    &.show
+        right: 0
+
+    &-btn
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        width: rem(65px, $dw-ld)
+        background-color: $black
+        text-align: center
+
+        .text-btn
+            color: #fff
+            display: block
+            transform: rotate(-90deg)
+            width: rem(150px, $dw-ld)
+            position: absolute
+            left: rem(-45px, $dw-ld)

@@ -1,0 +1,63 @@
+-
+    const arrayNoDmg = [
+        {title: 'Ціна в США', value: '$9 600', status: ''},
+        {title: 'Доставка в Одесу', value: '$1 000', status: ''},
+        {title: 'Розмитнення', value: '$1 000', status: ''},
+        {title: 'Орієнтована вартість ремонту', value: '', status: ''},
+        {title: 'Послуги W8Shipping', value: '$500', status: ''},
+        {title: 'Вартість', value: '$14 200', status: 'danger'},
+        {title: 'Вартість аналога в Україні', value: '$14 000', status: ''},
+    ]
+
+    const arrayWithDmg = [
+        {title: 'Ціна в США', value: '$9 600', status: ''},
+        {title: 'Доставка в Одесу', value: '$1 000', status: ''},
+        {title: 'Розмитнення', value: '$1 000', status: ''},
+        {title: 'Орієнтована вартість ремонту', value: '$3000', status: ''},
+        {title: 'Послуги W8Shipping', value: '$500', status: ''},
+        {title: 'Вартість', value: '$14 200', status: 'success'},
+        {title: 'Вартість аналога в Україні', value: '$14 000', status: ''},
+    ]
+
+
+article.comparison-no-damage.grid-container.cols-12.offset-2
+    .col-6-13.pv-2
+        h5.text.text-m.bold.black-light.center Авто без пошкоджень
+    each item in arrayNoDmg
+        if item.title
+            .col-1-6.flex-container.align-center
+                span.text.text-xs.grey.semibold.pv-2=item.title
+        if item.value
+            .col-6-13
+                if !item.status
+                    span.text.text-m.black-light.block.morph-bg.center.p-2.radius-2=item.value
+
+                else
+                    span.flex-container.p-2.radius-2(class=`btn-${item.status}`)
+                        span.text.text-m.bold.white.m-a=item.value
+                        i.text.text-m.bold.favicon-info.white-icon
+                            ='i'
+
+    .col-6-13.flex-container.mt-2
+        +Button('black', 'col-12', 'Підібрати авто')
+
+article.comparison-with-damage.grid-container.cols-12.offset-2
+    .col-6-13.pv-2
+        h5.text.text-m.bold.black-light.center Авто без пошкоджень
+    each item in arrayWithDmg
+        if item.title
+            .col-1-6.flex-container.align-center
+                span.text.text-xs.grey.semibold.pv-2=item.title
+        if item.value
+            .col-6-13
+                if !item.status
+                    span.text.text-m.black-light.block.morph-bg.center.p-2.radius-2=item.value
+
+                else
+                    span.flex-container.p-2.radius-2(class=`btn-${item.status}`)
+                        span.text.text-m.bold.white.m-a=item.value
+                        i.text.text-m.bold.favicon-info.white-icon
+                            ='i'
+
+    .col-6-13.flex-container.mt-2
+        +Button('black', 'col-12', 'Підібрати авто')

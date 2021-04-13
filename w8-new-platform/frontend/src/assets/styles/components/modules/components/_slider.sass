@@ -27,65 +27,81 @@
     &-dots
         position: relative
         margin: auto
+        z-index: 2
 
     &-dot
-        width: rem(14px, $dw-ld)
-        height: rem(14px, $dw-ld)
+        width: rem(24px, $dw-ld)
+        height: rem(6px, $dw-ld)
         background: linear-gradient(270.65deg, #F1F2F7 -9.34%, #EDEEF4 108.28%)
-        border: 0.138889px solid rgba(255, 255, 255, 0.47)
-        box-sizing: border-box
         box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.7), 3px 3.5px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 7.5px #FFFFFF, inset 4px 4px 7.5px rgba(0, 0, 0, 0.14)
-        border-radius: 50%
+        border-radius: rem(7px, $dw-ld)
         margin: 0px rem(5px, $dw-ld)
         display: inline-block
         position: relative
+        overflow: hidden
 
         &::after
             content: ''
             display: block
-            border-radius: 50%
+            border-radius: rem(15px, $dw-ld)
             background: #C5094A
             box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.14)
             position: absolute
-            width: 50%
-            height: 50%
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            opacity: 0
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            transform: translateX(-100%)
+            transition: transform 0.2s ease
 
         &:hover, &.is-selected
             &::after
-                opacity: 1
+                transform: translateX(0%)
+
+    &-pictures
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        position: relative
+        overflow: hidden
+        z-index: 2
+        grid-gap: rem(24px, $dw-ld)
+        margin-top: rem(50px, $dw-ld)
+
+    &-picture
+        border-radius: rem(10px, $dw-ld)
+
+        img
+            mix-blend-mode: darken
+
+        &.is-selected
+            background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+            box-shadow: 4.31343px 4.31343px 25.8806px rgba(0, 0, 0, 0.1), inset 3.23507px 3.23507px 3.23507px rgba(0, 0, 0, 0.09), inset -3.23507px -3.23507px 3.23507px #FFFFFF
 
     &-arrow
         position: absolute
+        width: rem(40px, $dw-ld)
+        height: rem(40px, $dw-ld)
+        border-radius: rem(10px, $dw-ld)
         top: 50%
         transform: translateY(-50%)
-        background-size: 30%
-        background-position: center center
-        background-repeat: no-repeat
-        border-radius: 50%
-        background-color: #fff
-        display: none
+        background: linear-gradient(317.85deg, #FAFAFA -11.18%, #F1F1F1 114.83%)
+        box-shadow: 4.31343px 4.31343px 25.8806px rgba(0, 0, 0, 0.1), inset 3.23507px 3.23507px 3.23507px rgba(0, 0, 0, 0.09), inset -3.23507px -3.23507px 3.23507px #FFFFFF
+        z-index: 2
 
-        .ripples
-            background-color: rgba(0, 0, 0, 0.5)
+        svg
+            width: 40%
 
         &[disabled='disabled']
-            &.left
-                background-image: url(@/images/arrow-left-grey.svg)
-
-            &.right
-                background-image: url(@/images/arrow-right-grey.svg)
+            svg
+                fill: #aaa
 
         &:active
             transform: translateY(-50%) scale(0.8)
 
         &.left
             left: 0
-            background-image: url(@/images/arrow-left.svg)
 
         &.right
             right: 0
-            background-image: url(@/images/arrow-right.svg)
+            svg
+                transform: rotate(-180deg)

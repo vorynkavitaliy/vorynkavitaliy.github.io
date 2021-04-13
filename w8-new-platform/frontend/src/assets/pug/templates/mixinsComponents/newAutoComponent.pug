@@ -12,8 +12,6 @@ mixin newAuto(data)
                     .carousel-dots
                         .carousel-dot-template
                             button.carousel-dot(type="button")
-                    button.carousel-arrow.left.btn(data-btn="primary")
-                    button.carousel-arrow.right.btn(data-btn="primary")
 
         main.new-auto-item-main
             .new-auto-item-title.ph-2.mb-1
@@ -36,16 +34,13 @@ mixin newAuto(data)
             
         
         footer.new-auto-item-footer.ph-2.mt-2
-            p.text.text-xs.center.mb-1
-                ='Об\'єм двигуна: '
-                strong.text.text-xs.bold=data.volume
-
-            p.text.text-xs.center
-                ='Тип кузова: '
-                strong.text.text-xs.bold.capitalize=data.body
+            each description in data.descriptionArray
+                p.text.text-xs.center.mb-1
+                    =`${description.type} `
+                    strong.text.text-xs.bold=description.info
             
-            a.btn.btn-light.mt-2(href="#") Детальніше
+            a.btn.btn-light.mt-2(href="/current-auto.html") Детальніше
 
-            .actions.grid-container.cols-2.mt-3
+            .actions.grid-container.cols-2.mt-3.offset-2
                 +BtnIcon('button', 'eye', 'Cлідкувати')
                 +BtnIcon('button', 'libra', 'Порівняти')

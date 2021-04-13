@@ -4,10 +4,6 @@
 
         .parametrs
 
-            // &-list
-
-            // &-group
-
             &-item
                 display: flex
                 align-items: center
@@ -78,3 +74,18 @@
 
                         &-item
                             cursor: pointer
+
+                &-item
+                    &.range-filter-parameters
+                        .noUi-target
+                            width: 100%
+                            height: rem(6px, $dw-ld)
+
+                        .noUi-handle
+                            transform: translate(-50%, -50%)
+
+                        .noUi-tooltip
+                            font-size: rem(12px, $dw-ld)
+
+                        .btn
+                            padding: rem(10px, $dw-ld)

@@ -1,11 +1,210 @@
 extends ../assets/pug/templates/base
 
 block variables 
-    - title = 'W8 Parser Platform - Current Auto'
+    -
+        title = 'W8 Parser Platform - Current Auto'
+        const imageSrc10 = './img/jpg/'
+        const crums2 = [{link: '/', text: 'Головна'}, {link: '/catalog-lots.html', text: 'Каталог Лотів'}, {link: '/catalog-lots.html', text: 'Volkswagen Tiguan 2019'}]
+
+        const tabsCountryArray1 = [
+            {color: 'light', text: 'Характеристики', active: 'active'},
+            {color: 'light', text: 'Опис'},
+            {color: 'light', text: 'Порівняння авто'}
+        ]
+
+        const tabsCountryArray2 = [
+            {color: 'light', text: 'Всі', active: 'active'},
+            {color: 'light', text: 'США'},
+            {color: 'light', text: 'Японія'},
+            {color: 'light', text: 'Німеччина'},
+        ]
+
+        const marksArray2 = [
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+            {icon: `mercedes-benz`, name: 'Mercedes-Benz'},
+            {icon: `chevrolet`, name: 'Chevrolet'},
+            {icon: `acura`, name: 'Acura'},
+            {icon: `vw`, name: 'Volkswagen'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `bmw`, name: 'BMW'},
+            {icon: `audi`, name: 'Audi'},
+            {icon: `mitsubishi`, name: 'Mitsubishi'},
+        ]
+
+        const autoModels = [
+            {img: `${imageSrc10}roadover.jpg`, name: 'Jetta'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Amarok'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Passat'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Polo'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Teramont'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Tiguan'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Golf'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'CC'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Ameo'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Arteon'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Caddy'},
+            {img: `${imageSrc10}roadover.jpg`, name: 'Touareg'},
+        ]
 
 block main
-    main.page.page-current-auto-main
-        
+    main.page.page-current.auto
+
+        .container
+            ul.crums.mt-4
+                each crum in crums2
+                    li
+                        a.text.text-s.grey(href=crum.link)=crum.text
+
+            h3.text.text-xl.bold-value.mt-1 Volkswagen Tiguan 2019
+
+            .morph-bg.radius-2.p-3.mt-3
+                .grid-container.cols-12.offset-6
+                    include ./current-auto/slider
+                    include ./current-auto/description
+
+            ul.tabs-controllers.tabs-group.group-1.flex-container.widthfc.mv-8.mh-a(data-id="current-auto-tabs")
+                each item, id in tabsCountryArray1
+                    li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray1.length - 1 && 'last-child'}`)
+                        =item.text
+
+            .tabs-collections(data-item="current-auto-tabs")
+                .tab-collections-item
+                    .tab-specifications.morph-bg.pb-2.ph-1.radius-2
+                        .grid-container.filters-parametrs.cols-2.offset-2
+                            include ./current-auto/tab-specifications
+
+                .tab-collections-item
+                    .tab-text.morph-bg.pv-6.ph-5.radius-2
+                        p.text.text-m.mb-2 Volkswagen Tiguan (Фольксваген Тігуан) - позашляховик класу «K1» з переднім або повним приводом. Світова прем'єра другого покоління моделі відбулася на автосалоні у Франкфурті у вересні 2015 року.
+
+                        p.text.text-m.mb-2 Дизайн другої генерації популярного «паркетника» Тігуан вийшов досить вдалим, навіть якщо його не можна назвати «емоційним». Він по-фольксвагеновски суворий, але тим і привабливий. Та й не тільки зовнішністю цей автомобіль цікавий. Його технічна складова також зазнала серйозного перегляду.
+
+                        p.text.text-m.mb-2 Ставши на 60 мм довшим, на 30 мм ширше і на 33 мм нижче, Tiguan скинув 50 кг маси. Крім того, кросоверу розтягнули на 77 мм колісну базу (до 2681), завдяки чому в ногах задніх пасажирів трохи додалося місця, а об'єм багажного відсіку збільшився на добрих 145 літрів - до 615. При цьому зі складеними спинками другого ряду сидінь об'єм трюму збільшується до 1665 літрів.
+
+                        p.text.text-m.mb-2 В основі Tiguan лежить перевірена часом модульна платформа MQB, але з модернізованими і перенастроює підвісками. За замовчуванням автомобіль пропонується тільки з переднім приводом, але опціонально його можна доукомплектувати і системою повного приводу 4MOTION з муфтою Haldex п'ятого покоління, додатковими 11 мм дорожнього просвіту (200 мм в цілому) і збільшеним з 18,3 до 25,6 градуса кутом в'їзду . При цьому автомобіль може буксирувати причіп масою до 2,5 тонн, і оснащений усіма найсучаснішими системами безпеки і допомоги водієві, включаючи систему попередження фронтальних зіткнень з автоматичним гальмуванням на міських швидкостях, систему утримання в смузі і багато іншого.
+
+                        p.text.text-m У моторній гамі Фольксваген Тігуан присутні вісім турбированних бензинових і дизельних двигунів. Всі відповідають нормам екологічного стандарту Євро-6 і забезпечують до 24% економії палива в порівнянні з попередньою версією. Чотири бензинових двигуна - це TSI, що видають 12, 150, 180 і 220 л. с. потужності, а чотири дизельних - це TDI з 115, 150, 190 і 240 "конячками". Коробки передач пропонуються як механічні, так і роботизовані з двома зчепленнями (в залежності від мотора і комплектації).
+
+                .tab-collections-item
+                    .tab-comparison-autos.morph-bg.pv-5.ph-6.radius-2
+                        include ./current-auto/comparison-autos
+
+            h5.text.text-xl.bold-value.center.mb-5.mt-10 Доставка в Україну
+
+            .current-auto-comparison
+                .morph-bg.ph-10.pv-6.radius-2
+                    .grid-container.cols-2.offset-24.align-start
+                        include ./current-auto/current-auto-comparison
+
         include ./index/snapshot/snapshot-messengers-footer
         include ../assets/pug/modules/new-auto
         include ../assets/pug/modules/new-lots
+
+    .app-modal.pt-10
+        .container.mt-10
+            .morph-bg-3.pt-3.ph-4.pb-5
+                .flex-container
+                    span.close-modal.pointer.ml-a
+                        +Icon('close', '#000', '.8rem')
+                .modal-tabs
+                    .modal-item-tab
+                        span.text.bold-value Оберіть марку
+
+                        ul.tabs-group.group-1.location-group.flex-container.widthfc.mt-3
+                            each item, id in tabsCountryArray2
+                                li.tab-item(class=`${item.active ? item.active : ''} ${id === tabsCountryArray2.length - 1 && 'last-child'}`)
+                                    =item.text
+
+                            li.search-item.input-search
+                                +InputSearch('Введіть марку авто', 'loop')
+
+                        .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mv-4
+                            each item in marksArray2
+                                +AutoMarks(item, `radius-3 p-2 ${item.icon}`)
+
+                    //- .modal-item-tab
+                    //-     .flex-container.align-center
+                    //-         button.return.btn.btn-icon.mr-2
+                    //-             +Icon('arrow', '#000', '.7rem')
+                    //-             span.text.text-xs.bold.ml-2 Volkswagen
+                    //-         span.text.bold-value Оберіть марку
+
+                    //-     .grid-container.cols-2.cols-xd-3.cols-msd-4.cols-lmd-6.offset-3.mt-7.mb-4
+                    //-         each item in autoModels
+                    //-             .auto-model.morph-bg.radius-2.hidden
+                    //-                 .picture
+                    //-                     img(src=item.img, alt=item.name)
+                    //-                 .name.flex-container.space-center.pv-2
+                    //-                     span.text.text-m.grey.bold-value=item.name
+
+                    //- .modal-item-tab
+                    //-     .flex-container.align-center
+                    //-         button.return.btn.btn-icon.mr-2
+                    //-             +Icon('arrow', '#000', '.7rem')
+                    //-             span.text.text-xs.bold.ml-2 Volkswagen Jetta
+                    //-         span.text.bold-value Оберіть комплектацію авто
+
+
+
+                    //-     .grid-container.cols-12.offset-10.mt-10
+                    //-         .auto-model.col-1-5.morph-bg.radius-2.hidden
+                    //-             .picture
+                    //-                 img(src=`${imageSrc10}roadover.jpg`, alt="Volkswagen Jetta")
+                    //-             .name.flex-container.space-center.pv-2
+                    //-                 span.text.text-m.grey.bold-value Volkswagen Jetta
+
+                    //-         .auto-model-info.col-5-11
+                    //-             .flex-container.align-center
+                    //-                 .flex-container.column.mr-8
+                    //-                     span.text.bold.block.mb-2 Рік випуску
+
+                    //-                     .dropdown-block
+                    //-                         span.current-link
+                    //-                             i.ellipsis 2011
+                    //-                         ul.dropdown-list
+                    //-                             li.dropdown-item
+                    //-                                 span.dropdown-link.ellipsis 2011
+
+                    //-                             li.dropdown-item
+                    //-                                 span.dropdown-link.ellipsis 2011
+
+                    //-                 .flex-container.column
+                    //-                     span.text.bold.block.mb-2 Комплектація
+
+                    //-                     .dropdown-block
+                    //-                         span.current-link
+                    //-                             i.ellipsis Jetta Comfortline 2.0 Turbo
+                    //-                         ul.dropdown-list
+                    //-                             li.dropdown-item
+                    //-                                 span.dropdown-link.ellipsis Jetta Comfortline 2.0 Turbo
+
+                    //-                             li.dropdown-item
+                    //-                                 span.dropdown-link.ellipsis Jetta Comfortline 2.0 Turbo
+
+                    //-             .flex-container.column.mt-6
+                    //-                 span.text.bold.mb-3 Основні характеристики
+
+                    //-                 .grid-container.cols-2.offset-2
+                    //-                     span.text.text-m.black-light.block.morph-bg.center.p-2.radius-2 $38 800
+                    //-                     span.text.text-m.black-light.block.morph-bg.center.p-2.radius-2 Regular Unleaded I-4
+                    //-                     span.text.text-m.black-light.block.morph-bg.center.p-2.radius-2 9,1
+                    //-                     span.flex-container.p-2.radius-2.btn-default
+                    //-                         span.text.text-m.m-a 6 speed Autо...
+                    //-                         i.text.text-xxs.bold.favicon-info.black-icon
+                    //-                             ='i'
+
+                .footer-modal.flex-container.align-center.mt-3
+                    .carousel-dots.m-a
+                        button.carousel-dot.is-selected(type="button")
+                        button.carousel-dot(type="button")
+                        button.carousel-dot(type="button")
+
+                    button.btn.btn-black
+                        span.text.text-m.bold Додати авто до порівняння
+
+                    //- button.btn.btn-black
+                    //-     span.text.text-m.bold.mr-2 Обрати модель
+                    //-     +Icon('arrow-right', '#fff')

@@ -1,5 +1,5 @@
-mixin TabsGroup(array, classes)
-    ul.tabs-group.grid-container(class=`cols-${array.length} ${classes}`)
+mixin TabsGroup(array, classes, dataId)
+    ul.tabs-group.grid-container(class=`cols-${array.length} ${classes}`, data-id=dataId)
         each item in array
             li.tab-item
                 if (item.active)

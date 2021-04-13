@@ -1,0 +1,26 @@
+.counter
+    &-container
+        background: #F2F3F8
+        box-shadow: inset -2px -2px 7px #FFFFFF, inset 3.5px 3.5px 6.5px rgba(0, 0, 0, 0.13)
+        border-radius: rem(7px, $dw-ld)
+        padding: rem(15px, $dw-ld)
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    &-controllers
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        margin-left: rem(10px, $dw-ld)
+
+    &-btn
+        display: block
+        border-top: rem(7px, $dw-ld) solid #000
+        border-left: rem(5px, $dw-ld) solid transparent
+        border-right: rem(5px, $dw-ld) solid transparent
+        border-bottom: 0px solid transparent
+
+        &.plus
+            margin-bottom: rem(5px, $dw-ld)
+            transform: rotate(-180deg)

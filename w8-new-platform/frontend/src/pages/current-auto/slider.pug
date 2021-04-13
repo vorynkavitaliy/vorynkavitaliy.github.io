@@ -1,0 +1,22 @@
+-
+    const imageCars1 = './img/jpg/cars/'
+    const pictures = [ `${imageCars1}vw-golf`, `${imageCars1}vw-atlas`, `${imageCars1}vw-arteon`, `${imageCars1}vw-tiguan`, `${imageCars1}vw-golf`]
+
+.current-auto-slider.col-1-8.carousel
+    ul.carousel-list.flex-container
+        each car in pictures 
+            li.carousel-slide
+                img(src=`${car}.jpg`, alt="Volkswagen")
+
+    .carousel-controlers.ph-2
+        .carousel-dots
+            .carousel-dot-template
+                button.carousel-dot(type="button")
+        button.carousel-arrow.left
+            +Icon('arrow', '#000')
+        button.carousel-arrow.right
+            +Icon('arrow', '#000')
+
+    .carousel-pictures
+        .carousel-pictures-template
+            button.carousel-picture

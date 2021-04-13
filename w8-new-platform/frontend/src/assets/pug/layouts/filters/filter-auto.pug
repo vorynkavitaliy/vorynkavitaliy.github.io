@@ -27,7 +27,7 @@
 
         {
             title: 'Об\'єм двигуна',
-            filters: ['1.2', '1.4', '1.6', '1.8', '2.0', '3.0', '4.0', '5.0']
+            filters: 'range-filter'
         },
 
         {
@@ -87,13 +87,28 @@
             h4.text.bold.ph-2 Параметри фільтрації
             .parametrs-list.p-2.mt-3.morph-bg-2
                 include ./components/parametrs-group
-            
+
             each parameter in filtersArray
                 .parametrs-dropdown.p-2.mt-3.radius-2
                     h4.parametrs-dropdown-title.text.text-m.bold.pb-3=parameter.title
+                    if parameter.filters === 'range-filter'
+                        ul.parametrs-dropdown-list
+                            li.parametrs-dropdown-item.range-filter-parameters.ph-2
+                                .flex-container.column
+                                    .morph-bg.p-1.radius-1
+                                        .text.text-m.grey.range-slider-text
+                                            ='від '
+                                            input.range-slider-from.text.text-m.bold.black(type="text" value="5000")
+                                            =' до '
+                                            input.range-slider-to.text.text-m.bold.black(type="text" value="15000")
+                                            =' $'
 
-                    ul.parametrs-dropdown-list
-                        each param in parameter.filters
-                            li.parametrs-dropdown-item.checkbox.text.text-ms.regular-value.mb-2
-                                span.box
-                                =param
+                                    #input-slider.mt-4
+
+                                    button.btn.btn-black.mt-3 Підтвердити вибір
+                    else
+                        ul.parametrs-dropdown-list
+                            each param in parameter.filters
+                                li.parametrs-dropdown-item.checkbox.text.text-ms.regular-value.mb-2
+                                    span.box
+                                    =param

@@ -380,6 +380,9 @@
 						window.scrollY - settings.top >=
 						settings.height - window.innerWidth / 3
 					) {
+						heroScrollContent.style.transform = `translate(-${
+							window.scrollY - settings.top
+						}px, ${settings.height - window.innerWidth / 3}px)`;
 						heroScrollContent.style.opacity = `${
 							1 - (window.scrollY - settings.top) / 5000
 						}`;

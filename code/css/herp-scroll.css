@@ -1,0 +1,77 @@
+.hero-scroll-container {
+	position: relative;
+	overflow: visible;
+	height: 280vh;
+	min-height: 750px;
+	padding-top: 0px;
+	padding-bottom: 90px;
+	justify-content: center;
+	align-items: flex-start;
+	will-change: transform;
+	transform: translate3d(0px, 0vh, 0px) scale3d(1, 1, 1) rotateX(0deg)
+		rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+	transform-style: preserve-3d;
+}
+
+.hero-scroll-main-wrapper {
+	/* position: -webkit-sticky;
+	position: sticky; */
+	/* top: 0; */
+	/* display: flex; */
+	/* overflow: hidden; */
+	/* height: 80vh;
+	max-height: 70vh;
+	min-height: 600px; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* flex: 1; */
+}
+
+.hero-scroll-content .b-main__left {
+	margin: 0;
+}
+
+.hero-scroll-horizontal-items {
+	position: absolute;
+	left: auto;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	z-index: 20;
+	width: 50%;
+	height: 100%;
+
+	will-change: filter, opacity, transform, width, height;
+	filter: blur(0px);
+	opacity: 1;
+	transform: translate3d(124vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+		rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+	transform-style: preserve-3d;
+	width: 170vw;
+}
+
+@media screen and (max-width: 1350px) {
+	.hero-scroll-horizontal-items {
+		position: static;
+		transform: translate3d(0, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+			rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+	}
+}
+
+.hero-scroll-item {
+	transition: transform 0.2s ease;
+}
+
+.hero-scroll-item:not(:first-child) {
+	transform: scale(0.85);
+}
+
+.hero-scroll-grid {
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-row-gap: 16px;
+	height: 100%;
+	grid-column-gap: 100px;
+	grid-template-columns: 0.5fr 0.5fr 0.5fr;
+	grid-template-rows: auto;
+}

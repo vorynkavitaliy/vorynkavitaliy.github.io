@@ -66,6 +66,9 @@
 
 .hero-scroll-item img {
 	width: 100%;
+	max-width: 85%;
+	margin: auto;
+	display: block;
 }
 
 .hero-scroll-item:not(:first-child) {

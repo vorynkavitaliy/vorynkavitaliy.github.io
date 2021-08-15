@@ -29,6 +29,9 @@
 	/* flex: 1; */
 }
 
+.hero-scroll-content {
+	/* transition: transform 0.01s ease; */
+}
 .hero-scroll-content .b-main__left {
 	margin: 0;
 }
@@ -61,6 +64,10 @@
 	width: 100%;
 }
 
+.hero-scroll-item img {
+	width: 100%;
+}
+
 .hero-scroll-item:not(:first-child) {
 	transform: scale(0.85);
 }
@@ -69,7 +76,7 @@
 	display: grid;
 	grid-row-gap: 16px;
 	height: 100%;
-	grid-column-gap: 100px;
+	grid-column-gap: 20px;
 	grid-template-columns: repeat(3, 0.5fr);
 	grid-template-rows: auto;
 }

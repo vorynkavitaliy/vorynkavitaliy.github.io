@@ -29,12 +29,13 @@
 	/* flex: 1; */
 }
 
-.hero-scroll-content {
-	/* transition: transform 0.01s ease; */
-}
 .hero-scroll-content .b-main__left {
 	margin: 0;
 }
+
+/* .hero-scroll-content {
+	transition: transform 0.1s 0s ease;
+} */
 
 .hero-scroll-horizontal-items {
 	position: absolute;
@@ -94,5 +95,9 @@
 	.hero-scroll-grid {
 		grid-template-columns: repeat(3, 100vw);
 		grid-column-gap: 16px;
+	}
+
+	.hero-scroll-content {
+		transition: transform 0.1s 0s ease;
 	}
 }

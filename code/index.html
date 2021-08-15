@@ -331,13 +331,18 @@
 			heroScrollHorizontalItemsCollection =
 				heroScrollHorizontalItems.querySelectorAll('.hero-scroll-item');
 			function render() {
+				const top =
+					heroScrollHorizontalItems.getBoundingClientRect().top;
+				const hegiht =
+					heroScrollHorizontalItems.getBoundingClientRect().width;
+
+				const headHight = heroScrollHead.getBoundingClientRect().height;
 				const settings = {
-					height: heroScrollHorizontalItems.getBoundingClientRect()
-						.width,
-					top:
-						heroScrollHorizontalItems.getBoundingClientRect().top -
-						100,
+					height:
+						window.innerWidth >= 1350 ? hegiht : hegiht + headHight + 600,
+					top: window.innerWidth >= 1350 ? top - 200 : top - 200,
 					opacity: 1,
+					width: window.innerWidth,
 				};
 				heroScrollContainer.style.height = `${settings.height}px`;
 				window.addEventListener('scroll', () => {
@@ -350,13 +355,13 @@
 						heroScrollHead.setAttribute(
 							'style',
 							`opacity: ${settings.opacity};
-                filter: blur(${(window.scrollY - settings.top) / 100}px)`
+			             filter: blur(${(window.scrollY - settings.top) / 100}px)`
 						);
 						if (settings.opacity <= 0) {
 							heroScrollHead.setAttribute(
 								'style',
 								`opacity: 0;
-                    filter: blur(10px)`
+			                 filter: blur(10px)`
 							);
 						}
 						heroScrollHorizontalItemsCollection.forEach((item) => {

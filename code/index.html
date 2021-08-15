@@ -175,35 +175,6 @@
 				</div>
 			</div>
 
-			<!-- <section class="gallery">
-				<ul class="wrapper">
-					<li>
-						<img
-							src="https://source.unsplash.com/random/1000x500"
-							alt=""
-						/>
-					</li>
-					<li>
-						<img
-							src="https://source.unsplash.com/random/1000x500"
-							alt=""
-						/>
-					</li>
-					<li>
-						<img
-							src="https://source.unsplash.com/random/1000x500"
-							alt=""
-						/>
-					</li>
-					<li>
-						<img
-							src="https://source.unsplash.com/random/1000x500"
-							alt=""
-						/>
-					</li>
-				</ul>
-			</section> -->
-
 			<div class="div" style="height: 2300px">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit.
 				Voluptatem, ipsa inventore sit cum itaque architecto aspernatur
@@ -340,99 +311,90 @@
 		<!-- 	  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js'></script> -->
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
-		<script src="/js/heroScroll.js"></script>
+		<!-- <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script> -->
+		<!-- <script src="/js/heroScroll.js"></script> -->
 		<script>
-			// 		gsap.registerPlugin(ScrollTrigger);
+			const heroScrollContainer = document.querySelector(
+				'.hero-scroll-container'
+			);
+			const heroScrollContent = heroScrollContainer.querySelector(
+				'.hero-scroll-content'
+			);
+			const heroScrollHead =
+				heroScrollContainer.querySelector('.hero-scroll-head');
 
-			// gsap.defaults({ease: "none"});
+			const heroScrollHorizontalItems = heroScrollContainer.querySelector(
+				'.hero-scroll-horizontal-items'
+			);
+			heroScrollHorizontalItemsCollection =
+				heroScrollHorizontalItems.querySelectorAll('.hero-scroll-item');
+			function render() {
+				const settings = {
+					height: heroScrollHorizontalItems.getBoundingClientRect()
+						.width,
+					top:
+						heroScrollHorizontalItems.getBoundingClientRect().top -
+						100,
+					opacity: 1,
+				};
+				heroScrollContainer.style.height = `${settings.height}px`;
+				window.addEventListener('scroll', () => {
+					settings.opacity =
+						1 - (window.scrollY - settings.top) / 200;
+					if (window.scrollY >= settings.top) {
+						heroScrollContent.style.transform = `translate(-${
+							window.scrollY - settings.top
+						}px, ${window.scrollY - settings.top}px)`;
+						heroScrollHead.setAttribute(
+							'style',
+							`opacity: ${settings.opacity};
+                filter: blur(${(window.scrollY - settings.top) / 100}px)`
+						);
+						if (settings.opacity <= 0) {
+							heroScrollHead.setAttribute(
+								'style',
+								`opacity: 0;
+                    filter: blur(10px)`
+							);
+						}
+						heroScrollHorizontalItemsCollection.forEach((item) => {
+							if (
+								item.getBoundingClientRect().left <=
+								window.innerWidth / 1.5
+							) {
+								item.style.transform = 'scale(1)';
+							} else {
+								item.style.transform = 'scale(0.85)';
+							}
+						});
+						heroScrollHorizontalItems.transform = `translateY(${
+							window.scrollY - settings.top
+						}px)`;
+					} else if (window.scrollY < settings.top) {
+						heroScrollContent.style.transform = `translate(0px)`;
+						heroScrollHead.removeAttribute('style');
+					}
+					if (
+						window.scrollY - settings.top >=
+						settings.height - window.innerWidth / 3
+					) {
+						heroScrollContent.style.opacity = `${
+							1 - (window.scrollY - settings.top) / 5000
+						}`;
+						heroScrollContent.style.filter = `blur(${
+							(window.scrollY - settings.top) / 1000
+						}px)`;
+					} else {
+						heroScrollContent.style.opacity = `1`;
+						heroScrollContent.style.filter = `blur(0px)`;
+					}
+					console.log(settings.height - window.innerWidth / 3);
+				});
+			}
 
-			// let sections = gsap.utils.toArray(".horizontal-container .page2");
-
-			// let tl = gsap.to(sections, {
-			//   xPercent: -100 * (sections.length - 1),
-			//   ease: "none",
-			//   scrollTrigger: {
-			//     trigger: ".horizontal-wrapper",
-			//     pin: true,
-			//     start: 'top',
-			//     scrub: 1,
-			//     snap: {
-			//       snapTo: 1 / ( sections.length - 1 ),
-			//       duration: {min: 0.1, max: 0.1}
-			//     },
-			//     // base vertical scrolling on how wide the container is so it feels more natural.
-			//     end: () => "+=" + (document.querySelector(".horizontal-container").offsetWidth / 7),
-			//   }
-			// });
-
-			// helper function for causing the sections to always snap in the direction of the scroll (next section) rather than whichever section is "closest" when scrolling stops.
-			// function directionalSnap(increment) {
-			//   let snapFunc = gsap.utils.snap(increment);
-			//   return (raw, self) => {
-			//     let n = snapFunc(raw);
-			//     return Math.abs(n - raw) < 1e-4 || (n < raw) === self.direction < 0 ? n : self.direction < 0 ? n - increment : n + increment;
-			//   };
-			// }
-
-			// gsap.registerPlugin(ScrollTrigger);
-
-			// let sections = gsap.utils.toArray(".horizontal-container .page2");
-			// let container = document.querySelector(".b-main");
-			// let elements = gsap.utils.toArray(document.querySelectorAll(".b-main__left"));
-
-			// let timeline = gsap.timeline();
-
-			// timeline.to(sections, {
-			//     xPercent: -100 * (sections.length - 1),
-			//     ease: "none",
-			//     scrollTrigger: {
-			//         pin: true,
-			//         start: 'top',
-			//         scrub: 1,
-			//         overwrite: "auto",
-			//         trigger: container,
-			//         end: () => "+=" + (document.querySelector(".horizontal-container").offsetWidth / 7),
-			//     }
-			// });
-
-			// let scrollTriggerTimeline = gsap.timeline();
-
-			// elements.forEach((element) => {
-			//     scrollTriggerTimeline.from(element, {
-			//         yPercent: 0,
-			//         opacity: 0,
-			//         overwrite: "auto",
-			//         scrollTrigger: {
-			//             scrub: 1,
-			//             start: () => element.parentNode.offsetLeft - window.innerWidth,
-			//             end: () =>
-			//                 element.parentNode.offsetLeft -
-			//                 window.innerWidth +
-			//                 element.parentNode.getBoundingClientRect().width
-			//         }
-			//     });
-			// });
-
-			// elements.forEach((element) => {
-			//     scrollTriggerTimeline.to(element, {
-			//         yPercent: 0,
-			//         opacity: 0,
-			//         overwrite: "auto",
-			//         scrollTrigger: {
-			//             scrub: 1,
-			//             immediateRender: false,
-			//             start: () =>
-			//                 element.parentNode.offsetLeft -
-			//                 element.parentNode.getBoundingClientRect().width / 50,
-			//             end: () =>
-			//                 element.parentNode.offsetLeft +
-			//                 element.parentNode.getBoundingClientRect().width
-			//         }
-			//     });
-			// });
+			window.addEventListener('DOMContentLoaded', render);
 		</script>
 	</body>
 </html>

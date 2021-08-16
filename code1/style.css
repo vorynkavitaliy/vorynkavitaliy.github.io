@@ -1,0 +1,56 @@
+.hero-scroll__container {
+	position: relative;
+	height: 3000px;
+}
+
+.hero-scroll__wrapper {
+	position: sticky;
+	top: 150px;
+	overflow: hidden;
+}
+
+.hero-scroll__content {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.hero-scroll__content .content-wrapper {
+	width: 30%;
+}
+
+.hero-scroll__media {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translate(120vw, -50%);
+	
+	width: 170vw;
+}
+
+.hero-scroll__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 0.5fr);
+	column-gap: 30px;
+}
+.hero-scroll__item {
+	transition: transform 0.2s ease;
+}
+.hero-scroll__item:not(:first-child) {
+	transform: scale(0.85);
+}
+
+@media screen and (max-width: 992px) {
+	.hero-scroll__media {
+		position: static;
+		transform: translate(0, 0);
+	}
+
+	.hero-scroll__grid {
+		grid-template-columns: repeat(3, 1fr);
+		padding: 10px;
+	}
+}
+
+.content {
+	height: 1600px;
+}

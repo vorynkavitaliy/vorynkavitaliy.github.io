@@ -115,58 +115,69 @@
 			<!-- hero scroll -->
 			<div class="b-main">
 				<div class="hero-scroll-container">
-					<div class="hero-scroll-content">
-						<div class="container">
-							<div class="hero-scroll-head">
-								<div class="b-main__left">
-									<div class="b-main__title">
-										Geschäftsbericht für das
-										<span>Jahr 2020</span>
+					<div class="hero-scroll-wrapper">
+						<div class="hero-scroll-content">
+							<div class="container">
+								<div class="hero-scroll-head">
+									<div class="b-main__left">
+										<div class="b-main__title">
+											Geschäftsbericht für das
+											<span>Jahr 2020</span>
+										</div>
+										<p>
+											Willkommen beim Jahresüberblick der
+											Johannesstift Diakonie für 2020. Sie
+											finden hier wichtige Kennzahlen und
+											Fakten, Projekte und Ereignisse als
+											Auszüge aus dem aktuellen
+											Geschäftsbericht.
+										</p>
 									</div>
-									<p>
-										Willkommen beim Jahresüberblick der
-										Johannesstift Diakonie für 2020. Sie
-										finden hier wichtige Kennzahlen und
-										Fakten, Projekte und Ereignisse als
-										Auszüge aus dem aktuellen
-										Geschäftsbericht.
-									</p>
 								</div>
 							</div>
-						</div>
 
-						<div class="hero-scroll-horizontal-items">
-							<div class="hero-scroll-grid">
-								<div class="hero-scroll-item">
-									<div class="b-main__block">
-										<img src="images/header-1.png" alt="" />
-										<p>
-											Besonders den Krankenhäusern
-											forderte das Jahr 2020
-											außergewöhnliches Engagement ab.
-										</p>
+							<div class="hero-scroll-horizontal-items">
+								<div class="hero-scroll-grid">
+									<div class="hero-scroll-item">
+										<div class="b-main__block">
+											<img
+												src="images/header-1.png"
+												alt=""
+											/>
+											<p>
+												Besonders den Krankenhäusern
+												forderte das Jahr 2020
+												außergewöhnliches Engagement ab.
+											</p>
+										</div>
 									</div>
-								</div>
 
-								<div class="hero-scroll-item">
-									<div class="b-main__block">
-										<img src="images/header-1.png" alt="" />
-										<p>
-											Besonders den Krankenhäusern
-											forderte das Jahr 2020
-											außergewöhnliches Engagement ab.
-										</p>
+									<div class="hero-scroll-item">
+										<div class="b-main__block">
+											<img
+												src="images/header-1.png"
+												alt=""
+											/>
+											<p>
+												Besonders den Krankenhäusern
+												forderte das Jahr 2020
+												außergewöhnliches Engagement ab.
+											</p>
+										</div>
 									</div>
-								</div>
 
-								<div class="hero-scroll-item">
-									<div class="b-main__block">
-										<img src="images/header-1.png" alt="" />
-										<p>
-											Besonders den Krankenhäusern
-											forderte das Jahr 2020
-											außergewöhnliches Engagement ab.
-										</p>
+									<div class="hero-scroll-item">
+										<div class="b-main__block">
+											<img
+												src="images/header-1.png"
+												alt=""
+											/>
+											<p>
+												Besonders den Krankenhäusern
+												forderte das Jahr 2020
+												außergewöhnliches Engagement ab.
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -339,7 +350,9 @@
 				const headHight = heroScrollHead.getBoundingClientRect().height;
 				const settings = {
 					height:
-						window.innerWidth >= 1350 ? hegiht : hegiht + headHight + 600,
+						window.innerWidth >= 1350
+							? hegiht
+							: hegiht + headHight + 600,
 					top: window.innerWidth >= 1350 ? top - 200 : top - 200,
 					opacity: 1,
 					width: window.innerWidth,
@@ -398,7 +411,6 @@
 						heroScrollContent.style.opacity = `1`;
 						heroScrollContent.style.filter = `blur(0px)`;
 					}
-					console.log(settings.height - window.innerWidth / 3);
 				});
 			}
 

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<div class="hero-scroll__container">
+				<div class="hero-scroll__wrapper">
+					<div class="hero-scroll__inner">
+						<div class="hero-scroll__content">
+							<div class="content-wrapper">
+								<div class="content-title">
+									Geschäftsbericht für das
+									<span>Jahr 2020</span>
+								</div>
+								<p>
+									Willkommen beim Jahresüberblick der
+									Johannesstift Diakonie für 2020. Sie finden
+									hier wichtige Kennzahlen und Fakten,
+									Projekte und Ereignisse als Auszüge aus dem
+									aktuellen Geschäftsbericht.
+								</p>
+							</div>
+						</div>
+
+						<div class="hero-scroll__media">
+							<div class="hero-scroll__grid">
+								<div class="hero-scroll__item">
+									<img
+										src="https://via.placeholder.com/150"
+										alt=""
+									/>
+									<p>
+										Besonders den Krankenhäusern forderte
+										das Jahr 2020 außergewöhnliches
+										Engagement ab.
+									</p>
+								</div>
+
+								<div class="hero-scroll__item">
+									<img
+										src="https://via.placeholder.com/150"
+										alt=""
+									/>
+									<p>
+										Besonders den Krankenhäusern forderte
+										das Jahr 2020 außergewöhnliches
+										Engagement ab.
+									</p>
+								</div>
+
+								<div class="hero-scroll__item">
+									<img
+										src="https://via.placeholder.com/150"
+										alt=""
+									/>
+									<p>
+										Besonders den Krankenhäusern forderte
+										das Jahr 2020 außergewöhnliches
+										Engagement ab.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+				magni itaque recusandae porro alias inventore quo, nobis nulla
+				similique sequi ut a doloremque amet dolorum non sunt culpa. A,
+				amet!
+			</div>
+		</div>
+
+		<!-- <script src="/app.js"></script> -->
+		<script defer>
+			const heroScrollContainer = document.querySelector(
+				'.hero-scroll__container'
+			);
+			const heroScrollWrapper = heroScrollContainer.querySelector(
+				'.hero-scroll__wrapper'
+			);
+			const heroScrollWrapperText =
+				heroScrollContainer.querySelector('.content-wrapper');
+			const heroScrollInner = heroScrollContainer.querySelector(
+				'.hero-scroll__inner'
+			);
+			const heroScrollContent = heroScrollContainer.querySelector(
+				'.hero-scroll__content'
+			);
+
+			const heroScrollHorizontalItems = heroScrollContainer.querySelector(
+				'.hero-scroll__media'
+			);
+
+			const heroScrollGrid =
+				heroScrollContainer.querySelector('.hero-scroll__item');
+			const heroScrollHorizontalItemsCollection =
+				heroScrollHorizontalItems.querySelectorAll(
+					'.hero-scroll__item'
+				);
+
+			function render() {
+				const top =
+					heroScrollHorizontalItems.getBoundingClientRect().top;
+				const height =
+					heroScrollHorizontalItems.getBoundingClientRect().width -
+					heroScrollHorizontalItemsCollection[0].getBoundingClientRect()
+						.width;
+
+				const headHight =
+					heroScrollContent.getBoundingClientRect().height;
+				const settings = {
+					height:
+						window.innerWidth >= 992
+							? height
+							: height + headHight + 600,
+					top: window.innerWidth >= 992 ? top - 200 : top - 200,
+					opacity: 1,
+					width: window.innerWidth,
+				};
+				heroScrollContainer.style.height = `${settings.height}px`;
+				if (window.innerWidth >= 992) {
+					const timeout = setTimeout(() => {
+						heroScrollInner.style.height = `${
+							heroScrollHorizontalItems.getBoundingClientRect()
+								.height
+						}px`;
+
+						clearTimeout(timeout);
+					}, 100);
+				}
+
+				window.addEventListener('scroll', () => {
+					settings.opacity =
+						1 - (window.scrollY - settings.top) / 200;
+					if (window.scrollY >= settings.top) {
+						heroScrollInner.style.transform = `translateX(-${
+							window.scrollY - settings.top
+						}px`;
+						if (settings.opacity >= 0) {
+							heroScrollContent.setAttribute(
+								'style',
+								`opacity: ${settings.opacity};
+			                      filter: blur(${(window.scrollY - settings.top) / 100}px);`
+							);
+							heroScrollWrapperText.style.transform = `translateX(${
+								window.scrollY * 1.1
+							}px)`;
+						}
+
+						if (settings.opacity <= 0) {
+							heroScrollContent.setAttribute(
+								'style',
+								`opacity: 0;
+			                          filter: blur(10px); `
+							);
+						}
+
+						heroScrollHorizontalItemsCollection.forEach((item) => {
+							if (
+								item.getBoundingClientRect().left <=
+								window.innerWidth / 1.5
+							) {
+								item.style.transform = 'scale(1)';
+							} else {
+								item.style.transform = 'scale(0.85)';
+							}
+						});
+					} else if (window.scrollY < settings.top) {
+						heroScrollContent.style.transform = `translate(0px)`;
+						heroScrollHead.removeAttribute('style');
+					}
+					if (
+						window.scrollY - settings.top >=
+						settings.height - window.innerWidth / 4
+					) {
+						heroScrollHorizontalItems.style.opacity = `${
+							-(window.scrollY - settings.height) * 0.002
+						}`;
+						heroScrollHorizontalItems.style.filter = `blur(${
+							(window.scrollY - settings.top) / 300 - 5
+						}px)`;
+					} else {
+						heroScrollHorizontalItems.style.opacity = `1`;
+						heroScrollHorizontalItems.style.filter = `blur(0px)`;
+					}
+					// console.log(settings.height - window.innerWidth / 3);
+				});
+			}
+
+			window.addEventListener('DOMContentLoaded', render);
+		</script>
+	</body>
+</html>

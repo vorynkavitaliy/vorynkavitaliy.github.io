@@ -98,6 +98,6 @@
 	}
 
 	.hero-scroll-content {
-		transition: transform 0.1s 0s ease;
+		transition: transform 0s 0s ease;
 	}
 }

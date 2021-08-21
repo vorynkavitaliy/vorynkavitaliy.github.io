@@ -24,8 +24,12 @@
 	right: 0;
 	top: 50%;
 	transform: translate(120vw, -50%);
-	
+
 	width: 170vw;
+}
+
+.hero-scroll__media.single {
+	transform: translate(82vw, -50%);
 }
 
 .hero-scroll__grid {

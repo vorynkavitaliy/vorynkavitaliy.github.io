@@ -162,6 +162,7 @@
 
 					const headHight =
 						heroScrollContent?.getBoundingClientRect().height || 0;
+
 					if (!headHight) {
 						heroScrollHorizontalItems.classList.add('single');
 					}
@@ -187,22 +188,26 @@
 					}
 
 					window.addEventListener('scroll', () => {
-						settings.opacity =
-							1 - (window.scrollY - settings.top) / 200;
-						if (window.scrollY >= settings.top) {
+						settings.opacity = 1 - window.scrollY / 200;
+						if (window.scrollY >= Math.abs(settings.top) - 100) {
 							heroScrollInner.style.transform = `translateX(-${
-								window.scrollY - settings.top
+								window.scrollY - Math.abs(settings.top) + 100
 							}px`;
 							if (settings.opacity >= 0) {
 								heroScrollContent &&
 									heroScrollContent.setAttribute(
 										'style',
 										`opacity: ${settings.opacity};
-			                      filter: blur(${(window.scrollY - settings.top) / 100}px);`
+			                      filter: blur(${window.scrollY / 100}px);`
 									);
-								heroScrollWrapperText.style.transform = `translateX(${
-									window.scrollY * 1.1
-								}px)`;
+								if (!!heroScrollWrapperText) {
+									heroScrollWrapperText.style.transform = `translateX(${
+										(window.scrollY -
+											Math.abs(settings.top) +
+											100) *
+										1.1
+									}px)`;
+								}
 							}
 
 							if (settings.opacity <= 0) {
@@ -227,8 +232,10 @@
 								}
 							);
 						} else if (window.scrollY < settings.top) {
-							heroScrollContent.style.transform = `translate(0px)`;
-							heroScrollHead.removeAttribute('style');
+							if (!!heroScrollContent)
+								heroScrollContent.style.transform = `translate(0px)`;
+							// if (heroScrollHead)
+							// 	heroScrollHead.removeAttribute('style');
 						}
 						if (
 							window.scrollY - settings.top >=
@@ -238,7 +245,7 @@
 								-(window.scrollY - settings.height) * 0.002
 							}`;
 							heroScrollHorizontalItems.style.filter = `blur(${
-								(window.scrollY - settings.top) / 300 - 5
+								window.scrollY / 300 - 5
 							}px)`;
 						} else {
 							heroScrollHorizontalItems.style.opacity = `1`;

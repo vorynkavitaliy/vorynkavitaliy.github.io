@@ -1,0 +1,22 @@
+.page-diagnostic {
+    .app-header {
+        padding: 24px 0px;
+        &--logo {
+            margin-top: auto;
+            margin-bottom: 22px;
+        }
+    }
+
+    .app-body {
+        border-top-right-radius: 50px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .button {
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
+}

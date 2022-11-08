@@ -1,0 +1,38 @@
+.button {
+    height: 52px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 20px;
+    line-height: 20px;
+
+    &.primary {
+        background-color: $primary;
+    }
+
+    &.secondary {
+        background-color: $secondary;
+    }
+
+    &.danger {
+        background-color: $danger;
+    }
+
+    &.rounded-1 {
+        border-radius: 10px;
+    }
+
+    &.rounded-2 {
+        border-radius: 15px;
+    }
+
+    &.rounded-3 {
+        border-radius: 20px;
+    }
+
+    &.shadow {
+        box-shadow: 1px 4px 15px rgba(51, 51, 51, 0.2);
+    }
+}

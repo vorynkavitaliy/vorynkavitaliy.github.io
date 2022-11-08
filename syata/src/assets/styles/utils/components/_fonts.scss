@@ -1,0 +1,74 @@
+@use 'sass:math';
+$font-weight: (400, 500, 600, 700);
+$size: (
+    20: 20px,
+    16: 16px,
+    14: 14px,
+);
+
+.underline-link {
+    font-weight: 500;
+    line-height: calc(28 / 17 * 100%);
+    text-align: right;
+    letter-spacing: 0.0125em;
+    text-decoration-line: underline;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.slice-height-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text {
+    &.primary {
+        color: $primary;
+    }
+
+    &.secondary {
+        color: $danger;
+    }
+
+    &.third {
+        color: $third;
+    }
+
+    &.purple {
+        color: #7e2e71;
+    }
+}
+
+@each $class in $font-weight {
+    .fw-#{$class} {
+        font-weight: $class;
+    }
+}
+
+@each $class, $type in $size {
+    .size-#{$class} {
+        font-size: $type;
+    }
+}

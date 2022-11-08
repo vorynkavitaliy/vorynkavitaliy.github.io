@@ -1,0 +1,24 @@
+.page-result {
+    .app-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .container {
+            padding: 0px 24px;
+        }
+
+        &--logo {
+            margin-bottom: 48px;
+        }
+
+        &--text {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 48px;
+            text-align: center;
+            color: #333333;
+            margin-bottom: 24px;
+        }
+    }
+}

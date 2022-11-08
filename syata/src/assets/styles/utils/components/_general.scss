@@ -1,0 +1,117 @@
+@use 'sass:math';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: $font;
+  font-size: $font-size;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+i,
+em,
+strong {
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+a,
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+ul {
+  list-style: none;
+  font-family: inherit;
+}
+
+img {
+  user-select: none;
+}
+
+input,
+textarea,
+button,
+select {
+  outline: none;
+  border: none;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input::-webkit-input-placeholder,
+input::-moz-placeholder,
+input:-moz-placeholder,
+input:-ms-input-placeholder {
+  color: initial;
+  font-family: inherit;
+}
+
+textarea::-webkit-input-placeholder,
+textarea::-moz-placeholder,
+textarea:-moz-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: inherit;
+}
+.app {
+  min-height: 100vh;
+  background: $gradient-primary;
+  display: flex;
+  flex-direction: column;
+}
+.pointer {
+  cursor: pointer;
+}
+a {
+  user-select: none;
+}
+img,
+video {
+  user-select: none;
+  max-width: $md;
+  margin: auto;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: $max-width + px;
+  margin: 0 auto;
+  padding: 0px 32px;
+}
+
+.d-flex {
+  display: flex;
+  column-gap: 10px;
+
+  &.j-between {
+    justify-content: space-between;
+  }
+
+  &.a-center {
+    align-items: center;
+  }
+}

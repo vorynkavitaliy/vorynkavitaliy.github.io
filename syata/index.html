@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+    </head>
+    <body>
+        <div class="app page-start-app">
+            <main class="app-body">
+                <div class="container">
+                    <h1 class="app-body--title">
+                        Please scan <br />
+                        the QR code
+                    </h1>
+
+                    <img
+                        class="app-body--qr-code"
+                        src="src/assets/images/qr-code.png"
+                        alt="qr-code"
+                    />
+
+                    <div class="text-center">
+                        <a
+                            href="#"
+                            class="size-20 fw-500 text primary underline-link"
+                        >
+                            Or will instal a link
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-loading">
+            <main class="app-body">
+                <div class="container">
+                    <div id="pill-loading-animation"></div>
+                </div>
+            </main>
+        </div>
+
+        <div class="app page-diagnostic">
+            <header class="app-header">
+                <img
+                    class="app-header--logo"
+                    src="src/assets/images/logo.png"
+                    alt="logo"
+                />
+                <div class="container">
+                    <p class="app-header--descriptions size-16 fw-500">
+                        We Care Diagnostic
+                    </p>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <div class="input-group">
+                        <span class="input-label">ID Number</span>
+                        <label class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                placeholder="Enter ID Number"
+                            />
+                        </label>
+                    </div>
+
+                    <div class="input-group searching">
+                        <span class="input-label">Clinic</span>
+                        <label class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                placeholder="Choose your Clinic"
+                            />
+                            <span class="input-append">
+                                <svg width="20" height="20" fill="#828282">
+                                    <use
+                                        xlink:href="src/assets/icons/icons-sprite.svg#icon-search"
+                                    />
+                                </svg>
+                            </span>
+                        </label>
+
+                        <div class="dropdown">
+                          <ul class="dropdown-list">
+                            <li class="dropdown-item">Clinic 1</li>
+                            <li class="dropdown-item">Clinic 1</li>
+                            <li class="dropdown-item">Clinic 1</li>
+                            <li class="dropdown-item">Clinic 1</li>
+                            <li class="dropdown-item">Clinic 1</li>
+                          </ul>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-label">Phone</span>
+                        <label class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                placeholder="Enter Phone Number"
+                            />
+                        </label>
+                    </div>
+
+                    <a
+                        href="#"
+                        class="button primary rounded-3 shadow fw-700 uppercase"
+                    >
+                        Next
+                    </a>
+
+                    <div class="text-center">
+                        <a href="#" class="underline-link fw-400 size-16"
+                            >Instructions video</a
+                        >
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-verification">
+            <header class="app-header">
+                <img
+                    class="app-header--logo"
+                    src="src/assets/images/logo.png"
+                    alt="logo"
+                />
+                <div class="container">
+                    <p class="app-header--descriptions size-16 fw-500">
+                        We have sent you a verification code
+                    </p>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <div class="input-group error">
+                        <span class="input-label">SMS Code</span>
+                        <label class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                placeholder="Enter SMS Code"
+                            />
+                        </label>
+                        <div class="d-flex j-between a-center">
+                            <span class="input-message">Incorrect code</span>
+
+                            <span class="send-again size-14 fw-400">
+                                Send again
+                            </span>
+                        </div>
+                    </div>
+
+                    <a
+                        href="#"
+                        class="button primary rounded-3 shadow fw-700 uppercase"
+                    >
+                        Next
+                    </a>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-start">
+            <header class="app-header">
+                <div class="container">
+                    <h1 class="app-header--title">Myself Test</h1>
+                    <span class="app-header--subtitle">
+                        The test is performed according to the manufacturer's
+                        instructions
+                    </span>
+                    <p class="app-header--description">
+                        Name of the Self Check
+                    </p>
+                    <span class="size-20 fw-700">Gerard Way</span>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <p class="app-body--text size-20 fw-500">
+                        Enter to start the self check
+                    </p>
+
+                    <a
+                        href="#"
+                        class="button primary rounded-3 shadow fw-700 uppercase"
+                    >
+                        Next
+                    </a>
+
+                    <div id="doctor-animation"></div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-start">
+            <header class="app-header">
+                <div class="container">
+                    <h1 class="app-header--title">Myself Test</h1>
+                    <span class="app-header--subtitle">
+                        The test is performed according to the manufacturer's
+                        instructions
+                    </span>
+                    <p class="app-header--description">
+                        Name of the Self Check
+                    </p>
+                    <span class="size-20 fw-700">Gerard Way</span>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <p class="app-body--timer size-20 fw-500">
+                        <svg width="40" height="40" fill="#7E2E71">
+                            <use
+                                xlink:href="src/assets/icons/icons-sprite.svg#icon-clock"
+                            />
+                        </svg>
+                        <span>14:33</span>
+                    </p>
+
+                    <div id="heart-medical-animation"></div>
+                    <div class="text-center">
+                        <a
+                            href="#"
+                            class="text primary fw-500 size-20 underline-link"
+                        >
+                            Finish test
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-start">
+            <header class="app-header">
+                <div class="container">
+                    <h1 class="app-header--title">Myself Test</h1>
+                    <span class="app-header--subtitle">
+                        The test is performed according to the manufacturer's
+                        instructions
+                    </span>
+                    <p class="app-header--description">
+                        Name of the Self Check
+                    </p>
+                    <span class="size-20 fw-700">Gerard Way</span>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <p class="app-body--title">Sorry!</p>
+                    <p class="app-body--description size-20 fw-400">
+                        The test has been disqualified. Please do another test
+                        from a new set.
+                    </p>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-test">
+            <header class="app-header">
+                <div class="container">
+                    <h1 class="app-header--title">Myself Test</h1>
+                    <span class="app-header--subtitle">
+                        The test is performed according to the manufacturer's
+                        instructions
+                    </span>
+                    <p class="app-header--description">
+                        Name of the Self Check
+                    </p>
+                    <span class="size-20 fw-700">Gerard Way</span>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <p class="app-body--question size-20 fw-500">
+                        1. Enter- Positive or negative
+                    </p>
+
+                    <div class="app-body--buttons-selected">
+                        <button
+                            class="button secondary rounded-1 uppercase selected"
+                        >
+                            positive
+                        </button>
+                        <button class="button danger rounded-1 uppercase">
+                            Negative
+                        </button>
+                    </div>
+
+                    <div class="input-group">
+                        <input id="choose-file" hidden type="file" />
+                        <label for="choose-file" class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                readonly
+                                placeholder="Choose your Clinic"
+                            />
+                            <span class="input-append">
+                                <svg width="22" height="22" fill="#828282">
+                                    <use
+                                        xlink:href="src/assets/icons/icons-sprite.svg#icon-clip"
+                                    />
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <a
+                        href="#"
+                        class="app-body--next-button button primary rounded-3 shadow fw-700 uppercase"
+                    >
+                        Next
+                    </a>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-test">
+            <header class="app-header">
+                <div class="container">
+                    <h1 class="app-header--title">Myself Test</h1>
+                    <span class="app-header--subtitle">
+                        The test is performed according to the manufacturer's
+                        instructions
+                    </span>
+                    <p class="app-header--description">
+                        Name of the Self Check
+                    </p>
+                    <span class="size-20 fw-700">Gerard Way</span>
+                </div>
+            </header>
+
+            <main class="app-body">
+                <div class="container">
+                    <p class="app-body--question size-20 fw-500">2. Question</p>
+
+                    <div class="input-group">
+                        <label for="choose-file" class="input-wrapper">
+                            <input
+                                type="text"
+                                class="input"
+                                readonly
+                                placeholder="Write Your Answer"
+                            />
+                        </label>
+                    </div>
+                    <a
+                        href="#"
+                        class="app-body--next-button button primary rounded-3 shadow fw-700 uppercase"
+                    >
+                        Next
+                    </a>
+                    <div class="text-center">
+                        <a href="#" class="app-body--back-button">
+                            <svg width="20" height="20" stroke="#333333">
+                                <use
+                                    xlink:href="src/assets/icons/icons-sprite.svg#icon-arrow-left"
+                                />
+                            </svg>
+                            <span class="size-20 fw-500 underline-link">
+                                Back
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="app page-result">
+            <main class="app-body">
+                <img
+                    class="app-body--logo"
+                    src="src/assets/images/logo.png"
+                    alt="logo"
+                />
+                <div class="container">
+                    <p class="app-body--text">
+                        Results have been sent to your doctor!
+                    </p>
+
+                    <div class="text-center">
+                        <a
+                            href="#"
+                            class="size-20 fw-500 text primary underline-link"
+                        >
+                            Download result as PDF
+                        </a>
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container">
+                    <div class="app-footer--content">
+                        Manufacture By WeCare Ltd / Powered By Syata Software
+                        Ltd
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"
+            integrity="sha512-yAr4fN9WZH6hESbOwoFZGtSgOP+LSZbs/JeoDr02pOX4yUFfI++qC9YwIQXIGffhnzliykJtdWTV/v3PxSz8aw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script type="module" src="/main.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        </style>
+    </body>
+</html>

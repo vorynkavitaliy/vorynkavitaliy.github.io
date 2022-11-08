@@ -1,0 +1,10 @@
+.page-loading {
+    .app-body {
+        display: flex;
+        flex-direction: column;
+
+        .container {
+            margin: auto;
+        }
+    }
+}

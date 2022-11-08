@@ -1,0 +1,27 @@
+.page-start-app {
+    .app-body {
+        display: flex;
+        flex-direction: column;
+
+        .container {
+            margin: auto;
+        }
+        &--title {
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 54px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7e2e71;
+        }
+
+        &--qr-code {
+            width: 75%;
+            height: auto;
+            margin: auto;
+            display: block;
+            margin-bottom: 24px;
+            margin-top: 32px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.app-footer {
+    width: 100%;
+    background-color: $white;
+    margin-top: auto;
+    &--content {
+        text-align: center;
+        color: #bdbdbd;
+        font-size: 10px;
+        line-height: 15px;
+        padding: 34px 0px;
+    }
+}
